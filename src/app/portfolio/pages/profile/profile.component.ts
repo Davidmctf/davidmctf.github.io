@@ -1,0 +1,29 @@
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { UserService } from '../../../shared/services/user.service';
+import { Subject, takeUntil } from 'rxjs';
+import { UserDialogComponent } from '../../../shared/components';
+
+@Component({
+  selector: 'app-profile',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, UserDialogComponent],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.css'
+})
+export class ProfileComponent implements OnInit, OnDestroy {
+  private onDestroy$ = new Subject<void>();
+  public userService = inject( UserService );
+
+  ngOnInit(): void {
+    this.userService.getUsers()
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
+  }
+}
