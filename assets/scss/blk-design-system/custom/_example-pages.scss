@@ -89,6 +89,14 @@
             bottom: 0%;
             opacity: 0.1;
         }
+        &.square8 {
+            animation: move-left-right 3s infinite;
+            width: 110px;
+            height: 110px;
+            right: -5%;
+            bottom: 0%;
+            opacity: 0.1;
+        }
     }
 }
 
