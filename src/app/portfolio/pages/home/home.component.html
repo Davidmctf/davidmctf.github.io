@@ -1,17 +1,160 @@
-<app-header />
-<div class="wrapper">
+<div class="page-header header-filter" id="home">
+    <div class="squares square1"></div>
+    <div class="squares square2"></div>
+    <div class="squares square3"></div>
+    <div class="squares square4"></div>
+    <div class="squares square5"></div>
+    <div class="squares square6"></div>
+    <div class="squares square7"></div>
     <div class="container">
-        <div class="row row-grid justify-content-between">
-            <div class="col-lg-4 col-md-6 ml-auto mr-auto" id="aboutme">
-                <div class="card card-coin card-plain">
-                    <div class="card-header">
-                        <img class="img-center img-fluid rounded-circle" src="assets/img/iam.jpg" style="max-width: 6em; max-height: 100%" />
-                        <h4 class="title">Acerca de:</h4>
+        <div class="content-center brand">
+            <h1 class="h1-seo font-weight-bold">Hola !</h1>
+            <h3 class="font-weight-normal">
+                Mi nombre es David Muñoz Cruz. Soy desarrollador web especialicado en el Front-End
+            </h3>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="section" id="aboutme">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <h1 class="profile-title text-left">About me</h1>
+                    <h5 class="text-on-back">01</h5>
+                    <p class="profile-description text-left">
                         Desde el 2021, comencé a trabajar en proyectos pequeños como desarrollador freelance, aprovechando los conocimientos adquiridos durante mis estudios universitarios. Con el tiempo, he ido explorando e investigando nuevas tecnologías, como Angular para
                         el desarrollo del lado del cliente y NestJS para el lado del servidor.
                         <br /> En la actualidad, me desempeño como Full Stack Developer, utilizando los stacks MEAN y LAMP, para el grupo textilero SKYTEX MÉXICO. Mi principal objetivo en este momento es especializarme aún más en el desarrollo frontend.
                         Sin embargo, tengo planes de especializarme en el desarrollo backend y en DevOps en el futuro. <br /> En mi tiempo libre, me gusta estar al tanto de las últimas tendencias y actualizar mis conocimientos en tecnología. Además, dedico
                         tiempo a mis pasatiempos, como jugar videojuegos o salir a pasear por plazas comunes.
+                    </p>
+                    <div class="btn-wrapper profile pt-3">
+                        <a class="btn btn-icon btn-twitter btn-round mr-1" href="https://twitter.com/creativetim" target="_blank">
+                            <i class="fab fa-twitter"> </i>
+                        </a>
+                        <a class="btn btn-icon btn-facebook btn-round mr-1" href="https://www.facebook.com/creativetim" target="_blank">
+                            <i class="fab fa-facebook-square"> </i>
+                        </a>
+                        <a class="btn btn-icon btn-dribbble btn-round" href="https://dribbble.com/creativetim" target="_blank">
+                            <i class="fab fa-dribbble"> </i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                    <div class="card card-coin card-plain">
+                        <div class="card-header">
+                            <img class="img-center img-fluid rounded-circle" src="assets/img/iam.jpg" style="max-width: 6em; max-height: 100%" />
+                        </div>
+                        <div class="card-body">
+                            <tabset class="nav-tabs-success justify-content-center tab-subcategories">
+                                <tab heading="Habilidades">
+                                    <div class="table-responsive">
+                                        <table class="table tablesorter" id="plain-table" style="width:100%; min-width:fit-content">
+                                            <thead class="text-danger">
+                                                <tr>
+                                                    <th class="header">Tecnologia</th>
+                                                    <th class="header">Tiempo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Angular</td>
+                                                    <td>2 años</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Laravel</td>
+                                                    <td>3 años</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>DB SQL</td>
+                                                    <td>3 años</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NOSQL</td>
+                                                    <td>2 años</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NodeJs</td>
+                                                    <td>2 años</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Docker</td>
+                                                    <td>2 años</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Android - Java & Kotlin</td>
+                                                    <td>2 años</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NestJs</td>
+                                                    <td>1 años</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </tab>
+                                <tab heading="Estudios">
+                                    <div class="table-responsive">
+                                        <table class="table tablesorter" id="plain-table" style="width:100%; min-width:fit-content">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Estudios Ingeniería en TI Universidad Politécnica de Tlaxcala</td>
+                                                    <td>2018 - 2022</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="text-center">Idiomas</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Español</td>
+                                                    <td>Nativo</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ingles</td>
+                                                    <td>Basico</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </tab>
+                            </tabset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="experience">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                    <div class="row justify-content-between align-items-center">
+                        <carousel [showIndicators]="false">
+                            <slide>
+                                <img alt="First slide" class="d-block w-100" src="assets/img/denys.jpg" />
+                            </slide>
+                            <slide>
+                                <img alt="Second slide" class="d-block w-100" src="assets/img/fabien-bazanegue.jpg" />
+                            </slide>
+                            <slide>
+                                <img alt="Third slide" class="d-block w-100" src="assets/img/mark-finn.jpg" />
+                            </slide>
+                        </carousel>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h1 class="profile-title text-left">Experience</h1>
+                    <h5 class="text-on-back">02</h5>
+                    <p class="profile-description text-left">
+                        An artist of considerable range, Ryan â the name taken by Melbourne-raised, Brooklyn-based Nick Murphy â writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.
+                    </p>
+                    <div class="btn-wrapper pt-3">
+                        <button class="btn btn-simple btn-danger mr-1" href="javascript:void(0)">
+                          <i class="tim-icons icon-book-bookmark"> </i> Bookmark
+                        </button>
+                        <button class="btn btn-simple btn-info" href="javascript:void(0)">
+                          <i class="tim-icons icon-bulb-63"> </i> Check it!
+                        </button>
                     </div>
                 </div>
             </div>

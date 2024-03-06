@@ -4,12 +4,13 @@ import { FooterComponent } from '../footer';
 import { NavbarComponent } from '../navbar';
 import { DOCUMENT } from '@angular/common';
 import { Subject, windowWhen } from 'rxjs';
+import { HeaderComponent } from '../header';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule,FooterComponent, NavbarComponent],
+  imports: [RouterModule,FooterComponent, NavbarComponent, HeaderComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })

@@ -5,8 +5,8 @@ import { Title, provideClientHydration, withHttpTransferCacheOptions } from '@an
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { IMAGE_CONFIG, registerLocaleData } from '@angular/common';
-import { ModalModule, ModalDirective } from "ngx-bootstrap/modal";
 import localeMx from "@angular/common/locales/es-MX";
+
 
 registerLocaleData(localeMx)
 
@@ -22,13 +22,11 @@ export const appConfig: ApplicationConfig = {
       withEnabledBlockingInitialNavigation(),
     ),
     importProvidersFrom(
-      ModalModule,
-      ModalDirective
     ),
     provideAnimations(),
     provideHttpClient(
       withInterceptorsFromDi(),
-      withFetch()
+      withFetch(),
     ),
     provideClientHydration(
       withHttpTransferCacheOptions({ includePostRequests: true })

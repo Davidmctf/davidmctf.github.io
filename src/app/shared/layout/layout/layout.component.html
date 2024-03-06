@@ -1,12 +1,7 @@
 <app-navbar #navbarTopElement (onScroll)="onScrollById($event)" />
 <div class="wrapper">
-    <div class="main">
-        <div class="section section-basic" id="basic-elements">
-            <router-outlet class="m-2" />
-            <img class="path" src="assets/img/path1.png" />
-            <img class="path" src="assets/img/blob.png" />
-        </div>
-    </div>
+    <img class="path" src="assets/img/path1.png" />
+    <router-outlet class="m-2" />
     <footer class="footer">
         <app-footer />
     </footer>

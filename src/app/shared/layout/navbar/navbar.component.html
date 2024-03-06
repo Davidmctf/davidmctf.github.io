@@ -23,12 +23,27 @@
             </div>
             <ul class="navbar-nav">
                 <li class="nav-item p-0">
-                    <a class="nav-link" placement="bottom" tooltip="Home" [routerLink]="['/home']">
-                        <i class="fa fa-home"> </i>
-                        <p class="d-lg d-xl">Home</p>
+                    <a class="nav-link" placement="bottom" tooltip="Home" href="javascript:void(0)" (click)="actionPage('home')">
+                        <p class="d-lg d-xl">
+                            <fa-icon [icon]="['fas','home']" class="layout-menuitem-icon"></fa-icon> Home
+                        </p>
                     </a>
                 </li>
                 <li class="nav-item p-0">
+                    <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('aboutme')" placement="bottom" tooltip="About me">
+                        <p class="d-lg d-xl">
+                            <fa-icon [icon]="['fas','user']" class="layout-menuitem-icon"></fa-icon> About me
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item p-0">
+                    <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('experience')" placement="bottom" tooltip="Experience">
+                        <p class="d-lg d-xl">
+                            <fa-icon [icon]="['fas','business-time']" class="layout-menuitem-icon"></fa-icon> Experience
+                        </p>
+                    </a>
+                </li>
+                <!-- <li class="nav-item p-0">
                     <a class="nav-link" placement="bottom" tooltip="Profile" [routerLink]="['/profile']">
                         <i class="fa fa-user"> </i>
                         <p class="d-lg d-xl">Profile Page</p>
@@ -51,13 +66,8 @@
                         <i class="fab fa-instagram"> </i>
                         <p class="d-lg-none d-xl-none">Instagram</p>
                     </a>
-                </li>
-                <li class="nav-item p-0">
-                    <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('aboutme')" placement="bottom" tooltip="About me">
-                        <i class="fa fa-user"> </i>
-                        <p class="d-lg d-xl">About me</p>
-                    </a>
-                </li>
+                </li> -->
+
             </ul>
         </div>
     </div>
