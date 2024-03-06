@@ -3,7 +3,7 @@ import { HomeComponent } from './home';
 import { ProfileComponent } from './profile';
 
 export const routes: Routes = [
-  {path: '',        redirectTo: 'home', pathMatch: 'full'},
+  {path: '',        component: HomeComponent },
   {path: 'home',    component: HomeComponent, title: "Home"},
   {path: 'profile', component: ProfileComponent, title: "Perfil" , data: {  }},
   {path: '**',      redirectTo: '', pathMatch: 'full'}
