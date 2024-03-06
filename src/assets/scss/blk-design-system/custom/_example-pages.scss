@@ -87,7 +87,7 @@
             height: 300px;
             right: -5%;
             bottom: 0%;
-            opacity: 0.1;
+            opacity: 0.3;
         }
         &.square8 {
             animation: move-left-right 3s infinite;
@@ -96,6 +96,30 @@
             right: -5%;
             bottom: 0%;
             opacity: 0.1;
+        }
+        &.square9 {
+            animation: move-left-right 4s infinite;
+            height: 300px;
+            width: 300px;
+            opacity: 0.5;
+            left: 10%;
+            top: -10%;
+        }
+        &.square10 {
+            animation: move-left-right 6s infinite;
+            height: 400px;
+            width: 400px;
+            opacity: 0.4;
+            right: -25%;
+            top: -12%;
+        }
+        &.square11 {
+            animation: move-left-right 5s infinite;
+            height: 200px;
+            width: 200px;
+            opacity: 0.2;
+            left: -0%;
+            bottom: 10%;
         }
     }
 }
