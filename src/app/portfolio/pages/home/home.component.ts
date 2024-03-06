@@ -18,7 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   selector: 'app-home',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, HeaderComponent, BsDropdownModule, ProgressbarModule, TooltipModule, CollapseModule, TabsModule, PaginationModule, AlertModule, BsDatepickerModule, CarouselModule, ModalModule, PopoverModule, FontAwesomeModule],
+  imports: [CommonModule, HeaderComponent, BsDropdownModule, ProgressbarModule, TooltipModule, CollapseModule, TabsModule, PaginationModule, AlertModule, BsDatepickerModule, CarouselModule, ModalModule, PopoverModule, FontAwesomeModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

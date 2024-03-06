@@ -7,7 +7,6 @@ import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/c
 import { IMAGE_CONFIG, registerLocaleData } from '@angular/common';
 import localeMx from "@angular/common/locales/es-MX";
 
-
 registerLocaleData(localeMx)
 
 export const appConfig: ApplicationConfig = {
@@ -21,8 +20,7 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withEnabledBlockingInitialNavigation(),
     ),
-    importProvidersFrom(
-    ),
+    importProvidersFrom(),
     provideAnimations(),
     provideHttpClient(
       withInterceptorsFromDi(),

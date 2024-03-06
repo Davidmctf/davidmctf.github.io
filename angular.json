@@ -16,7 +16,9 @@
                         "outputPath": "dist/portafolio",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
-                        "prerender": true,
+                        "prerender": {
+                            "discoverRoutes": false
+                        },
                         "polyfills": [
                             "zone.js"
                         ],
@@ -63,14 +65,7 @@
                             "outputHashing": "all"
                         },
                         "development": {
-                            "optimization": {
-                                "scripts": true,
-                                "styles": {
-                                    "minify": true,
-                                    "inlineCritical": false
-                                },
-                                "fonts": true
-                            },
+                            "optimization": false,
                             "extractLicenses": false,
                             "sourceMap": true,
                             "namedChunks": true
