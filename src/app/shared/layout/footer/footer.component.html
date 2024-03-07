@@ -6,24 +6,24 @@
         <div class="col-md-4">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/home']"> Home </a>
+                    <a class="nav-link" href="javascript:void(0)" (click)="actionPage('home')"> Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/profile']"> Profile </a>
+                    <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('aboutme')"> About me </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('experience')"> Experience </a>
                 </li>
             </ul>
         </div>
         <div class="col-md-4">
             <h3 class="title">Follow us:</h3>
             <div class="btn-wrapper profile">
-                <a class="btn btn-icon btn-neutral btn-round btn-simple mr-1" href="https://twitter.com/creativetim" target="_blank">
+                <a class="btn btn-icon btn-neutral btn-round btn-simple m-2" href="https://linkedin.com/in/davidmct" target="_blank">
                     <i class="fab fa-linkedin"> </i>
                 </a>
-                <a class="btn btn-icon btn-neutral btn-round btn-simple mr-1" href="https://www.facebook.com/creativetim" target="_blank">
+                <a class="btn btn-icon btn-neutral btn-round btn-simple m-2" href="https://github.com/Davidmctf" target="_blank">
                     <i class="fab fa-github"> </i>
-                </a>
-                <a class="btn btn-icon btn-neutral btn-round btn-simple" href="https://dribbble.com/creativetim" target="_blank">
-                    <i class="fab fa-instagram"> </i>
                 </a>
             </div>
         </div>

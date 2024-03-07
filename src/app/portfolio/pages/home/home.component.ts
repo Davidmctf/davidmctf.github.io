@@ -13,12 +13,13 @@ import { CarouselModule } from "ngx-bootstrap/carousel";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { PopoverModule } from "ngx-bootstrap/popover";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TimelineComponent } from 'src/app/shared/components/timeline/timeline.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, HeaderComponent, BsDropdownModule, ProgressbarModule, TooltipModule, CollapseModule, TabsModule, PaginationModule, AlertModule, BsDatepickerModule, CarouselModule, ModalModule, PopoverModule, FontAwesomeModule ],
+  imports: [CommonModule, HeaderComponent, BsDropdownModule, ProgressbarModule, TooltipModule, CollapseModule, TabsModule, PaginationModule, AlertModule, BsDatepickerModule, CarouselModule, ModalModule, PopoverModule, FontAwesomeModule, TimelineComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

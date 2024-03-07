@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   readonly route = inject(Router);
   private onDestroy$ = new Subject<void>();
   public isCollapsed = true;
+  public isHome: boolean = true;
   public navbarClasses: { [key: string]: boolean } = {
     'navbar': true,
     'navbar-expand-lg': true,
@@ -25,10 +26,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
     'navbar-transparent': true,
     'bg-success': false
   };
-  constructor() { }
+  constructor() {
+    this.route.events.subscribe(() => {
+      const currentRoute = this.route.url;
+      this.isHome = currentRoute.indexOf('home') !== -1;
+    });
+  }
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {
+  }
   ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
