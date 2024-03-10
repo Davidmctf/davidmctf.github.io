@@ -8,14 +8,14 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title d-flex w-100 justify-content-between">
-                        <img [srcset]="user.avatar " [alt]="user.first_name " class="img-fluid rounded-circle shadow " style="width: 10vh ">
+                        <img [srcset]="user.avatar " [alt]="user.first_name " class="img-fluid img-7xl md:img-8xl rounded-circle shadow">
                         <h5 class="mb-1"><strong>{{user.first_name}} {{user.last_name}}</strong></h5>
                     </div>
                 </div>
                 <div class="card-body text-white">
                     <strong>Information: </strong>
                     <pre class="card-text"><code>{{user | json}}</code></pre>
-                    <app-user-dialog [userid]="user.id" buttonlabel="More info..." buttonclass="btn btn-info" />
+                    <app-user-dialog [userid]="user.id" buttonlabel="More info..." buttonclass="btn btn-warning btn-simple" />
                 </div>
             </div>
         </div>

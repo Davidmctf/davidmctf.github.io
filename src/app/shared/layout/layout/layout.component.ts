@@ -57,7 +57,7 @@ export class LayoutComponent implements OnInit ,OnDestroy {
   onSetColorNavBar(): void {
     const yOffset: boolean = (window.scrollY > 50);
     this.navbarTopElement.navbarClasses['navbar-transparent'] = !yOffset;
-    this.navbarTopElement.navbarClasses['bg-success'] = yOffset;
+    this.navbarTopElement.navbarClasses['bg-warning'] = yOffset;
   }
 
   onScrollById(elemId: string) {

@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     'navbar-expand-lg': true,
     'fixed-top': true,
     'navbar-transparent': true,
-    'bg-success': false
+    'bg-warning': false
   };
   constructor() {
     this.route.events.subscribe(() => {
