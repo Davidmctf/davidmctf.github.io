@@ -3,7 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer';
 import { NavbarComponent } from '../navbar';
 import { DOCUMENT } from '@angular/common';
-import { Subject, windowWhen } from 'rxjs';
+import { Subject } from 'rxjs';
 import { HeaderComponent } from '../header';
 
 @Component({
@@ -16,12 +16,15 @@ import { HeaderComponent } from '../header';
 })
 export class LayoutComponent implements OnInit ,OnDestroy {
   private onDestroy$ = new Subject<void>();
+  private router = inject(Router)
   mostrarSombraCursor = false;
   coordenadasCursor = { x: 0, y: 0 };
 
   @ViewChild(NavbarComponent) navbarTopElement !: NavbarComponent;
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    // this.router.events.subscribe();
+  }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
