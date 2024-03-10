@@ -127,13 +127,16 @@
         &:focus,
         &:active,
         &:not(:disabled):not(.disabled):active {
+            border-color: $transparent-bg;
+            box-shadow: none;
             @if $btn-color==$white {
-                color: $default-states;
+                color: black;
+                @include diagonal-gradient($btn-color, black);
             }
             @else {
                 color: $white;
+                @include diagonal-gradient($btn-color, $btn-states-color);
             }
-            @include diagonal-gradient($btn-color, $btn-states-color);
         }
         &.active {
             border-color: $btn-color !important;
