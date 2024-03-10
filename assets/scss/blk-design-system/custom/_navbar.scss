@@ -82,7 +82,7 @@
         background-color: $primary !important;
     }
     &.bg-warning {
-        background-color: darken($warning, 5%) !important;
+        background-color: $warning !important;
     }
     &.bg-info {
         background-color: $info !important;
