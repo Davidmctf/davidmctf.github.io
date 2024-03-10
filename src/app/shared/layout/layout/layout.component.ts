@@ -16,7 +16,8 @@ import { HeaderComponent } from '../header';
 })
 export class LayoutComponent implements OnInit ,OnDestroy {
   private onDestroy$ = new Subject<void>();
-  private router = inject(Router)
+  mostrarSombraCursor = false;
+  coordenadasCursor = { x: 0, y: 0 };
 
   @ViewChild(NavbarComponent) navbarTopElement !: NavbarComponent;
 
@@ -25,6 +26,17 @@ export class LayoutComponent implements OnInit ,OnDestroy {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     this.onSetColorNavBar();
+  }
+
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    this.coordenadasCursor = { x: event.clientX, y: event.clientY };
+    this.mostrarSombraCursor = true;
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeave() {
+    this.mostrarSombraCursor = false;
   }
 
   ngOnInit(): void {
@@ -47,20 +59,5 @@ export class LayoutComponent implements OnInit ,OnDestroy {
 
   onScrollById(elemId: string) {
     this.document.getElementById(elemId)!.scrollIntoView({behavior: "smooth", block: 'start', inline: 'nearest' });
-  }
-
-  mostrarSombraCursor = false;
-  coordenadasCursor = { x: 0, y: 0 };
-
-  @HostListener('mousemove', ['$event'])
-  onMouseMove(event: MouseEvent) {
-    console.log({ event})
-    this.coordenadasCursor = { x: event.clientX, y: event.clientY };
-    this.mostrarSombraCursor = true;
-  }
-
-  @HostListener('mouseleave')
-  onMouseLeave() {
-    this.mostrarSombraCursor = false;
   }
 }
