@@ -46,6 +46,6 @@ export class LayoutComponent implements OnInit ,OnDestroy {
   }
 
   onScrollById(elemId: string) {
-    this.document.getElementById(elemId)!.scrollIntoView({behavior: "smooth", block: 'end' });
+    this.document.getElementById(elemId)!.scrollIntoView({behavior: "smooth", block: 'start', inline: 'nearest' });
   }
 }

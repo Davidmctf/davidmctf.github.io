@@ -1,8 +1,8 @@
 <app-navbar #navbarTopElement (onScroll)="onScrollById($event)" />
-<div class="wrapper">
-    <img class="path" src="assets/img/path1.png" />
-    <router-outlet class="m-2" />
-    <footer class="footer">
-        <app-footer (onScroll)="onScrollById($event)" />
+<div class="wrapper" style="max-width:100%">
+    <!-- <img class="path" src="assets/img/path1.png" style="max-height: max-content;" /> -->
+    <router-outlet class="w-100" style="max-width:100%" />
+    <footer class="footer w-100">
+        <app-footer (onScroll)=" onScrollById($event) " />
     </footer>
 </div>
