@@ -28,7 +28,7 @@
     }
     .squares {
         animation: move-left-right 1s infinite;
-        @include linear-gradient($success, $success-states);
+        @include linear-gradient($warning, $warning-states);
         position: absolute;
         transition: 0.5s ease-out;
         overflow: hidden;
