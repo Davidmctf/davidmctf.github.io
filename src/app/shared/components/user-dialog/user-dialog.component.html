@@ -1,29 +1,31 @@
 <button class="{{ buttonclass }}" data-target="#myModal" (click)="toggleModal('show')">{{ buttonlabel }}</button>
-<div aria-hidden="true" aria-labelledby="myModalLabel" bsModal class="modal fade" #myModal="bs-modal" id="myModal" role="dialog" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header justify-content-center">
-                <button aria-hidden="true" class="close" data-dismiss="modal" type="button" (click)="toggleModal('hide')">
-            <i class="tim-icons icon-simple-remove"> </i>
-          </button>
-                <h4 class="title title-up">{{titleModal()}}</h4>
-            </div>
-            <div class="modal-body">
-                @if( user() ) {
-                <section>
-                    <img [srcset]="user()!.avatar" [alt]="user()!.first_name" />
-                    <div>
-                        <p>ID : {{ user()!.id }}</p>
-                        <p>FULL NAME : {{ user()!.first_name }} {{ user()!.last_name }}</p>
-                        <p>EMAIL : {{ user()!.email }}</p>
-                    </div>
-                </section>
+<div aria-hidden="true" aria-labelledby="myModalLabel" bsModal class="modal fade modal-black" #myModal="bs-modal" id="myModal" role="dialog" tabindex="-1">
+    <div class="modal-backdrop">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <button aria-hidden="true" class="close" data-dismiss="modal" type="button" (click)="toggleModal('hide')">
+                      <fa-icon [icon]="['far','circle-xmark']"></fa-icon>
+                    </button>
+                    <h5 class="title title-up">{{titleModal()}}</h5>
+                </div>
+                <div class="modal-body">
+                    @if( user() ) {
+                    <section>
+                        <img [srcset]="user()!.avatar" [alt]="user()!.first_name" />
+                        <div>
+                            <p>ID : {{ user()!.id }}</p>
+                            <p>FULL NAME : {{ user()!.first_name }} {{ user()!.last_name }}</p>
+                            <p>EMAIL : {{ user()!.email }}</p>
+                        </div>
+                    </section>
 
-                } @else {
-                <p>Cargando información...</p>
-                }
-            </div>
-            <div class="modal-footer">
+                    } @else {
+                    <p>Cargando información...</p>
+                    }
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
     </div>

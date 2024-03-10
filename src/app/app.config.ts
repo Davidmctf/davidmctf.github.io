@@ -20,7 +20,8 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withEnabledBlockingInitialNavigation(),
     ),
-    importProvidersFrom(),
+    importProvidersFrom(
+    ),
     provideAnimations(),
     provideHttpClient(
       withInterceptorsFromDi(),

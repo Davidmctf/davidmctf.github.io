@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, computed, inject, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, ViewChild, computed, inject, signal } from '@angular/core';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap/modal';
 import { UserService } from '../../services';
-import { User, UserByIdResponse } from '../../models';
+import { User } from '../../models';
 import { Subject, takeUntil, throwError } from 'rxjs';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-user-dialog',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ModalModule],
+  imports: [CommonModule, ModalModule, FontAwesomeModule],
   templateUrl: './user-dialog.component.html',
   styleUrl: './user-dialog.component.css'
 })
