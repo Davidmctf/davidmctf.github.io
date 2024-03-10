@@ -3,12 +3,13 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject } from '@
 import { UserService } from '../../../shared/services/user.service';
 import { Subject, takeUntil } from 'rxjs';
 import { UserDialogComponent } from '../../../shared/components';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, UserDialogComponent],
+  imports: [CommonModule, UserDialogComponent, TabsModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

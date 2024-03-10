@@ -1,18 +1,25 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h1 class="title">BLK•</h1>
+            <h1 class="title">DVZ•</h1>
         </div>
         <div class="col-md-4">
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" (click)="actionPage('home')"> Home </a>
                 </li>
+                @if (isHome) {
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('aboutme')"> About me </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('experience')"> Experience </a>
+                </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link" placement="bottom" tooltip="Profile" [routerLink]="['/profile']">
+                        Example Request
+                    </a>
                 </li>
             </ul>
         </div>
