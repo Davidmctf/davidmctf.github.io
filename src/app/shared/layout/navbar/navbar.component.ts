@@ -31,15 +31,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
     'bg-success': false
   };
 
-  constructor() { }
+  constructor() {
+    this.#routerServ.currentRoute$
+    .pipe(takeUntil(this.#onDestroy$))
+    .subscribe((currentRoute) => {
+      this.#currentRoute = currentRoute;
+      this.isHome = currentRoute.indexOf('home') !== -1 || currentRoute === '/';
+    });
+  }
 
   ngOnInit(): void {
-    this.#routerServ.currentRoute$
-      .pipe(takeUntil(this.#onDestroy$))
-      .subscribe((currentRoute) => {
-        this.#currentRoute = currentRoute;
-        this.isHome = currentRoute.indexOf('home') !== -1 || currentRoute === '/';
-      });
   }
 
   ngOnDestroy(): void {
