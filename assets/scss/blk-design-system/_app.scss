@@ -39,8 +39,8 @@ $value in $grid-breakpoints {
     width: 1px;
     height: 1px;
     background: rgba(255, 255, 255, 0);
-    -webkit-box-shadow: 0 0 10rem 10rem rgba($success, 0.08);
-    box-shadow: 0 0 10rem 10rem rgba($success, 0.08);
+    -webkit-box-shadow: 0 0 10rem 10rem rgba($success, 0.1);
+    box-shadow: 0 0 10rem 10rem rgba($success, 0.1);
 }
 
 .cd-container {
