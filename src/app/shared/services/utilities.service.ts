@@ -13,7 +13,7 @@ export class UtilitiesService {
   }
 
   get UserAgent(): string {
-    return this.#UserAgent;
+    return structuredClone(this.#UserAgent);
   }
 
   public isMobile(): boolean{

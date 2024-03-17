@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouteInfoService } from '../../services';
 
 @Component({
   selector: 'app-navbar',
@@ -15,8 +16,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   @Output() onScroll = new EventEmitter<any>();
-  readonly route = inject(Router);
-  private onDestroy$ = new Subject<void>();
+
+  #onDestroy$ = new Subject<void>();
+  #currentRoute: string = '';
+  readonly #routerServ = inject(RouteInfoService);
+  readonly #router = inject(Router);
   public isCollapsed = true;
   public isHome: boolean = true;
   public navbarClasses: { [key: string]: boolean } = {
@@ -26,26 +30,28 @@ export class NavbarComponent implements OnInit, OnDestroy {
     'navbar-transparent': true,
     'bg-success': false
   };
-  constructor() {
-    this.route.events.subscribe(() => {
-      const currentRoute = this.route.url;
-      this.isHome = currentRoute.indexOf('home') !== -1;
-    });
-  }
+
+  constructor() { }
 
   ngOnInit(): void {
+    this.#routerServ.currentRoute$
+      .pipe(takeUntil(this.#onDestroy$))
+      .subscribe((currentRoute) => {
+        this.#currentRoute = currentRoute;
+        this.isHome = currentRoute.indexOf('home') !== -1 || currentRoute === '/';
+      });
   }
+
   ngOnDestroy(): void {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
+    this.#onDestroy$.next();
+    this.#onDestroy$.complete();
   }
 
   actionPage(elem: string){
-    const currentRoute = this.route.url;
-    if(currentRoute.indexOf(elem) !== -1){
+    if(this.isHome && (this.#currentRoute.indexOf(elem) !== -1 || this.#currentRoute === '/')){
       this.onScroll.emit(elem);
     }else{
-      this.route.navigate([`/${elem}`]);
+      this.#router.navigate([`/${elem}`]);
     }
   }
 }

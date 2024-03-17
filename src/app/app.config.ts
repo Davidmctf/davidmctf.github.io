@@ -1,5 +1,5 @@
 import { ApplicationConfig, LOCALE_ID, importProvidersFrom } from '@angular/core';
-import { PreloadAllModules, provideRouter, withComponentInputBinding, withEnabledBlockingInitialNavigation, withHashLocation, withPreloading, withRouterConfig, withViewTransitions } from '@angular/router';
+import { PreloadAllModules, provideRouter, withComponentInputBinding, withEnabledBlockingInitialNavigation, withHashLocation, withInMemoryScrolling, withPreloading, withRouterConfig, withViewTransitions } from '@angular/router';
 import { routes } from './app.routes';
 import { Title, provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -19,6 +19,7 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({ paramsInheritanceStrategy: 'always' }),
       withViewTransitions(),
       withEnabledBlockingInitialNavigation(),
+      withInMemoryScrolling({ scrollPositionRestoration: 'top' })
     ),
     importProvidersFrom(
     ),

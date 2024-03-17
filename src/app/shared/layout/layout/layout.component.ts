@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer';
 import { NavbarComponent } from '../navbar';
 import { DOCUMENT } from '@angular/common';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { HeaderComponent } from '../header';
-import { UtilitiesService } from '../../services';
+import { RouteInfoService, UtilitiesService } from '../../services';
 
 @Component({
   selector: 'app-layout',
@@ -18,7 +18,8 @@ import { UtilitiesService } from '../../services';
 export class LayoutComponent implements OnInit ,OnDestroy {
   private onDestroy$ = new Subject<void>();
   readonly #utilities = inject(UtilitiesService);
-  private router = inject(Router);
+  readonly #routerServ = inject(RouteInfoService);
+
   mostrarSombraCursor = false;
   coordenadasCursor = { x: 0, y: 0 };
 
@@ -29,7 +30,9 @@ export class LayoutComponent implements OnInit ,OnDestroy {
   }
 
   constructor(@Inject(DOCUMENT) private document: Document) {
-    // this.router.events.subscribe();
+    this.#routerServ.setCurrentRoute()
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe();
   }
 
   @HostListener('window:scroll', ['$event'])
