@@ -4,7 +4,7 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { RouteInfoService, UtilitiesService } from './shared/services';
+import { UtilitiesService } from './shared/services';
 
 @Component({
   selector: 'app-root',

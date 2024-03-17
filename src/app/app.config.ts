@@ -32,13 +32,7 @@ export const appConfig: ApplicationConfig = {
       withHttpTransferCacheOptions({ includePostRequests: true })
     ),
     { provide: LOCALE_ID, useValue: "es-MX" },
-    {
-      provide: IMAGE_CONFIG,
-      useValue: {
-        disableImageSizeWarning: true,
-        disableImageLazyLoadWarning: true
-      }
-    },
+    { provide: IMAGE_CONFIG, useValue: { disableImageLazyLoadWarning: true } },
     Title,
   ]
 };
