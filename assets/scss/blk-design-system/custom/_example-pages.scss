@@ -28,7 +28,7 @@
     }
     .squares {
         animation: move-left-right 1s infinite;
-        @include linear-gradient($warning, $warning-states);
+        @include linear-gradient($success, $success-states);
         position: absolute;
         transition: 0.5s ease-out;
         overflow: hidden;
@@ -514,7 +514,25 @@
     .square-9 {
         height: 100px;
         width: 100px;
-        background-image: url("/src/assets/img/square1.png");
+        background-image: url("/src/assets/img/square2.png");
+        left: 300px;
+        top: 400px;
+        opacity: 0.4;
+        z-index: 0;
+    }
+    .square-10 {
+        height: 100px;
+        width: 100px;
+        background-image: url("/src/assets/img/square3.png");
+        left: 300px;
+        top: 400px;
+        opacity: 0.4;
+        z-index: 0;
+    }
+    .square-11 {
+        height: 100px;
+        width: 100px;
+        background-image: url("/src/assets/img/square4.png");
         left: 300px;
         top: 400px;
         opacity: 0.4;
