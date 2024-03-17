@@ -24,7 +24,7 @@ $value in $grid-breakpoints {
 }
 
 .img-shadow-success {
-    box-shadow: 0 0 0.25rem 0.25rem $warning, 0 0 0.4rem 0.4rem $warning-states;
+    box-shadow: 0 0 0.25rem 0.25rem $success, 0 0 0.4rem 0.4rem $success-states;
 }
 
 .shadow-cursor-container {
@@ -39,8 +39,8 @@ $value in $grid-breakpoints {
     width: 1px;
     height: 1px;
     background: rgba(255, 255, 255, 0);
-    -webkit-box-shadow: 0 0 10rem 10rem rgba($warning, 0.08);
-    box-shadow: 0 0 10rem 10rem rgba($warning, 0.08);
+    -webkit-box-shadow: 0 0 10rem 10rem rgba($success, 0.08);
+    box-shadow: 0 0 10rem 10rem rgba($success, 0.08);
 }
 
 .cd-container {
@@ -65,7 +65,7 @@ $value in $grid-breakpoints {
         left: 25px;
         height: 100%;
         width: 4px;
-        background-image: linear-gradient(45deg, $warning, $warning-states);
+        background-image: linear-gradient(45deg, $success, $success-states);
     }
     @media only screen and (min-width: 1170px) {
         margin: 3em 0;
@@ -107,8 +107,8 @@ $value in $grid-breakpoints {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: linear-gradient(45deg, $warning, $warning-states);
-    box-shadow: 0 0 0 4px linear-gradient(45deg, $warning, $warning-states), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(45deg, $success, $success-states);
+    box-shadow: 0 0 0 4px linear-gradient(45deg, $success, $success-states), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
     @media only screen and (min-width: 1170px) {
         width: 30px;
         height: 30px;
@@ -128,7 +128,7 @@ $value in $grid-breakpoints {
     margin-right: 60px;
     border-radius: 2px;
     padding: 1em;
-    box-shadow: 5px 5px 10px $warning, -5px -5px 10px $warning-states;
+    box-shadow: 5px 5px 10px $success, -5px -5px 10px $success-states;
     &::after {
         content: "";
         display: table;
@@ -157,7 +157,7 @@ $value in $grid-breakpoints {
         height: 0;
         width: 0;
         border: 7px solid transparent;
-        border-right: 7px solid $warning;
+        border-right: 7px solid $success;
     }
     @media only screen and (min-width: 768px) {
         h2 {
@@ -179,7 +179,7 @@ $value in $grid-breakpoints {
             right: auto;
             left: 105%;
             border-color: transparent;
-            border-left-color: $warning;
+            border-left-color: $success;
         }
         .cd-date {
             position: absolute;
@@ -195,7 +195,7 @@ $value in $grid-breakpoints {
                 left: auto;
                 right: 105%;
                 border-color: transparent;
-                border-right-color: $warning;
+                border-right-color: $success;
             }
             .cd-date {
                 left: auto;
