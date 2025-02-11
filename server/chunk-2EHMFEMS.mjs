@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{a}from"./chunk-NWBAKXTK.mjs";import"./chunk-BNBYERBK.mjs";import{Db as p,W as n,jb as r}from"./chunk-M7WVMLLS.mjs";import"./chunk-RM3VWOYP.mjs";var i=(()=>{let e=class e{};e.\u0275fac=function(o){return new(o||e)},e.\u0275cmp=n({type:e,selectors:[["app-main"]],standalone:!0,features:[p],decls:1,vars:0,template:function(o,c){o&1&&r(0,"app-layout")},dependencies:[a],changeDetection:0});let t=e;return t})();var D=[{path:"",component:i,loadChildren:()=>import("./chunk-ILIH3LY5.mjs").then(t=>t.routes)}];export{D as routes};
