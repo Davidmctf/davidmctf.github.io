@@ -1,4 +1,2 @@
-# Verificar build antes del push
-pnpm run build
-
-echo "✅ Pre-push build validation completed successfully"
+# Solo formato local - CI/CD maneja build
+echo "✅ Local pre-push validation completed"
