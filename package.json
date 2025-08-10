@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:portafolio": "node dist/portafolio/server/server.mjs",
+    "deploy": "ng build --base-href=/davidmctf.github.io/ && npx angular-cli-ghpages --dir=dist/portafolio/browser",
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
