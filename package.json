@@ -10,7 +10,8 @@
     "serve:ssr:portafolio": "node dist/portafolio/server/server.mjs",
     "prepare": "husky",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +20,7 @@
     "@angular/compiler": "^18.2.13",
     "@angular/core": "^18.2.13",
     "@angular/forms": "^18.2.13",
+    "@angular/localize": "^18.2.13",
     "@angular/platform-browser": "^18.2.13",
     "@angular/platform-browser-dynamic": "^18.2.13",
     "@angular/platform-server": "^18.2.13",

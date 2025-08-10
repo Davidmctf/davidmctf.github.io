@@ -1,0 +1,7 @@
+/* Global styles and theme system */
+
+// Import main BLK Design System (includes variables)
+@import "assets/scss/blk-design-system";
+
+// Import theme variables after BLK variables are defined
+@import "assets/scss/theme/theme-variables";

@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, HostListener, Inject, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  Inject,
+  OnDestroy,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer';
 import { NavbarComponent } from '../navbar';
@@ -11,11 +21,11 @@ import { RouteInfoService, UtilitiesService } from '../../services';
   selector: 'app-layout',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule,FooterComponent, NavbarComponent, HeaderComponent],
+  imports: [RouterModule, FooterComponent, NavbarComponent, HeaderComponent],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrl: './layout.component.css',
 })
-export class LayoutComponent implements OnInit ,OnDestroy {
+export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   private onDestroy$ = new Subject<void>();
   readonly #utilities = inject(UtilitiesService);
   readonly #routerServ = inject(RouteInfoService);
@@ -23,14 +33,15 @@ export class LayoutComponent implements OnInit ,OnDestroy {
   mostrarSombraCursor = false;
   coordenadasCursor = { x: 0, y: 0 };
 
-  @ViewChild(NavbarComponent) navbarTopElement !: NavbarComponent;
+  @ViewChild(NavbarComponent) navbarTopElement!: NavbarComponent;
 
   get IsMobile(): boolean {
     return this.#utilities.isMobile();
   }
 
   constructor(@Inject(DOCUMENT) private document: Document) {
-    this.#routerServ.setCurrentRoute()
+    this.#routerServ
+      .setCurrentRoute()
       .pipe(takeUntil(this.onDestroy$))
       .subscribe();
   }
@@ -53,23 +64,35 @@ export class LayoutComponent implements OnInit ,OnDestroy {
 
   ngOnInit(): void {
     const bodyElement: HTMLElement = this.document.body;
-    bodyElement.classList.add("index-page");
+    bodyElement.classList.add('index-page');
+  }
+
+  ngAfterViewInit(): void {
+    // ViewChild is now initialized
   }
 
   ngOnDestroy(): void {
     const bodyElement: HTMLElement = this.document.body;
-    bodyElement.classList.remove("index-page");
+    bodyElement.classList.remove('index-page');
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
 
   onSetColorNavBar(): void {
-    const yOffset: boolean = (window.scrollY > 50);
-    this.navbarTopElement.navbarClasses['navbar-transparent'] = !yOffset;
-    this.navbarTopElement.navbarClasses['bg-success'] = yOffset;
+    if (this.navbarTopElement) {
+      const yOffset: boolean = window.scrollY > 50;
+      this.navbarTopElement.navbarClasses['navbar-transparent'] = !yOffset;
+      this.navbarTopElement.navbarClasses['bg-success'] = yOffset;
+    }
   }
 
   onScrollById(elemId: string) {
-    this.document.getElementById(elemId)!.scrollIntoView({behavior: "smooth", block: 'start', inline: 'nearest' });
+    this.document
+      .getElementById(elemId)!
+      .scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
   }
 }

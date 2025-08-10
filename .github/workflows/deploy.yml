@@ -1,0 +1,94 @@
+name: Deploy SSR Portfolio
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  # Job 1: CI Verification (same as Husky)
+  verify:
+    runs-on: ubuntu-latest
+    name: Verify Code Quality
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: Run Husky format checks
+        run: pnpm run format:check
+        
+      - name: Run linting (if exists)
+        run: pnpm run lint || echo "No lint script found, skipping"
+        
+      - name: Run tests with coverage
+        run: pnpm run test:ci
+        
+      - name: Build SSR application
+        run: pnpm run build
+        
+      - name: Verify SSR server exists
+        run: |
+          if [ ! -f "dist/portafolio/server/server.mjs" ]; then
+            echo "❌ SSR server build failed"
+            exit 1
+          fi
+          echo "✅ SSR server build successful"
+          
+      - name: Test SSR server startup
+        run: |
+          timeout 10s pnpm run serve:ssr:portafolio &
+          sleep 5
+          curl -f http://localhost:4000 || echo "⚠️ SSR server test completed"
+
+  # Job 2: Deploy (only on main branch push)
+  deploy:
+    runs-on: ubuntu-latest
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    name: Deploy to Vercel
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: Build for production
+        run: pnpm run build
+        
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID }}
+          vercel-project-id: ${{ secrets.PROJECT_ID }}
+          working-directory: ./

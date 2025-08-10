@@ -1,0 +1,109 @@
+// Theme System - CSS Custom Properties
+:root {
+  // Light Theme (Default)
+  --theme-bg-primary: #{$white};
+  --theme-bg-secondary: #{$gray-100};
+  --theme-bg-dark: #{$gray-900};
+  --theme-text-primary: #{$gray-800};
+  --theme-text-secondary: #{$gray-700};
+  --theme-text-muted: #{$gray-600};
+  --theme-text-inverse: #{$white};
+  --theme-border: #{$gray-200};
+  --theme-shadow: rgba(0, 0, 0, 0.15);
+  --theme-card-bg: #{$white};
+  --theme-navbar-bg: transparent;
+  --theme-navbar-text: #{$white};
+
+  // Accent colors (remain consistent across themes)
+  --theme-primary: #{$blue};
+  --theme-success: #{$green};
+  --theme-danger: #{$red};
+  --theme-warning: #{$yellow};
+  --theme-info: #{$teal};
+}
+
+// Dark Theme
+.dark-theme {
+  --theme-bg-primary: #1a1a1a;
+  --theme-bg-secondary: #2d2d2d;
+  --theme-bg-dark: #0d1117;
+  --theme-text-primary: #{$white};
+  --theme-text-secondary: #{$gray-300};
+  --theme-text-muted: #{$gray-400};
+  --theme-text-inverse: #{$gray-900};
+  --theme-border: #404040;
+  --theme-shadow: rgba(0, 0, 0, 0.3);
+  --theme-card-bg: #2d2d2d;
+  --theme-navbar-bg: rgba(26, 26, 26, 0.95);
+  --theme-navbar-text: #{$white};
+}
+
+// Light Theme (explicit)
+.light-theme {
+  --theme-bg-primary: #{$white};
+  --theme-bg-secondary: #{$gray-100};
+  --theme-bg-dark: #{$gray-900};
+  --theme-text-primary: #{$gray-800};
+  --theme-text-secondary: #{$gray-700};
+  --theme-text-muted: #{$gray-600};
+  --theme-text-inverse: #{$white};
+  --theme-border: #{$gray-200};
+  --theme-shadow: rgba(0, 0, 0, 0.15);
+  --theme-card-bg: #{$white};
+  --theme-navbar-bg: transparent;
+  --theme-navbar-text: #{$white};
+}
+
+// Theme-aware utility classes
+.theme-bg-primary {
+  background-color: var(--theme-bg-primary);
+}
+.theme-bg-secondary {
+  background-color: var(--theme-bg-secondary);
+}
+.theme-text-primary {
+  color: var(--theme-text-primary);
+}
+.theme-text-secondary {
+  color: var(--theme-text-secondary);
+}
+.theme-text-muted {
+  color: var(--theme-text-muted);
+}
+.theme-border {
+  border-color: var(--theme-border);
+}
+.theme-card-bg {
+  background-color: var(--theme-card-bg);
+}
+
+// Enhanced card styles for theming
+.card {
+  background-color: var(--theme-card-bg);
+  border-color: var(--theme-border);
+  box-shadow: 0 4px 6px var(--theme-shadow);
+
+  .card-body {
+    color: var(--theme-text-primary);
+  }
+
+  .card-header {
+    background-color: var(--theme-bg-secondary);
+    border-bottom-color: var(--theme-border);
+  }
+}
+
+// Theme-aware text colors
+.text-white {
+  .dark-theme & {
+    color: var(--theme-text-primary) !important;
+  }
+}
+
+// Smooth transitions for theme changes
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
