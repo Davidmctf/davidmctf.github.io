@@ -22,7 +22,20 @@ $transparent-bg: transparent !default;
 $light-bg: #f5f6fa !default;
 $dark-background: #555555 !default;
 $grays: () !default;
-$grays: map-merge( ( "100": $gray-100, "200": $gray-200, "300": $gray-300, "400": $gray-400, "500": $gray-500, "600": $gray-600, "700": $gray-700, "800": $gray-800, "900": $gray-900), $grays);
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900,
+  ),
+  $grays
+);
 $blue: #5e72e4 !default;
 $indigo: #5603ad !default;
 $purple: #8965e0 !default;
@@ -46,7 +59,26 @@ $opacity-1: rgba(255, 255, 255, 0.1) !default;
 $opacity-2: rgba(255, 255, 255, 0.2) !default;
 // end beniamin
 $colors: () !default;
-$colors: map-merge( ( "blue": $blue, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "white": $white, "gray": $gray-600, "light": $gray-400, "lighter": $gray-200, "gray-dark": $gray-800), $colors);
+$colors: map-merge(
+  (
+    "blue": $blue,
+    "indigo": $indigo,
+    "purple": $purple,
+    "pink": $pink,
+    "red": $red,
+    "orange": $orange,
+    "yellow": $yellow,
+    "green": $green,
+    "teal": $teal,
+    "cyan": $cyan,
+    "white": $white,
+    "gray": $gray-600,
+    "light": $gray-400,
+    "lighter": $gray-200,
+    "gray-dark": $gray-800,
+  ),
+  $colors
+);
 $default-color-opacity: rgba(182, 182, 182, 0.6) !default;
 $orange-color: #f96332 !default;
 $default: #344675 !default;
@@ -111,9 +143,40 @@ $tumblr-states: lighten($tumblr, 6%) !default;
 $behance: #1769ff !default;
 $behance-states: lighten($behance, 6%) !default;
 $theme-colors: () !default;
-$theme-colors: map-merge( ( "default": $default, "primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "white": $white, "neutral": $white, "dark": $dark, "darker": $darker), $theme-colors);
+$theme-colors: map-merge(
+  (
+    "default": $default,
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "white": $white,
+    "neutral": $white,
+    "dark": $dark,
+    "darker": $darker,
+  ),
+  $theme-colors
+);
 $brand-colors: () !default;
-$brand-colors: map-merge( ( "facebook": $facebook, "twitter": $twitter, "google-plus": $google-plus, "instagram": $instagram, "pinterest": $pinterest, "youtube": $youtube, "dribbble": $dribbble, "github": $github, "reddit": $reddit, "behance": $behance, "tumblr": $tumblr, "linkedin": $linkedin), $brand-colors);
+$brand-colors: map-merge(
+  (
+    "facebook": $facebook,
+    "twitter": $twitter,
+    "google-plus": $google-plus,
+    "instagram": $instagram,
+    "pinterest": $pinterest,
+    "youtube": $youtube,
+    "dribbble": $dribbble,
+    "github": $github,
+    "reddit": $reddit,
+    "behance": $behance,
+    "tumblr": $tumblr,
+    "linkedin": $linkedin,
+  ),
+  $brand-colors
+);
 
 /*     brand Colors              */
 
@@ -145,14 +208,29 @@ $body-bg: $background-black !default;
 $body-color: $gray-700 !default;
 // Sections
 $section-colors: () !default;
-$section-colors: map-merge( ( "primary": $body-bg, "secondary": $secondary, "light": $gray-400, "dark": $dark, "darker": $darker), $section-colors);
+$section-colors: map-merge(
+  (
+    "primary": $body-bg,
+    "secondary": $secondary,
+    "light": $gray-400,
+    "dark": $dark,
+    "darker": $darker,
+  ),
+  $section-colors
+);
 // Links
 $link-color: $primary !default;
 $link-decoration: none !default;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: none !default;
 // Grid breakpoints
-$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include _assert-starts-at-zero($grid-breakpoints);
 // Grid containers
@@ -161,7 +239,37 @@ $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
 // Spacing
 $spacer: 1rem !default;
 $spacers: () !default;
-$spacers: map-merge( ( 0: 0, 1: ( $spacer * 0.25), 2: ( $spacer * 0.5), 3: $spacer, 4: ( $spacer * 1.5), 5: ( $spacer * 3), "sm": ( $spacer * 2), "md": ( $spacer * 4), "lg": ( $spacer * 6), "xl": ( $spacer * 8)), $spacers);
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer * 0.25,
+    ),
+    2: (
+      $spacer * 0.5,
+    ),
+    3: $spacer,
+    4: (
+      $spacer * 1.5,
+    ),
+    5: (
+      $spacer * 3,
+    ),
+    "sm": (
+      $spacer * 2,
+    ),
+    "md": (
+      $spacer * 4,
+    ),
+    "lg": (
+      $spacer * 6,
+    ),
+    "xl": (
+      $spacer * 8,
+    ),
+  ),
+  $spacers
+);
 $padding-base-vertical: 0.5rem !default;
 $padding-base-horizontal: 0.7rem !default;
 $padding-btn-vertical: 11px !default;
@@ -174,7 +282,15 @@ $margin-lg-vertical: 30px !default;
 $margin-base-vertical: 15px !default;
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: () !default;
-$sizes: map-merge( ( 25: 25%, 50: 50%, 75: 75%, 100: 100%), $sizes);
+$sizes: map-merge(
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+  ),
+  $sizes
+);
 // Components
 $shape-height-xl: 1.5 !default;
 $shape-height-lg: 1.5 !default;
@@ -193,14 +309,16 @@ $border-radius-xs: 0.1428rem !default;
 $margin-bottom: 10px !default;
 $border: 1px solid !default;
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075);
-$box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1),
-0 5px 15px rgba(0, 0, 0, 0.07);
+$box-shadow:
+  0 15px 35px rgba(50, 50, 93, 0.1),
+  0 5px 15px rgba(0, 0, 0, 0.07);
 $box-shadow-lg: 2px 2px 6px rgba(0, 0, 0, 0.4);
 $dropdown-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.125);
 $box-shadow-raised: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
 $box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
-$sidebar-box-shadow: 0px 2px 22px 0 rgba(0, 0, 0, 0.2),
-0px 2px 30px 0 rgba(0, 0, 0, 0.35);
+$sidebar-box-shadow:
+  0px 2px 22px 0 rgba(0, 0, 0, 0.2),
+  0px 2px 30px 0 rgba(0, 0, 0, 0.35);
 $component-active-color: $white !default;
 $component-active-bg: theme-color("primary") !default;
 $component-active-border-color: theme-color("primary") !default;
@@ -218,10 +336,8 @@ $transition-ease: ease 0s;
 $select-coordinates: 50% -40px !default;
 $general-transition-time: 300ms !default;
 // Fonts
-$font-family-base: "Poppins",
-sans-serif !default;
-$font-family-alt: "Poppins",
-sans-serif !default;
+$font-family-base: "Poppins", sans-serif !default;
+$font-family-alt: "Poppins", sans-serif !default;
 $font-size-dash: 0.875rem !default;
 $font-size-base: $font-size-dash !default; // Assumes the browser default, typically `16px`
 $font-size-xl: ($font-size-base * 1.428);
@@ -343,10 +459,12 @@ $btn-font-size-lg: 1em !default;
 $btn-font-weight: 400 !default;
 $btn-text-transform: uppercase !default;
 $btn-letter-spacing: 0.025em !default;
-$btn-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
-0 1px 3px rgba(0, 0, 0, 0.08);
-$btn-hover-box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
-0 3px 6px rgba(0, 0, 0, 0.08);
+$btn-box-shadow:
+  0 4px 6px rgba(50, 50, 93, 0.11),
+  0 1px 3px rgba(0, 0, 0, 0.08);
+$btn-hover-box-shadow:
+  0 7px 14px rgba(50, 50, 93, 0.1),
+  0 3px 6px rgba(0, 0, 0, 0.08);
 $btn-focus-box-shadow: $btn-hover-box-shadow !default;
 $btn-focus-width: $input-btn-focus-width !default;
 $btn-active-box-shadow: none !default;
@@ -368,10 +486,12 @@ $input-border-radius-sm: $border-radius-sm !default;
 $input-bg: $transparent-bg !default;
 $input-disabled-bg: $gray-200 !default;
 $input-muted-bg: #edf0f5 !default;
-$input-alternative-box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15),
-0 1px 0 rgba(0, 0, 0, 0.02);
-$input-focus-alternative-box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
-0 1px 3px rgba(0, 0, 0, 0.08);
+$input-alternative-box-shadow:
+  0 1px 3px rgba(50, 50, 93, 0.15),
+  0 1px 0 rgba(0, 0, 0, 0.02);
+$input-focus-alternative-box-shadow:
+  0 4px 6px rgba(50, 50, 93, 0.11),
+  0 1px 3px rgba(0, 0, 0, 0.08);
 $input-color: $opacity-8 !default;
 $input-border-color: #cad1d7 !default;
 $input-border-width: $input-btn-border-width !default;
@@ -384,7 +504,8 @@ $input-focus-box-shadow: none !default; //0 1px 3px 0 $gray-500 !default;
 $input-placeholder-color: $gray-500 !default;
 $input-focus-placeholder-color: $gray-500 !default;
 $input-height-border: $input-border-width * 2 !default;
-$input-height-inner: ($font-size-base * $input-btn-line-height)+($input-btn-padding-y * 2) !default;
+$input-height-inner: ($font-size-base * $input-btn-line-height)+
+  ($input-btn-padding-y * 2) !default;
 $input-height: calc(#{$input-height-inner} + #{$input-height-border}) !default;
 $input-transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 // Input groups
@@ -414,7 +535,10 @@ $custom-control-indicator-checked-color: $component-active-color !default;
 $custom-control-indicator-checked-bg: $component-active-bg !default;
 $custom-control-indicator-checked-border-color: $component-active-border-color !default;
 $custom-control-indicator-checked-box-shadow: $custom-control-indicator-box-shadow !default;
-$custom-control-indicator-checked-disabled-bg: rgba( theme-color("primary"), 0.5);
+$custom-control-indicator-checked-disabled-bg: rgba(
+  theme-color("primary"),
+  0.5
+);
 $custom-control-indicator-disabled-bg: $gray-200 !default;
 $custom-control-label-disabled-color: $gray-600 !default;
 $custom-checkbox-indicator-border-radius: $border-radius-sm !default;
@@ -449,9 +573,10 @@ $dropdown-bg: $white !default;
 $dropdown-border-width: 0 !default;
 $dropdown-border-color: rgba($black, 0.15);
 $dropdown-border-radius: $border-radius-xs !default;
-$dropdown-box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1),
-0 15px 35px rgba(50, 50, 93, 0.15),
-0 5px 15px rgba(0, 0, 0, 0.1);
+$dropdown-box-shadow:
+  0 50px 100px rgba(50, 50, 93, 0.1),
+  0 15px 35px rgba(50, 50, 93, 0.15),
+  0 5px 15px rgba(0, 0, 0, 0.1);
 $dropdown-link-active-color: $component-active-color !default;
 $dropdown-link-active-bg: $component-active-bg !default;
 // Navs
@@ -502,9 +627,11 @@ $navbar-light-color: rgba($black, 0.5);
 $navbar-light-hover-color: rgba($black, 0.7);
 $navbar-light-active-color: rgba($black, 0.9);
 $navbar-light-disabled-color: rgba($black, 0.3);
-$navbar-light-toggler-icon-bg: str-replace(url("data:image/svg+xml !default;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"),
-"#",
-"%23") !default;
+$navbar-light-toggler-icon-bg: str-replace(
+  url("data:image/svg+xml !default;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"),
+  "#",
+  "%23"
+) !default;
 $navbar-light-toggler-border-color: transparent !default;
 $full-width: 100% !default;
 $navbar-padding: 10px 15px !default;
@@ -537,25 +664,17 @@ $close-font-size: $font-size-base * 1.5 !default;
 $close-font-weight: $font-weight-bold !default;
 $close-bg: transparent !default;
 $close-hover-bg: transparent !default;
-$close-color: rgba(0,
-0,
-0,
-0.6);
-$close-hover-color: rgba(0,
-0,
-0,
-0.9);
+$close-color: rgba(0, 0, 0, 0.6);
+$close-hover-color: rgba(0, 0, 0, 0.9);
 $close-text-shadow: none !default;
 // Popovers
 $popover-font-size: $font-size-sm !default;
 $popover-bg: $white !default;
 $popover-max-width: 276px !default;
 $popover-border-width: 1px !default;
-$popover-border-color: rgba($black,
-0.05);
+$popover-border-color: rgba($black, 0.05);
 $popover-border-radius: $border-radius-lg !default;
-$popover-box-shadow: 0px 0.5rem 2rem 0px rgba($black,
-0.2);
+$popover-box-shadow: 0px 0.5rem 2rem 0px rgba($black, 0.2);
 $popover-header-bg: $popover-bg !default;
 $popover-header-color: $headings-color !default;
 $popover-header-padding-y: 0.75rem !default;
@@ -604,8 +723,7 @@ $card-spacer-y: 1.25rem !default;
 $card-spacer-x: 1.5rem !default;
 $card-border-width: $border-width !default;
 $card-border-radius: $border-radius-sm !default;
-$card-border-color: rgba($black,
-0.05);
+$card-border-color: rgba($black, 0.05);
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width});
 $card-cap-bg: $gray-100 !default;
 $card-bg: $white !default;
@@ -636,22 +754,13 @@ $modal-md: 500px !default;
 $modal-sm: 380px !default;
 $modal-title-line-height: 1.1;
 $modal-content-bg: $white !default;
-$modal-content-border-color: rgba($black,
-0.2);
+$modal-content-border-color: rgba($black, 0.2);
 $modal-content-border-width: 1px !default;
 $modal-content-border-radius: $border-radius-sm !default;
-$modal-content-box-shadow-xs: 0px 10px 50px 0px rgba(0,
-0,
-0,
-0.5);
-$modal-content-box-shadow-sm-up: 0 15px 35px rgba(50,
-50,
-93,
-0.2),
-0 5px 15px rgba(0,
-0,
-0,
-0.17);
+$modal-content-box-shadow-xs: 0px 10px 50px 0px rgba(0, 0, 0, 0.5);
+$modal-content-box-shadow-sm-up:
+  0 15px 35px rgba(50, 50, 93, 0.2),
+  0 5px 15px rgba(0, 0, 0, 0.17);
 $modal-backdrop-bg: $black !default;
 $modal-backdrop-opacity: 0.16 !default;
 $modal-header-border-color: $gray-200 !default;
@@ -661,22 +770,15 @@ $modal-footer-border-width: $modal-header-border-width !default;
 $modal-header-padding: 24px 24px 0 24px !default;
 // Progress bars
 $progress-height: 0.5rem !default;
-$progress-bg: rgba(0,
-0,
-0,
-0.3) !default;
+$progress-bg: rgba(0, 0, 0, 0.3) !default;
 $progress-border-radius: $border-radius-xl !default;
-$progress-box-shadow: 0px 0px 0px 3px rgba(0,
-0,
-0,
-0.3) !default;
+$progress-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.3) !default;
 $progress-bar-color: $white !default;
 // Datepicker
 $datepicker-border-radius: $card-border-radius !default;
 $datepicker-dropdown-padding: 20px 22px !default;
 $datepicker-cell-transition: $transition-base !default;
-$datepicker-cell-hover-background: lighten($gray-400,
-55%);
+$datepicker-cell-hover-background: lighten($gray-400, 55%);
 $datepicker-cell-border-radius: 50% !default;
 $datepicker-cell-width: 36px !default;
 $datepicker-cell-height: 36px !default;
@@ -687,12 +789,13 @@ $datepicker-active-color: $white !default;
 $datepicker-active-background: theme-color("primary") !default;
 $datepicker-active-box-shadow: none !default;
 $datepicker-range-background: theme-color("primary") !default;
-$datepicker-range-cell-focused-background: darken( $datepicker-range-background,
-5%);
+$datepicker-range-cell-focused-background: darken(
+  $datepicker-range-background,
+  5%
+);
 $datepicker-range-color: $white !default;
 $datepicker-range-highlighted-bg: $gray-200 !default;
-$datepicker-dropdown-border: lighten($gray-400,
-40%);
+$datepicker-dropdown-border: lighten($gray-400, 40%);
 $datepicker-dropdown-bg: $white !default;
 $datepicker-highlighted-bg: $datepicker-active-background !default;
 // Footer
