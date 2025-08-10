@@ -48,7 +48,9 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    this.onSetColorNavBar();
+    if (typeof window !== 'undefined') {
+      this.onSetColorNavBar();
+    }
   }
 
   @HostListener('mousemove', ['$event'])
@@ -79,7 +81,11 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onSetColorNavBar(): void {
-    if (this.navbarTopElement) {
+    if (
+      typeof window !== 'undefined' &&
+      this.navbarTopElement &&
+      this.navbarTopElement.navbarClasses
+    ) {
       const yOffset: boolean = window.scrollY > 50;
       this.navbarTopElement.navbarClasses['navbar-transparent'] = !yOffset;
       this.navbarTopElement.navbarClasses['bg-success'] = yOffset;
@@ -87,12 +93,10 @@ export class LayoutComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onScrollById(elemId: string) {
-    this.document
-      .getElementById(elemId)!
-      .scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
+    this.document.getElementById(elemId)!.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
   }
 }

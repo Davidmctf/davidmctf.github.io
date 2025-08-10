@@ -2,9 +2,9 @@ name: Deploy SSR Portfolio with Docker
 
 on:
   push:
-    branches: [ main, gh-pages ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ main, gh-pages ]
+    branches: [ "*" ]
   workflow_dispatch:
 
 jobs:
