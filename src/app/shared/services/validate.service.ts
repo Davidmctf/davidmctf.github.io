@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ValidateService {
-
   public isValid(value: any): boolean {
-    return value !== undefined && value !== null && value.toString().trim() !== '';
+    return (
+      value !== undefined && value !== null && value.toString().trim() !== ''
+    );
   }
 
   public isNumber(value: any): boolean {
@@ -14,6 +15,10 @@ export class ValidateService {
   }
 
   public isObject(obj: any): boolean {
-    return obj !== undefined && obj !== null && Object.getPrototypeOf(obj) === Object.prototype;
+    return (
+      obj !== undefined &&
+      obj !== null &&
+      Object.getPrototypeOf(obj) === Object.prototype
+    );
   }
 }
