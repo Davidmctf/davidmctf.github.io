@@ -1,27 +1,81 @@
-# Portafolio
+# Portfolio Personal - David Muñoz Cruz
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Portfolio profesional desarrollado en Angular 17 con Server-Side Rendering, presentando experiencia y proyectos como Full Stack Developer.
 
-## Development server
+## Tecnologías
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular 17** con Standalone Components
+- **Angular SSR** para SEO optimization
+- **TypeScript 5.3** con strict mode
+- **NgRx** para state management
+- **NgBootstrap** + BLK Design System
+- **FontAwesome** icons
+- **Chart.js** para visualizaciones
 
-## Code scaffolding
+## Requisitos del Sistema
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Node.js**: 22.x LTS (recomendado)
+- **pnpm**: 10.x+ (package manager)
+- **nvm**: Para gestión de versiones Node.js
 
-## Build
+## Instalación y Desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+# Instalar pnpm globalmente (si no lo tienes)
+npm install -g pnpm
 
-## Running unit tests
+# Usar Node.js 22 LTS (recomendado)
+nvm use 22
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Instalar dependencias
+pnpm install
 
-## Running end-to-end tests
+# Servidor de desarrollo
+pnpm start
+# Navigate to http://localhost:4200/
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Build de producción
+pnpm run build
 
-## Further help
+# Tests
+pnpm test
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Servidor SSR
+pnpm run serve:ssr:portafolio
+```
+
+## Estructura del Proyecto
+
+```
+src/app/
+├── portfolio/           # Módulo principal
+│   ├── pages/          # Home, Profile, Main pages
+│   └── services/       # Portfolio services
+├── shared/             # Código compartido
+│   ├── components/     # Timeline, User-dialog
+│   ├── layout/         # Header, Footer, Navbar
+│   ├── services/       # User, Utilities, Validation
+│   └── models/         # TypeScript interfaces
+└── assets/             # SCSS, images, fonts
+```
+
+## Scripts Disponibles
+
+- `pnpm start` - Desarrollo (puerto 4200)
+- `pnpm run build` - Build producción
+- `pnpm test` - Unit tests con Karma
+- `pnpm run watch` - Build incremental
+- `pnpm run serve:ssr:portafolio` - Servidor SSR
+
+## Deploy
+
+El proyecto está configurado para deployment automático en GitHub Pages usando `angular-cli-ghpages`.
+
+## Desarrollo
+
+Este proyecto sigue estrictas prácticas de desarrollo:
+
+- **TDD**: Tests antes que código
+- **Clean Architecture**: Separación clara de responsabilidades
+- **Standalone Components**: Arquitectura moderna de Angular
+- **Signals**: Estado reactivo nativo de Angular
