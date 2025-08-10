@@ -6,8 +6,6 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   standalone: true,
   imports: [CarouselModule],
   templateUrl: './timeline.component.html',
-  styleUrl: './timeline.component.css'
+  styleUrl: './timeline.component.css',
 })
-export class TimelineComponent {
-
-}
+export class TimelineComponent {}

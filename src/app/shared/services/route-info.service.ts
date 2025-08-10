@@ -3,7 +3,7 @@ import { ActivationEnd, Router } from '@angular/router';
 import { Observable, Subject, filter, tap } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RouteInfoService {
   readonly #router = inject(Router);
@@ -12,16 +12,13 @@ export class RouteInfoService {
 
   constructor() {}
 
-  setCurrentRoute(): Observable<any>{
-    return this.#router.events
-      .pipe(
-        filter((event: any) => event instanceof ActivationEnd),
-        filter((event: ActivationEnd) => event.snapshot.firstChild === null),
-        tap(() => {
-          this.#currentRoute.next(this.#router.url)
-        })
-      );
+  setCurrentRoute(): Observable<any> {
+    return this.#router.events.pipe(
+      filter((event: any) => event instanceof ActivationEnd),
+      filter((event: ActivationEnd) => event.snapshot.firstChild === null),
+      tap(() => {
+        this.#currentRoute.next(this.#router.url);
+      }),
+    );
   }
-
-
 }

@@ -1,4 +1,1 @@
-
-
-
 export * from './footer.component';

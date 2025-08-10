@@ -1,15 +1,18 @@
 <app-navbar #navbarTopElement (onScroll)="onScrollById($event)" />
-<div class="wrapper" style="max-width:100%">
-    <router-outlet class="w-100" style="max-width:100%;">
-    </router-outlet>
-    <footer class="footer w-100">
-        <app-footer (onScroll)=" onScrollById($event) " />
-    </footer>
+<div class="wrapper" style="max-width: 100%">
+  <router-outlet class="w-100" style="max-width: 100%"> </router-outlet>
+  <footer class="footer w-100">
+    <app-footer (onScroll)="onScrollById($event)" />
+  </footer>
 </div>
-@if(!IsMobile){
-<div class="shadow-cursor-container" [style.left.px]="coordenadasCursor.x" [style.top.px]="coordenadasCursor.y">
-    @if(mostrarSombraCursor){
-    <div class="shadow-cursor"></div>
+@if (!IsMobile) {
+  <div
+    class="shadow-cursor-container"
+    [style.left.px]="coordenadasCursor.x"
+    [style.top.px]="coordenadasCursor.y"
+  >
+    @if (mostrarSombraCursor) {
+      <div class="shadow-cursor"></div>
     }
-</div>
+  </div>
 }
