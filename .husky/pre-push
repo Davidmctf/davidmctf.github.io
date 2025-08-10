@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Verificar tests antes del push
+pnpm run test:ci
+
+# Verificar build
+pnpm run build
+
+echo "✅ Pre-push validations completed successfully"

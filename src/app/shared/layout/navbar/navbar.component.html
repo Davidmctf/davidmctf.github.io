@@ -117,47 +117,6 @@
             </p>
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle btn btn-success btn-round"
-            placement="bottom"
-            tooltip="Download CV"
-            href="javascript:void(0)"
-            bsDropdown
-            [autoClose]="true"
-            style="font-weight: 600; margin-left: 10px"
-          >
-            <fa-icon [icon]="['fas', 'download']" class="mr-1"></fa-icon> CV
-          </a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li>
-              <a
-                class="dropdown-item"
-                href="javascript:void(0)"
-                (click)="downloadCV('pdf')"
-              >
-                <fa-icon
-                  [icon]="['fas', 'file-pdf']"
-                  class="mr-2 text-danger"
-                ></fa-icon>
-                PDF
-              </a>
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="javascript:void(0)"
-                (click)="downloadCV('html')"
-              >
-                <fa-icon
-                  [icon]="['fas', 'file-code']"
-                  class="mr-2 text-info"
-                ></fa-icon>
-                HTML
-              </a>
-            </li>
-          </ul>
-        </li>
         <!-- Comentados temporalmente hasta arreglar funcionalidad
                 <li class="nav-item p-0">
                     <app-language-switcher></app-language-switcher>
