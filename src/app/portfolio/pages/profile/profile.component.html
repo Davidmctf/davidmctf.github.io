@@ -1,26 +1,36 @@
-<div class="container" style="padding-top:5rem">
-    <h1>PROFILES</h1>
+<div class="container" style="padding-top: 5rem">
+  <h1>PROFILES</h1>
 </div>
 <div class="container">
-    <div class="row row-grid justify-content-between">
-        @for (user of userService.users(); track user.id;) {
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title d-flex w-100 justify-content-between">
-                        <img [srcset]="user.avatar " [alt]="user.first_name " class="img-fluid img-7xl md:img-8xl rounded-circle shadow">
-                        <h5 class="mb-1"><strong>{{user.first_name}} {{user.last_name}}</strong></h5>
-                    </div>
-                </div>
-                <div class="card-body text-white">
-                    <strong>Information: </strong>
-                    <pre class="card-text"><code>{{user | json}}</code></pre>
-                    <app-user-dialog [userid]="user.id" buttonlabel="More info..." buttonclass="btn btn-warning btn-simple" />
-                </div>
+  <div class="row row-grid justify-content-between">
+    @for (user of userService.users(); track user.id) {
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title d-flex w-100 justify-content-between">
+              <img
+                src="https://via.placeholder.com/150"
+                [alt]="user.name"
+                class="img-fluid img-7xl md:img-8xl rounded-circle shadow"
+              />
+              <h5 class="mb-1">
+                <strong>{{ user.name }}</strong>
+              </h5>
             </div>
+          </div>
+          <div class="card-body text-white">
+            <strong>Information: </strong>
+            <pre class="card-text"><code>{{user | json}}</code></pre>
+            <app-user-dialog
+              [userid]="user.id"
+              buttonlabel="More info..."
+              buttonclass="btn btn-warning btn-simple"
+            />
+          </div>
         </div>
-        } @empty {
-        <h1>Sin Información</h1>
-        }
-    </div>
+      </div>
+    } @empty {
+      <h1>Sin Información</h1>
+    }
+  </div>
 </div>
