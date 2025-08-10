@@ -1,9 +1,10 @@
 export interface User {
   id: number;
+  name: string;
+  username: string;
   email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
+  phone: string;
+  website: string;
 }
 
 export interface Support {
@@ -11,21 +12,11 @@ export interface Support {
   text: string;
 }
 
-export interface UserResponse {
-  page: number;
-  per_page: number;
-  total: number;
-  total_pages: number;
-  data: User[];
-  support: Support;
-}
+export interface UserResponse extends Array<User> {}
 
 export interface StateUserResponse {
   users: User[];
   loading: boolean;
 }
 
-export interface UserByIdResponse {
-  data: User;
-  support: Support;
-}
+export interface UserByIdResponse extends User {}

@@ -11,14 +11,15 @@ import { UtilitiesService } from './shared/services';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'portafolio';
   #utilities = inject(UtilitiesService);
 
   constructor(private library: FaIconLibrary) {
-    this.#utilities.UserAgent = navigator.userAgent.toLowerCase();
+    this.#utilities.UserAgent =
+      typeof navigator !== 'undefined' ? navigator.userAgent.toLowerCase() : '';
     this.library.addIconPacks(fas, far, fab);
   }
 }

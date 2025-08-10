@@ -1,0 +1,80 @@
+.company-info {
+  padding: 1rem;
+}
+
+.logo-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.rocket-code-logo {
+  background: linear-gradient(135deg, #050e2a, #1a1a2e);
+  color: #a6f674;
+  border: 2px solid #a6f674;
+}
+
+.dark-theme .rocket-code-logo {
+  background: linear-gradient(135deg, #0a1647, #2a2a50);
+  color: #c8ff8a;
+  border: 2px solid #c8ff8a;
+}
+
+.blife-logo {
+  background: linear-gradient(135deg, #2d2d2d, #4a4a4a);
+  color: #00cbf0;
+  border: 2px solid #00cbf0;
+}
+
+.dark-theme .blife-logo {
+  background: linear-gradient(135deg, #1a1a1a, #363636);
+  color: #20e8ff;
+  border: 2px solid #20e8ff;
+}
+
+.midoc-logo {
+  background: linear-gradient(135deg, #0d8ef2, #34e8e3);
+  color: white;
+  border: 2px solid #799ef9;
+}
+
+.dark-theme .midoc-logo {
+  background: linear-gradient(135deg, #1f5fff, #45f8f3);
+  color: #1a1a1a;
+  border: 2px solid #89aeff;
+}
+
+.skytex-logo {
+  background: linear-gradient(135deg, #017937, #047835);
+  color: white;
+  border: 2px solid #2dce89;
+}
+
+.dark-theme .skytex-logo {
+  background: linear-gradient(135deg, #148f47, #158845);
+  color: white;
+  border: 2px solid #4dde99;
+}
+
+.veterinaria-logo {
+  background: linear-gradient(135deg, #5e72e4, #8965e0);
+  color: white;
+  border: 2px solid #f3a4b5;
+}
+
+.dark-theme .veterinaria-logo {
+  background: linear-gradient(135deg, #7e92ff, #a985ff);
+  color: white;
+  border: 2px solid #ffb4c5;
+}
+
+.logo-placeholder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

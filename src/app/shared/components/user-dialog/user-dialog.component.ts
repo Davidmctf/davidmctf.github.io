@@ -1,5 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, ViewChild, computed, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { ModalDirective, ModalModule } from 'ngx-bootstrap/modal';
 import { UserService } from '../../services';
 import { User } from '../../models';
@@ -12,10 +22,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, ModalModule, FontAwesomeModule],
   templateUrl: './user-dialog.component.html',
-  styleUrl: './user-dialog.component.css'
+  styleUrl: './user-dialog.component.css',
 })
-export class UserDialogComponent implements OnInit, OnDestroy{
-  @Input({ required: true }) userid !: number;
+export class UserDialogComponent implements OnInit, OnDestroy {
+  @Input({ required: true }) userid!: number;
   @Input() buttonlabel: string = '';
   @Input() buttonclass: string = '';
 
@@ -24,8 +34,11 @@ export class UserDialogComponent implements OnInit, OnDestroy{
   private onDestroy$ = new Subject<void>();
   private usersService = inject(UserService);
 
-  public user = signal<User | undefined>(undefined)
-  public titleModal = computed(() => 'Información del usuario'+ ((this.user()) ? ` ${this.user()!.first_name} ${this.user()!.last_name}` : ''));
+  public user = signal<User | undefined>(undefined);
+  public titleModal = computed(
+    () =>
+      'Información del usuario' + (this.user() ? ` ${this.user()!.name}` : ''),
+  );
 
   ngOnInit(): void {}
 
@@ -34,17 +47,18 @@ export class UserDialogComponent implements OnInit, OnDestroy{
     this.onDestroy$.complete();
   }
 
-  public toggleModal(action : 'show'|'hide'): void {
+  public toggleModal(action: 'show' | 'hide'): void {
     switch (action) {
       case 'show':
         this.myModal.show();
-        this.usersService.getUserById(this.userid)
-        .pipe(takeUntil(this.onDestroy$))
-        .subscribe({
-          next: (response) => this.user.set(response.data),
-          error: (error: Error) => throwError(() => error),
-          complete: () => { }
-        })
+        this.usersService
+          .getUserById(this.userid)
+          .pipe(takeUntil(this.onDestroy$))
+          .subscribe({
+            next: (response) => this.user.set(response),
+            error: (error: Error) => throwError(() => error),
+            complete: () => {},
+          });
         break;
       case 'hide':
         this.myModal.hide();
@@ -52,5 +66,3 @@ export class UserDialogComponent implements OnInit, OnDestroy{
     }
   }
 }
-
-

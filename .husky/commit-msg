@@ -1,0 +1,17 @@
+# Verificar formato de commit message
+# Formato: type(scope): description
+# Ejemplos: feat(auth): add login functionality
+#          fix(ui): resolve button styling issue
+#          docs(readme): update installation guide
+
+commit_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,50}'
+
+if ! grep -qE "$commit_regex" "$1"; then
+    echo "❌ Formato de commit inválido!"
+    echo "Usa: type(scope): description"
+    echo "Tipos: feat, fix, docs, style, refactor, test, chore"
+    echo "Ejemplo: feat(auth): add login functionality"
+    exit 1
+fi
+
+echo "✅ Formato de commit válido"

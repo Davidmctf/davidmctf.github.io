@@ -1,38 +1,86 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h1 class="title">DVZ•</h1>
-        </div>
-        <div class="col-md-4">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" (click)="actionPage('home')"> Home </a>
-                </li>
-                @if (isHome) {
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('aboutme')"> About me </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)" (click)="onScroll.emit('experience')"> Experience </a>
-                </li>
-                }
-                <li class="nav-item">
-                    <a class="nav-link" placement="bottom" tooltip="Profile" [routerLink]="['/profile']">
-                        Example Request
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <h3 class="title">Follow us:</h3>
-            <div class="btn-wrapper profile">
-                <a class="btn btn-icon btn-neutral btn-round btn-simple m-2" href="https://linkedin.com/in/davidmct" target="_blank">
-                    <i class="fab fa-linkedin"> </i>
-                </a>
-                <a class="btn btn-icon btn-neutral btn-round btn-simple m-2" href="https://github.com/Davidmctf" target="_blank">
-                    <i class="fab fa-github"> </i>
-                </a>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h1 class="title">DVZ•</h1>
     </div>
+    <div class="col-md-4">
+      <ul class="nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="javascript:void(0)"
+            (click)="actionPage('home')"
+          >
+            Home
+          </a>
+        </li>
+        @if (isHome) {
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              (click)="onScroll.emit('aboutme')"
+            >
+              About me
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              (click)="onScroll.emit('experience')"
+            >
+              Experience
+            </a>
+          </li>
+        }
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            placement="bottom"
+            tooltip="Profile"
+            [routerLink]="['/profile']"
+          >
+            Example Request
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3 class="title">Follow us:</h3>
+      <div class="btn-wrapper profile">
+        <a
+          class="btn btn-icon btn-neutral btn-round btn-simple m-2"
+          href="https://linkedin.com/in/davidmct"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin"> </i>
+        </a>
+        <a
+          class="btn btn-icon btn-neutral btn-round btn-simple m-2"
+          href="https://github.com/Davidmctf"
+          target="_blank"
+        >
+          <i class="fab fa-github"> </i>
+        </a>
+      </div>
+      <div class="cv-download-section mt-3">
+        <h4 class="title">Download CV:</h4>
+        <div class="btn-wrapper">
+          <button
+            class="btn btn-success btn-round btn-sm m-1"
+            (click)="downloadCV('pdf')"
+          >
+            <fa-icon [icon]="['fas', 'file-pdf']" class="mr-1"></fa-icon> PDF
+          </button>
+          <button
+            class="btn btn-info btn-round btn-sm m-1"
+            (click)="downloadCV('html')"
+          >
+            <fa-icon [icon]="['fas', 'file-code']" class="mr-1"></fa-icon> HTML
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

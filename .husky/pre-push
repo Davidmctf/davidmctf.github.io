@@ -1,0 +1,2 @@
+# Solo formato local - CI/CD maneja build
+echo "✅ Local pre-push validation completed"
