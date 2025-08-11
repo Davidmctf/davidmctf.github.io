@@ -15,11 +15,7 @@ import {
   withViewTransitions,
 } from '@angular/router';
 import { routes } from './app.routes';
-import {
-  Title,
-  provideClientHydration,
-  withHttpTransferCacheOptions,
-} from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import {
   provideHttpClient,
@@ -46,9 +42,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(),
     provideAnimations(),
     provideHttpClient(withInterceptorsFromDi(), withFetch()),
-    provideClientHydration(
-      withHttpTransferCacheOptions({ includePostRequests: true }),
-    ),
     { provide: LOCALE_ID, useValue: 'es-MX' },
     { provide: IMAGE_CONFIG, useValue: { disableImageLazyLoadWarning: true } },
     Title,
