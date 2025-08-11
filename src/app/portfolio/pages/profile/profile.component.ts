@@ -9,6 +9,7 @@ import {
 import { UserService } from '../../../shared/services/user.service';
 import { Subject, takeUntil } from 'rxjs';
 import { UserDialogComponent } from '../../../shared/components';
+import { TranslationService } from '../../../shared/services/translation.service';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @Component({
@@ -21,6 +22,11 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 export class ProfileComponent implements OnInit, OnDestroy {
   private onDestroy$ = new Subject<void>();
   public userService = inject(UserService);
+  readonly #translationService = inject(TranslationService);
+
+  get t() {
+    return this.#translationService.t;
+  }
 
   ngOnInit(): void {
     this.userService.getUsers().pipe(takeUntil(this.onDestroy$)).subscribe();

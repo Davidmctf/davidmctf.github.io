@@ -11,7 +11,7 @@
             href="javascript:void(0)"
             (click)="actionPage('home')"
           >
-            Home
+            {{ translate("nav.home") }}
           </a>
         </li>
         @if (isHome) {
@@ -21,7 +21,7 @@
               href="javascript:void(0)"
               (click)="onScroll.emit('aboutme')"
             >
-              About me
+              {{ translate("nav.aboutme") }}
             </a>
           </li>
           <li class="nav-item">
@@ -30,7 +30,7 @@
               href="javascript:void(0)"
               (click)="onScroll.emit('experience')"
             >
-              Experience
+              {{ translate("nav.experience") }}
             </a>
           </li>
         }
@@ -41,13 +41,13 @@
             tooltip="Profile"
             [routerLink]="['/profile']"
           >
-            Example Request
+            {{ translate("nav.example") }}
           </a>
         </li>
       </ul>
     </div>
     <div class="col-md-4">
-      <h3 class="title">Follow us:</h3>
+      <h3 class="title">{{ translate("footer.follow") }}</h3>
       <div class="btn-wrapper profile">
         <a
           class="btn btn-icon btn-neutral btn-round btn-simple m-2"
@@ -65,7 +65,7 @@
         </a>
       </div>
       <div class="cv-download-section mt-3">
-        <h4 class="title">Download CV:</h4>
+        <h4 class="title">{{ translate("footer.download_cv") }}</h4>
         <div class="btn-wrapper">
           <button
             class="btn btn-success btn-round btn-sm m-1"
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="language-section mt-3">
-        <h4 class="title">Language:</h4>
+        <h4 class="title">{{ translate("footer.language") }}</h4>
         <app-language-switcher></app-language-switcher>
       </div>
     </div>

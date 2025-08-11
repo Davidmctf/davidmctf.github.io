@@ -1,5 +1,5 @@
 <div class="container" style="padding-top: 5rem">
-  <h1>PROFILES</h1>
+  <h1>{{ t()("profile.title") }}</h1>
 </div>
 <div class="container">
   <div class="row row-grid justify-content-between">
@@ -19,18 +19,18 @@
             </div>
           </div>
           <div class="card-body text-white">
-            <strong>Information: </strong>
+            <strong>{{ t()("profile.information") }} </strong>
             <pre class="card-text"><code>{{user | json}}</code></pre>
             <app-user-dialog
               [userid]="user.id"
-              buttonlabel="More info..."
+              [buttonlabel]="t()('profile.more_info')"
               buttonclass="btn btn-warning btn-simple"
             />
           </div>
         </div>
       </div>
     } @empty {
-      <h1>Sin Información</h1>
+      <h1>{{ t()("profile.no_information") }}</h1>
     }
   </div>
 </div>

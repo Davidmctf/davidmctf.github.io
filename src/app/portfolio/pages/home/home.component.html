@@ -7,9 +7,9 @@
   <div class="squares square6"></div>
   <div class="container">
     <div class="content-center brand">
-      <h1 class="h1-seo font-weight-bold">Hola!</h1>
+      <h1 class="h1-seo font-weight-bold">{{ t()("home.greeting") }}</h1>
       <h4 class="font-weight-normal w-100 text-base md:text-2xl">
-        Mi nombre es David Muñoz Cruz. Soy desarrollador Full stack
+        {{ t()("home.intro") }}
       </h4>
     </div>
   </div>
@@ -22,48 +22,13 @@
     <div class="container">
       <div class="row justify-content-between align-items-center">
         <div class="col-lg-6 col-md-6">
-          <h1 class="profile-title text-left">About me</h1>
-          <p class="profile-description text-left text-white">
-            Inicié mi carrera en 2021 como desarrollador freelance, aplicando
-            mis conocimientos en proyectos pequeños y explorando tecnologías
-            como
-            <strong>Angular, Laravel y Node.js</strong>. Con el tiempo, fui
-            especializándome en <strong>desarrollo full stack</strong> y la
-            administración de infraestructuras en <strong>Docker</strong> y
-            servidores <strong>Linux</strong>. <br /><br />
-            Actualmente, formo parte de <strong>The Rocket Code</strong> como
-            <strong>Full Stack Developer</strong>, donde me especializo en el
-            desarrollo de aplicaciones web modernas, integraciones de
-            herramientas de <strong>IA (Claude AI, Gemini, LangGraph)</strong> y
-            soluciones de <strong>e-commerce escalables</strong>. Trabajo en
-            proyectos que requieren arquitecturas complejas con
-            <strong>NestJS, NextJS, React, Angular v18/v19</strong> y
-            especialización en <strong>Shopify</strong> para el sector
-            asegurador y fintech. <br /><br />
-            Anteriormente, trabajé en <strong>BLIFE</strong> como
-            <strong>Backend Developer</strong>, donde desarrollé microservicios
-            en <strong>NestJS con NATS y GraphQL</strong>, implementé soluciones
-            de firma digital con <strong>Flask y Python</strong>, y gestioné
-            CI/CD con <strong>GitHub Actions y AWS</strong>. <br /><br />
-            También trabajé en <strong>MIDOCONLINE</strong>, donde lideré la
-            <strong>refactorización completa del backend</strong>, migrándolo de
-            Laravel 8 a <strong>Laravel 11</strong>, optimizando su arquitectura
-            y mejorando significativamente el rendimiento. <br /><br />
-            En <strong>SKYTEX MÉXICO</strong>, desarrollé soluciones
-            empresariales como
-            <strong>SkyFood, Skynet 2.0 y SkyInvoiceHub</strong> en
-            <strong>Angular</strong>, y
-            <strong>SkySecurityApp y SkyInspect</strong> en
-            <strong>Laravel y Node.js</strong>, además de liderar la
-            <strong>dockerización del backend</strong> y la
-            <strong>gestión de servidores Ubuntu</strong>. <br /><br />
-            Mi enfoque actual está en arquitecturas de
-            <strong>microservicios, integración de IA y DevOps</strong>,
-            mientras sigo perfeccionando mis habilidades en
-            <strong>tecnologías emergentes</strong>. En mi tiempo libre, me
-            mantengo al día con las últimas tendencias tecnológicas y disfruto
-            de mis pasatiempos, como jugar videojuegos y salir a pasear.
-          </p>
+          <h1 class="profile-title text-left">
+            {{ t()("home.aboutme.title") }}
+          </h1>
+          <div
+            class="profile-description text-left text-white"
+            [innerHTML]="t()('home.aboutme.content')"
+          ></div>
         </div>
         <div class="col-lg-4 col-md-6 ml-auto mr-auto" style="margin-top: 2rem">
           <div class="card card-coin">
@@ -78,7 +43,7 @@
               <tabset
                 class="nav-tabs-danger justify-content-center tab-subcategories"
               >
-                <tab heading="Habilidades">
+                <tab [heading]="t()('home.skills.title')">
                   <div class="table-responsive">
                     <table
                       class="table tablesorter"
@@ -87,76 +52,76 @@
                     >
                       <thead class="text-danger">
                         <tr>
-                          <th class="header">Tecnología</th>
-                          <th class="header">Tiempo</th>
+                          <th class="header">{{ t()("skills.technology") }}</th>
+                          <th class="header">{{ t()("skills.time") }}</th>
                         </tr>
                       </thead>
                       <tbody class="text-white">
                         <tr>
                           <td>Angular</td>
-                          <td>4 años</td>
+                          <td>4 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>NestJS</td>
-                          <td>2 años</td>
+                          <td>2 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>NextJS - React</td>
-                          <td>2 años</td>
+                          <td>2 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>TypeScript</td>
-                          <td>4 años</td>
+                          <td>4 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>Laravel - PHP</td>
-                          <td>4 años</td>
+                          <td>4 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>PostgreSQL</td>
-                          <td>4 años</td>
+                          <td>4 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>MongoDB Atlas</td>
-                          <td>4 años</td>
+                          <td>4 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>Claude AI & LangGraph</td>
-                          <td>1 año</td>
+                          <td>1 {{ t()("skills.year") }}</td>
                         </tr>
                         <tr>
                           <td>Shopify Development</td>
-                          <td>1 año</td>
+                          <td>1 {{ t()("skills.year") }}</td>
                         </tr>
                         <tr>
                           <td>Docker & AWS</td>
-                          <td>3 años</td>
+                          <td>3 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>Node.js</td>
-                          <td>4 años</td>
+                          <td>4 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>Flask - Python</td>
-                          <td>1 año</td>
+                          <td>1 {{ t()("skills.year") }}</td>
                         </tr>
                         <tr>
                           <td>MySQL</td>
-                          <td>4 años</td>
+                          <td>4 {{ t()("skills.years") }}</td>
                         </tr>
                         <tr>
                           <td>Kotlin & Jetpack Compose</td>
-                          <td>1 año</td>
+                          <td>1 {{ t()("skills.year") }}</td>
                         </tr>
                         <tr>
                           <td>Rust</td>
-                          <td>1 año</td>
+                          <td>1 {{ t()("skills.year") }}</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </tab>
-                <tab heading="Estudios">
+                <tab [heading]="t()('home.studies.title')">
                   <div class="table-responsive">
                     <table
                       class="table tablesorter"
@@ -166,21 +131,22 @@
                       <tbody class="text-white">
                         <tr>
                           <td>
-                            Ingeniería en TI - Universidad Politécnica de
-                            Tlaxcala
+                            {{ t()("studies.degree") }}
                           </td>
-                          <td>2018 - 2022</td>
+                          <td>{{ t()("studies.period") }}</td>
                         </tr>
                         <tr>
-                          <td colspan="2" class="text-center">Idiomas</td>
+                          <td colspan="2" class="text-center">
+                            {{ t()("studies.languages") }}
+                          </td>
                         </tr>
                         <tr>
-                          <td>Español</td>
-                          <td>Nativo</td>
+                          <td>{{ t()("studies.spanish") }}</td>
+                          <td>{{ t()("studies.native") }}</td>
                         </tr>
                         <tr>
-                          <td>Inglés</td>
-                          <td>Intermedio</td>
+                          <td>{{ t()("studies.english") }}</td>
+                          <td>{{ t()("studies.intermediate") }}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -200,7 +166,9 @@
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-md-12">
-          <h1 class="profile-title text-left">Experience</h1>
+          <h1 class="profile-title text-left">
+            {{ t()("home.experience.title") }}
+          </h1>
           <app-timeline />
         </div>
       </div>

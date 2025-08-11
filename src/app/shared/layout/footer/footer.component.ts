@@ -12,6 +12,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouteInfoService } from '../../services';
 import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-footer',
@@ -31,7 +32,12 @@ export class FooterComponent implements OnInit, OnDestroy {
   #currentRoute: string = '';
   readonly #routerServ = inject(RouteInfoService);
   readonly #router = inject(Router);
+  readonly #translationService = inject(TranslationService);
   public isHome: boolean = true;
+
+  translate(key: string): string {
+    return this.#translationService.translate(key);
+  }
 
   constructor() {
     this.#routerServ.currentRoute$
