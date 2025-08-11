@@ -1,0 +1,15 @@
+.index-page .squares {
+  @include linear-gradient($success, $success-states);
+}
+
+.register-page,
+.section.section-signup {
+  .squares,
+  .square {
+    @include linear-gradient($success, $success-states);
+  }
+}
+
+.footer {
+  border-top: 2px solid $success;
+}
