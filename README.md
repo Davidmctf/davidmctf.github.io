@@ -1,20 +1,20 @@
 # Portfolio Personal - David Muñoz Cruz
 
-Portfolio profesional desarrollado en Angular 17 con Server-Side Rendering, presentando experiencia y proyectos como Full Stack Developer.
+Portfolio profesional desarrollado en Angular 20 con Server-Side Rendering, presentando experiencia y proyectos como Full Stack Developer.
 
 ## Tecnologías
 
-- **Angular 17** con Standalone Components
+- **Angular 20** con Standalone Components
 - **Angular SSR** para SEO optimization
-- **TypeScript 5.3** con strict mode
-- **NgRx** para state management
+- **TypeScript 5.8** con strict mode
+- **NgRx 20** para state management
 - **NgBootstrap** + BLK Design System
 - **FontAwesome** icons
 - **Chart.js** para visualizaciones
 
 ## Requisitos del Sistema
 
-- **Node.js**: 22.x LTS (recomendado)
+- **Node.js**: 20.11.1+ (mínimo requerido, 22.x LTS recomendado)
 - **pnpm**: 10.x+ (package manager)
 - **nvm**: Para gestión de versiones Node.js
 
@@ -24,7 +24,7 @@ Portfolio profesional desarrollado en Angular 17 con Server-Side Rendering, pres
 # Instalar pnpm globalmente (si no lo tienes)
 npm install -g pnpm
 
-# Usar Node.js 22 LTS (recomendado)
+# Usar Node.js 20.11.1+ (mínimo) o 22.x LTS (recomendado)
 nvm use 22
 
 # Instalar dependencias

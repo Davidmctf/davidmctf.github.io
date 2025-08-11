@@ -2,25 +2,25 @@
 
 ## RESUMEN DEL PROYECTO
 
-**davidmctf.github.io** es un portfolio personal desarrollado como SPA (Single Page Application) en Angular 17 con Server-Side Rendering (SSR). Se trata de un sitio web profesional que presenta la información personal y profesional de David Muñoz Cruz, desarrollador Full Stack.
+**davidmctf.github.io** es un portfolio personal desarrollado como SPA (Single Page Application) en Angular 20 con Server-Side Rendering (SSR). Se trata de un sitio web profesional que presenta la información personal y profesional de David Muñoz Cruz, desarrollador Full Stack.
 
 ## ARQUITECTURA Y TECNOLOGÍAS
 
 ### Framework Principal
 
-- **Angular 17** con arquitectura standalone components
-- **Angular SSR** habilitado para SEO y performance
-- **TypeScript 5.3.2** como lenguaje principal
+- **Angular 20** con arquitectura standalone components
+- **Angular SSR** habilitado para SEO y performance con AngularNodeAppEngine
+- **TypeScript 5.8.3** como lenguaje principal
 
 ### Dependencias Principales
 
-- **@angular/core**: Framework base v17.2.0
-- **@ngrx/store**: Gestión de estado v17.1.1
+- **@angular/core**: Framework base v20.1.6
+- **@ngrx/store**: Gestión de estado v20.0.0
 - **@fortawesome**: Iconografía (brands, regular, solid)
-- **ngx-bootstrap**: Componentes UI v12.0.0
+- **ngx-bootstrap**: Componentes UI v18.1.3
 - **blk-design-system-angular**: Sistema de diseño v1.0.0
-- **chart.js**: Visualización de datos v4.4.2
-- **express**: Servidor SSR v4.18.2
+- **chart.js**: Visualización de datos v4.5.0
+- **express**: Servidor SSR v4.21.2
 
 ### Arquitectura del Código
 
@@ -173,6 +173,7 @@ ng analytics off            # Analytics deshabilitado
 
 ---
 
-_Análisis completado: 2025-08-10_
-_Framework: Angular 17.2.0_
-_Arquitectura: Standalone Components + SSR_
+_Análisis actualizado: 2025-08-11_
+_Framework: Angular 20.1.6_
+_Arquitectura: Standalone Components + SSR (AngularNodeAppEngine)_
+_Migración completada exitosamente de Angular 18 → 19 → 20_
