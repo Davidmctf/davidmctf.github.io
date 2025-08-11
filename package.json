@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:github": "ng build --base-href=/davidmctf.github.io/",
+    "build:github": "ng build --base-href=/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "npm run build:github && npx angular-cli-ghpages --dir=dist/portafolio/browser --no-silent",
