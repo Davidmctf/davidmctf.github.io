@@ -8,11 +8,12 @@ import {
   AfterViewInit,
   ViewChild,
   inject,
+  DOCUMENT,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer';
 import { NavbarComponent } from '../navbar';
-import { DOCUMENT } from '@angular/common';
+
 import { Subject, takeUntil } from 'rxjs';
 import { HeaderComponent } from '../header';
 import { RouteInfoService, UtilitiesService } from '../../services';
