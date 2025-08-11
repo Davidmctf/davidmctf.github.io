@@ -5,18 +5,11 @@ Portfolio profesional desarrollado en Angular 20 con Server-Side Rendering, pres
 ## Tecnologías
 
 - **Angular 20** con Standalone Components
-- **Angular SSR** para SEO optimization
 - **TypeScript 5.8** con strict mode
 - **NgRx 20** para state management
 - **NgBootstrap** + BLK Design System
 - **FontAwesome** icons
 - **Chart.js** para visualizaciones
-
-## Requisitos del Sistema
-
-- **Node.js**: 20.11.1+ (mínimo requerido, 22.x LTS recomendado)
-- **pnpm**: 10.x+ (package manager)
-- **nvm**: Para gestión de versiones Node.js
 
 ## Instalación y Desarrollo
 
@@ -65,7 +58,6 @@ src/app/
 - `pnpm run build` - Build producción
 - `pnpm test` - Unit tests con Karma
 - `pnpm run watch` - Build incremental
-- `pnpm run serve:ssr:portafolio` - Servidor SSR
 
 ## Deploy
 

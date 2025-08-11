@@ -12,6 +12,14 @@ dist/*
 npm-debug.log
 yarn-error.log
 
+.package-lock.json
+.yarn.lock
+.pnpm-debug.log
+
+package-lock.json
+yarn.lock
+pnpm-debug.log
+
 # IDEs and editors
 .idea/
 .project
