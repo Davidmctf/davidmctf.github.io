@@ -11,10 +11,16 @@ import { Router, RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouteInfoService } from '../../services';
+import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-footer',
-  imports: [CommonModule, RouterModule, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FontAwesomeModule,
+    LanguageSwitcherComponent,
+  ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
 })
