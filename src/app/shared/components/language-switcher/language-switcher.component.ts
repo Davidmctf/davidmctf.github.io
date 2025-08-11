@@ -10,7 +10,6 @@ import {
 
 @Component({
   selector: 'app-language-switcher',
-  standalone: true,
   imports: [CommonModule, FontAwesomeModule, BsDropdownModule, TooltipModule],
   template: `
     <div class="dropdown">

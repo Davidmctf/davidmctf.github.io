@@ -6,7 +6,6 @@ import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-theme-switcher',
-  standalone: true,
   imports: [CommonModule, FontAwesomeModule, TooltipModule],
   template: `
     <button

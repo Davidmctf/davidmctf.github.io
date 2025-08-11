@@ -20,7 +20,6 @@ import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   imports: [
     CommonModule,
     RouterModule,

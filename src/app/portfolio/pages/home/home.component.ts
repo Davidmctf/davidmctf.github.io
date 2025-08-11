@@ -18,7 +18,6 @@ import { TranslationService } from '../../../shared/services/translation.service
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,

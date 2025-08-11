@@ -13,7 +13,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'app-profile',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, UserDialogComponent, TabsModule],
   templateUrl: './profile.component.html',

@@ -19,7 +19,6 @@ import { RouteInfoService, UtilitiesService } from '../../services';
 
 @Component({
   selector: 'app-layout',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterModule, FooterComponent, NavbarComponent, HeaderComponent],
   templateUrl: './layout.component.html',
