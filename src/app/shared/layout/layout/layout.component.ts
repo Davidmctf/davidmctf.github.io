@@ -15,13 +15,17 @@ import { FooterComponent } from '../footer';
 import { NavbarComponent } from '../navbar';
 
 import { Subject, takeUntil } from 'rxjs';
-import { HeaderComponent } from '../header';
+// import { HeaderComponent } from '../header';
 import { RouteInfoService, UtilitiesService } from '../../services';
 
 @Component({
   selector: 'app-layout',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule, FooterComponent, NavbarComponent, HeaderComponent],
+  imports: [
+    RouterModule,
+    FooterComponent,
+    NavbarComponent /* HeaderComponent */,
+  ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })

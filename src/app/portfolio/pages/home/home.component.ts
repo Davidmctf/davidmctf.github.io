@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { HeaderComponent } from '../../../shared/layout';
+// import { HeaderComponent } from '../../../shared/layout';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -21,7 +21,7 @@ import { TranslationService } from '../../../shared/services/translation.service
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    HeaderComponent,
+    // HeaderComponent,
     BsDropdownModule,
     ProgressbarModule,
     TooltipModule,

@@ -1,3 +1,4 @@
+<!-- src/app/shared/layout/navbar/navbar.component.html -->
 <nav [ngClass]="navbarClasses" color-on-scroll="100">
   <div class="container">
     <div class="navbar-translate">
@@ -8,7 +9,7 @@
         href="javascript:void(0)"
         (click)="actionPage('home')"
       >
-        <span> DVZ• </span> Developer description
+        <span>DVZ•</span> Developer description
       </a>
       <button
         aria-controls="navigation-index"
@@ -19,9 +20,9 @@
         id="navigation"
         type="button"
       >
-        <span class="navbar-toggler-bar bar1"> </span>
-        <span class="navbar-toggler-bar bar2"> </span>
-        <span class="navbar-toggler-bar bar3"> </span>
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
       </button>
     </div>
     <div
@@ -31,7 +32,7 @@
     >
       <div class="navbar-collapse-header">
         <div class="row">
-          <div class="col-6 collapse-brand"><a> DVZ• </a></div>
+          <div class="col-6 collapse-brand"><a>DVZ•</a></div>
           <div class="col-6 collapse-close text-right">
             <button
               aria-controls="navigation-index"
@@ -42,7 +43,7 @@
               id="navigation"
               type="button"
             >
-              <i class="tim-icons icon-simple-remove"> </i>
+              <i class="tim-icons icon-simple-remove"></i>
             </button>
           </div>
         </div>
@@ -61,7 +62,7 @@
                 [icon]="['fas', 'home']"
                 class="layout-menuitem-icon"
               ></fa-icon>
-              {{ t("nav.home") }}
+              Home
             </p>
           </a>
         </li>
@@ -79,7 +80,7 @@
                   [icon]="['fas', 'user']"
                   class="layout-menuitem-icon"
                 ></fa-icon>
-                {{ t("nav.aboutme") }}
+                About me
               </p>
             </a>
           </li>
@@ -96,7 +97,7 @@
                   [icon]="['fas', 'business-time']"
                   class="layout-menuitem-icon"
                 ></fa-icon>
-                {{ t("nav.experience") }}
+                Experience
               </p>
             </a>
           </li>
@@ -113,18 +114,18 @@
                 [icon]="['fas', 'arrow-down-up-across-line']"
                 class="layout-menuitem-icon"
               ></fa-icon>
-              {{ t("nav.example") }}
+              Example Request
             </p>
           </a>
         </li>
-        <!-- Comentados temporalmente hasta arreglar funcionalidad
-                <li class="nav-item p-0">
-                    <app-language-switcher></app-language-switcher>
-                </li>
-                <li class="nav-item p-0">
-                    <app-theme-switcher></app-theme-switcher>
-                </li>
-                -->
+        <!-- COMENTADOS TEMPORALMENTE hasta implementar i18n completo:
+        <li class="nav-item p-0">
+          <app-language-selector></app-language-selector>
+        </li>
+        <li class="nav-item p-0">
+          <app-theme-switcher></app-theme-switcher>
+        </li>
+        -->
       </ul>
     </div>
   </div>

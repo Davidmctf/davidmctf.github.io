@@ -15,8 +15,9 @@ import { Subject, takeUntil } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouteInfoService } from '../../services';
 import { ThemeSwitcherComponent } from '../../components/theme-switcher/theme-switcher.component';
-import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
-import { TranslationService } from '../../services/translation.service';
+// COMENTAR TEMPORALMENTE hasta implementar i18n completo:
+// import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
+// import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -27,8 +28,8 @@ import { TranslationService } from '../../services/translation.service';
     CollapseModule,
     FontAwesomeModule,
     TooltipModule,
-    ThemeSwitcherComponent,
-    LanguageSwitcherComponent,
+    // ThemeSwitcherComponent,
+    // LanguageSwitcherComponent,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
@@ -40,12 +41,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   #currentRoute: string = '';
   readonly #routerServ = inject(RouteInfoService);
   readonly #router = inject(Router);
-  readonly #translationService = inject(TranslationService);
+  // readonly #translationService = inject(TranslationService);
   public isCollapsed = true;
 
-  get t() {
-    return this.#translationService.t();
-  }
+  // get t() {
+  //   return this.#translationService.t();
+  // }
   public isHome: boolean = true;
   public navbarClasses: { [key: string]: boolean } = {
     navbar: true,
