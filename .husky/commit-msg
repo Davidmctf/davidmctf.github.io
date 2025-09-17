@@ -4,7 +4,7 @@
 #          fix(ui): resolve button styling issue
 #          docs(readme): update installation guide
 
-commit_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,50}'
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|ci|hotfix|merge)(\(.+\))?: .{1,50}'
 
 if ! grep -qE "$commit_regex" "$1"; then
     echo "❌ Formato de commit inválido!"

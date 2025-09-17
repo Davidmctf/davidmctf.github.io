@@ -1,248 +1,199 @@
-# Análisis del Proyecto: Angular 20 Migration & Multilanguage Implementation
+# CLAUDE.md
 
-## 📋 Resumen del Proyecto
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Este documento analiza la experiencia de migración de Angular 18.2.13 a Angular 20.1.6 y la implementación de un sistema de multilenguaje (Español/Inglés) para un portafolio personal, utilizando diferentes herramientas de IA para el desarrollo.
+## Development Commands
 
-## 🤖 Participantes
+### Primary Development Workflow
 
-- **Desarrollador**: osmiodev (Usuario principal)
-- **Claude CLI**: Claude Sonnet 4 (claude-sonnet-4-20250514) - Asistente de IA para desarrollo
-- **GitHub Copilot**: Claude Sonnet 4 - Asistente de IA integrado en IDE
+- **Development server**: `npm start` (serves on http://localhost:4200)
+- **Build for production**: `npm run build`
+- **Build for GitHub Pages**: `npm run build:github` (uses --base-href=/)
+- **Deploy to GitHub Pages**: `npm run deploy` (builds and deploys using angular-cli-ghpages)
+- **Tests**: `npm test` (Karma + Jasmine)
+- **CI Tests**: `npm run test:ci` (headless Chrome with coverage)
 
-_Ambas herramientas de IA utilizaron el modelo Claude Sonnet 4 como base tecnológica_
+### Code Quality & Formatting
 
-## 🎯 Objetivos Alcanzados
+- **Format code**: `npm run format` (Prettier)
+- **Check formatting**: `npm run format:check`
+- **Lint staged files**: `npm run lint-staged` (runs on pre-commit via Husky)
 
-✅ Migración exitosa de Angular 18.2.13 → Angular 20.1.6  
-✅ Implementación de sistema multilenguaje runtime (ES/EN)  
-✅ Corrección de problemas de despliegue en GitHub Pages  
-✅ Eliminación completa de "spanglish" en la aplicación  
-✅ Selector de idioma funcional y accesible  
-✅ Timeline dinámico con traducciones completas
+### Analysis & Performance
 
-## 📊 Análisis Comparativo: Claude CLI vs GitHub Copilot
+- **Bundle analysis**: `npm run analyze` (webpack-bundle-analyzer)
+- **Lighthouse audit**: `npm run lighthouse`
+- **Watch builds**: `npm run watch` (development mode with file watching)
 
-### 🔧 **Actualizaciones de Dependencias**
+### Dependency Management
 
-**Claude CLI:**
+- **Update Angular**: `npm run update:angular`
+- **Update dependencies**: `npm run update:deps`
 
-- ❌ **Problema**: Inventó números de versión incorrectos para las librerías
-- ❌ No pudo proporcionar versiones exactas y compatibles
-- ✅ **Fortaleza**: Una vez con las versiones correctas, gestionó bien la migración
+## Architecture Overview
 
-**GitHub Copilot:**
+### Technology Stack
 
-- ❌ **Problema**: También proporcionó versiones inexactas
-- ❌ Alucinó respuestas sobre compatibilidad
+- **Angular 20.1.6** with standalone components architecture
+- **TypeScript 5.8** with strict mode enabled
+- **NgRx 20** for state management (configured but not extensively used)
+- **SCSS** with BLK Design System
+- **FontAwesome** icon library
+- **Chart.js** for data visualizations
+- **NgBootstrap** for UI components
 
-**Resolución:** El desarrollador tuvo que actualizar manualmente las librerías consultando documentación oficial.
+### Application Type
 
-### 🚀 **Despliegues**
+- **Client-Side Rendering (CSR)** application optimized for GitHub Pages
+- **NO Server-Side Rendering** - deliberately disabled for static hosting compatibility
+- **Hash routing** enabled for GitHub Pages compatibility
+- **Standalone components** throughout the application
 
-**Claude CLI:**
+### Key Architectural Patterns
 
-- ✅ **Fortaleza**: Excelente para corrección de errores de build
-- ✅ Identificó y corrigió problemas de SSR (CommonEngine → AngularNodeAppEngine)
-- ❌ **Limitación**: No pudo crear CI/CD independiente con workflows YML
+#### Signal-Based Translation System
 
-**GitHub Copilot:**
-
-- ✅ **Fortaleza**: Mejor respuesta nativa para despliegue
-- ✅ Integración más natural con GitHub
-- ❌ **Limitación**: También falló en crear CI/CD independiente
-
-**Resolución:** Se mantuvo el despliegue con comandos npm: `npm run deploy`
-
-### 🌐 **Traduciones y Modificación de Componentes**
-
-**Claude CLI:**
-
-- ✅ **Excelente desempeño**: Implementó correctamente el sistema de traducciones
-- ✅ Creó TranslationService con arquitectura Signal-based
-- ✅ Eliminó inconsistencias de spanglish efectivamente
-- ✅ Timeline dinámico completamente funcional
-- ⚠️ **Requirió correcciones**: Necesitó refinamiento en prompts para evitar código innecesario
-
-**GitHub Copilot:**
-
-- ❌ **Problema**: Alucinaba respuestas frecuentemente
-- ❌ A pesar de tener mayores accesos, fue menos preciso
-
-### 🐛 **Corrección de Errores**
-
-**Claude CLI:**
-
-- ✅ **Más eficiente** para identificar y corregir problemas técnicos
-- ✅ Diagnosticó correctamente errores de HTML structure
-- ✅ Resolvió problemas de imports y dependencias
-
-**GitHub Copilot:**
-
-- ❌ Menor efectividad en resolución de errores complejos
-
-## 🏗️ **Arquitectura Técnica Implementada**
-
-### Tipo de Compilación
-
-- **CSR (Client-Side Rendering)**: La aplicación NO utiliza SSR para GitHub Pages
-- **Compilación estática**: Build optimizado para hosting estático
-- **Runtime Language Switching**: Cambio de idioma dinámico sin recarga de página
-- **GitHub Pages Compatible**: Deploy directo sin servidor Node.js
-
-### Sistema de Traducciones
+The application uses a custom translation system built on Angular Signals:
 
 ```typescript
-// TranslationService con Angular Signals
-@Injectable({
-  providedIn: "root",
-})
+// Translation service pattern
+@Injectable({ providedIn: "root" })
 export class TranslationService {
-  private readonly translations: Translations = {
-    "es-MX": {
-      /* traducciones español */
-    },
-    en: {
-      /* traducciones inglés */
-    },
-  };
-
   readonly t = computed(() => (key: string) => this.translate(key));
+  // Reactive translations that update components automatically
 }
-```
 
-### Arquitectura de Componentes
-
-```typescript
-// Componente standalone con Signal-based translations
-@Component({
-  selector: "app-timeline",
-  imports: [CarouselModule, CommonModule],
-  templateUrl: "./timeline.component.html",
-  styleUrl: "./timeline.component.css",
-})
-export class TimelineComponent {
+// Component usage pattern
+export class Component {
   private readonly translationService = inject(TranslationService);
   readonly t = this.translationService.t;
 }
 ```
 
-### Componentes Actualizados
+#### Language Management
 
-- ✅ `timeline.component.ts` - Timeline dinámico
-- ✅ `language-switcher.component.ts` - Selector simplificado sin Bootstrap dropdown
-- ✅ `footer.component.html` - Traducciones completas
-- ✅ `navbar.component.html` - Navegación multilenguage
-- ✅ `home.component.html` - Contenido dinámico
-- ✅ `translation.service.ts` - Servicio centralizado de traducciones
+- **Runtime language switching** without page reload
+- **LocalStorage persistence** for language preference
+- **Browser language detection** as fallback
+- **Spanish (es-MX)** as default language
+- **English (en)** as secondary language
 
-### Migración Angular
+#### Modern Angular Patterns
 
-- ✅ Angular 20.1.6 standalone components
-- ✅ **NO SSR**: Aplicación CSR para compatibilidad con GitHub Pages
-- ✅ AngularNodeAppEngine configurado (no utilizado en producción)
-- ✅ Build estático optimizado con `ng build --base-href=/`
+- **Standalone components** throughout the application
+- **inject() function** instead of constructor injection
+- **Angular Signals** for reactive state management
+- **Computed properties** for derived state
+- **Modern router configuration** with view transitions
 
-## 📋 **Reglas de Desarrollo Aplicadas**
-
-### Convenciones de Código
-
-- **Standalone Components**: Todos los componentes nuevos como standalone
-- **Injection Token Pattern**: Uso de `inject()` en lugar de constructor injection
-- **Signal-based Architecture**: Implementación con Angular Signals para reactividad
-- **TypeScript Strict**: Configuración estricta habilitada
-- **No Comments Policy**: Código sin comentarios innecesarios (salvo documentación técnica)
-
-### Estructura de Archivos
+## Project Structure
 
 ```
 src/app/
-├── shared/
-│   ├── services/
-│   │   ├── translation.service.ts
-│   │   └── language.service.ts
-│   ├── components/
-│   │   ├── timeline/
-│   │   └── language-switcher/
-│   └── layout/
-│       ├── footer/
-│       └── navbar/
-├── portfolio/
-│   └── pages/
-│       ├── home/
-│       └── profile/
+├── portfolio/               # Main portfolio module
+│   ├── pages/              # Home, Profile, Main pages
+│   └── services/           # Portfolio-specific services
+├── shared/                 # Shared code across application
+│   ├── components/         # Reusable components
+│   │   ├── timeline/       # Experience timeline component
+│   │   ├── language-switcher/  # Language toggle component
+│   │   ├── theme-switcher/ # Dark/light theme component
+│   │   └── user-dialog/    # User information modal
+│   ├── layout/            # Layout components
+│   │   ├── navbar/        # Navigation bar
+│   │   ├── header/        # Page header
+│   │   ├── footer/        # Page footer
+│   │   └── layout/        # Main layout wrapper
+│   ├── services/          # Core application services
+│   │   ├── translation.service.ts  # Signal-based translations
+│   │   ├── language.service.ts     # Language state management
+│   │   ├── theme.service.ts        # Theme switching
+│   │   ├── utilities.service.ts    # Utility functions
+│   │   └── validate.service.ts     # Form validation
+│   ├── models/            # TypeScript interfaces
+│   └── pipes/             # Custom Angular pipes
+└── assets/                # Static assets, SCSS, images
 ```
 
-### Reglas de Traducciones
+## Development Rules & Conventions
 
-- **Namespace Pattern**: `'section.component.key'` para organización
-- **Fallback Strategy**: Español (es-MX) como idioma por defecto
-- **No Hard-coded Text**: Todo texto visible debe estar en TranslationService
-- **Consistent Keys**: Mismas claves para ambos idiomas
-- **LocalStorage Persistence**: Preferencia de idioma guardada en navegador
+### Code Style
 
-### Deploy Rules
+- **Standalone Components**: All new components must be standalone
+- **inject() Pattern**: Use `inject()` function instead of constructor injection
+- **Signal-based Architecture**: Prefer Angular Signals for reactive state
+- **TypeScript Strict Mode**: Enabled - all code must pass strict type checking
+- **No Comments Policy**: Code should be self-documenting; avoid unnecessary comments
+- **Prettier Formatting**: All code must be formatted with Prettier (enforced by Husky pre-commit)
 
-- **GitHub Pages Only**: No deployment en otros servicios
-- **Base Href**: Siempre `/` para GitHub Pages
-- **Static Build**: Solo archivos estáticos, no server-side
-- **Manual Versioning**: Actualización manual de versiones de dependencias
+### Translation System Rules
+
+- **Namespace Pattern**: Use `'section.component.key'` for translation keys
+- **Fallback Strategy**: Spanish (es-MX) as default, English (en) as secondary
+- **No Hard-coded Text**: All visible text must use the translation system
+- **Consistent Keys**: Same keys must exist in both language objects
+- **Computed Translations**: Use the `t = computed(() => (key: string) => this.translate(key))` pattern
+
+### Component Architecture
+
+```typescript
+// Standard component structure
+@Component({
+  selector: 'app-component',
+  imports: [CommonModule, /* other imports */],
+  templateUrl: './component.component.html',
+  styleUrl: './component.component.css', // Note: styleUrl (singular)
+})
+export class ComponentComponent {
+  private readonly service = inject(SomeService);
+  readonly someSignal = signal(initialValue);
+  readonly computedValue = computed(() => /* derived state */);
+}
+```
+
+### Build & Deploy Rules
+
+- **GitHub Pages Only**: Application is designed exclusively for GitHub Pages deployment
+- **Base Href**: Always use `/` for GitHub Pages compatibility
+- **Static Build**: Only static files, no server-side components
+- **Manual Dependency Updates**: Never use automated dependency updates - verify compatibility manually
+- **No CI/CD**: Use `npm run deploy` for manual deployment
 
 ### Git Workflow
 
-- **Main Branch**: Deploy directo desde main
-- **Commit Messages**: Descriptivos con prefijo (feat, fix, refactor)
-- **No CI/CD**: Deploy manual con `npm run deploy`
+- **Main Branch**: All development happens on main, direct deployment from main
+- **Commit Messages**: Use conventional commits (feat, fix, refactor, docs, etc.)
+- **Pre-commit Hooks**: Husky enforces formatting and linting before commits
+- **Manual Deploy**: Use `npm run deploy` command for GitHub Pages deployment
 
-## 📝 **Lecciones Aprendidas**
+## Important Technical Notes
 
-### Para Claude CLI:
+### Bundle Configuration
 
-1. **Fortalezas identificadas:**
-   - Excelente para corrección de errores técnicos
-   - Muy efectivo en refactoring y implementación de arquitecturas
-   - Mejor para tareas de desarrollo estructurado
+- **CommonJS Dependencies**: `chart.js` and `nouislider` are allowed as CommonJS dependencies
+- **Bundle Size Limits**:
+  - Initial bundle: 2MB warning, 5MB error
+  - Component styles: 5KB warning, 6KB error
+- **Optimization**: Production builds use full optimization including critical CSS inlining
 
-2. **Áreas de mejora:**
-   - Verificación de versiones de librerías con fuentes oficiales
-   - Necesidad de prompts más específicos para evitar código innecesario
-   - Falta de capacidad para CI/CD independiente
+### Environment Configuration
 
-### Para GitHub Copilot:
+- **Development**: Source maps enabled, no optimization
+- **Production**: Full optimization, no source maps, extract licenses enabled
+- **Localization**: Configured for es-MX locale with @angular/localize support
 
-1. **Fortalezas identificadas:**
-   - Integración nativa con flujos de GitHub
-   - Mejor para despliegues directos
+### Dependencies to Verify Before Updates
 
-2. **Áreas de mejora:**
-   - Tendencia a alucinar respuestas
-   - Menor precisión en resolución de errores complejos
-   - Versiones de librerías inexactas
+When updating dependencies, manually verify compatibility for:
 
-### Para el Desarrollo:
+- **Angular Core & CLI**: Check official Angular update guide
+- **NgRx**: Ensure version compatibility with Angular version
+- **FontAwesome Angular**: Check Angular version compatibility
+- **NgBootstrap**: Verify Angular version support
+- **Chart.js**: Stable version, avoid beta releases
 
-1. **Recomendaciones:**
-   - Verificar manualmente versiones de librerías en documentación oficial
-   - Usar comandos de despliegue directos para proyectos simples
-   - Combinar fortalezas de ambas IA según el contexto
-   - Prompts específicos y directos para evitar código innecesario
+### Known Limitations
 
-## 🎯 **Conclusiones**
-
-- **Claude CLI** demostró ser más efectivo para desarrollo técnico, corrección de errores y implementación de arquitecturas complejas
-- **GitHub Copilot** fue mejor para tareas nativas de GitHub y despliegue
-- **Ninguna IA** pudo crear CI/CD independiente, requiriendo intervención manual
-- La **combinación de ambas herramientas** con supervisión del desarrollador resultó en el mejor outcome
-- Las **traducciones y eliminación de spanglish** fueron exitosamente completadas por Claude CLI
-
-## 🔗 **Resultado Final**
-
-✅ **Aplicación desplegada**: https://davidmctf.github.io  
-✅ **Selector de idioma funcional** en el footer  
-✅ **Sin spanglish** - separación completa ES/EN  
-✅ **Timeline dinámico** con traducciones  
-✅ **Angular 20** completamente funcional
-
----
-
-_Generado con Claude CLI - Proyecto completado exitosamente_ 🚀
+- **No SSR**: Application cannot use server-side rendering due to GitHub Pages static hosting
+- **Hash Routing**: Required for GitHub Pages, affects SEO but necessary for proper routing
+- **Manual Deployments**: No automated CI/CD - requires manual deployment process

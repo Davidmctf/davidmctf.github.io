@@ -8,20 +8,20 @@
     "build:github": "ng build --base-href=/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "npm run build:github && npx angular-cli-ghpages --dir=dist/portafolio/browser --no-silent",
-    "analyze": "ng build --configuration production --stats-json && npx webpack-bundle-analyzer dist/portafolio/browser/stats.json",
-    "lighthouse": "ng build --configuration production && npx lighthouse http://localhost:4000 --view",
+    "deploy": "pnpm run build:github && pnpm dlx angular-cli-ghpages --dir=dist/portafolio/browser --no-silent",
+    "analyze": "ng build --configuration production --stats-json && pnpm dlx webpack-bundle-analyzer dist/portafolio/browser/stats.json",
+    "lighthouse": "ng build --configuration production && pnpm dlx lighthouse http://localhost:4000 --view",
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
-    "husky:pre-commit": "npm run lint-staged",
+    "husky:pre-commit": "pnpm run lint-staged",
     "husky:commit-msg": ".husky/commit-msg",
     "husky:pre-push": ".husky/pre-push",
-    "ci:husky-checks": "echo '🔍 Running Husky checks...' && (npm run husky:pre-commit || echo '⚠️  Husky pre-commit check failed but continuing...') && echo '✅ Husky checks completed'",
+    "ci:husky-checks": "echo '🔍 Running Husky checks...' && (pnpm run husky:pre-commit || echo '⚠️  Husky pre-commit check failed but continuing...') && echo '✅ Husky checks completed'",
     "lint-staged": "lint-staged",
     "update:angular": "ng update @angular/core @angular/cli",
-    "update:deps": "npm update"
+    "update:deps": "pnpm update"
   },
   "private": true,
   "dependencies": {
@@ -72,7 +72,7 @@
     "prettier": "^3.6.2",
     "typescript": "~5.8.3"
   },
-  "packageManager": "npm@10.9.0",
+  "packageManager": "pnpm@10.15.1",
   "overrides": {
     "@fortawesome/angular-fontawesome": {
       "@angular/core": "^20.1.6",

@@ -72,7 +72,7 @@ export class FooterComponent implements OnInit, OnDestroy {
           ? 'assets/cv_resume/david_cv.pdf'
           : 'assets/cv_resume/david_cv_indeed.pdf';
       link.download = `David_Munoz_Cruz_CV.${format}`;
-      link.setAttribute('download', `David_Munoz_Cruz_CV.${format}`);
+      link.setAttribute('download', `David_Munoz_Cruz_CV.pdf`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
