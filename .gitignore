@@ -37,6 +37,11 @@ pnpm-debug.log
 !.vscode/extensions.json
 .history/*
 
+#cursor
+.cursorrules
+.cursorignore
+.cursor/*
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
