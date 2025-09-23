@@ -6,29 +6,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Primary Development Workflow
 
-- **Development server**: `npm start` (serves on http://localhost:4200)
-- **Build for production**: `npm run build`
-- **Build for GitHub Pages**: `npm run build:github` (uses --base-href=/)
-- **Deploy to GitHub Pages**: `npm run deploy` (builds and deploys using angular-cli-ghpages)
-- **Tests**: `npm test` (Karma + Jasmine)
-- **CI Tests**: `npm run test:ci` (headless Chrome with coverage)
+- **Development server**: `pnpm start` (serves on http://localhost:4200)
+- **Build for production**: `pnpm run build`
+- **Build for GitHub Pages**: `pnpm run build:github` (uses --base-href=/)
+- **Deploy to GitHub Pages**: `pnpm run deploy` (builds and deploys using angular-cli-ghpages)
+- **Tests**: `pnpm test` (Karma + Jasmine)
+- **CI Tests**: `pnpm run test:ci` (headless Chrome with coverage)
 
 ### Code Quality & Formatting
 
-- **Format code**: `npm run format` (Prettier)
-- **Check formatting**: `npm run format:check`
-- **Lint staged files**: `npm run lint-staged` (runs on pre-commit via Husky)
+- **Format code**: `pnpm run format` (Prettier)
+- **Check formatting**: `pnpm run format:check`
+- **Lint staged files**: `pnpm run lint-staged` (runs on pre-commit via Husky)
 
 ### Analysis & Performance
 
-- **Bundle analysis**: `npm run analyze` (webpack-bundle-analyzer)
-- **Lighthouse audit**: `npm run lighthouse`
-- **Watch builds**: `npm run watch` (development mode with file watching)
+- **Bundle analysis**: `pnpm run analyze` (webpack-bundle-analyzer)
+- **Lighthouse audit**: `pnpm run lighthouse`
+- **Watch builds**: `pnpm run watch` (development mode with file watching)
 
 ### Dependency Management
 
-- **Update Angular**: `npm run update:angular`
-- **Update dependencies**: `npm run update:deps`
+- **Update Angular**: `pnpm run update:angular`
+- **Update dependencies**: `pnpm run update:deps`
 
 ## Architecture Overview
 
@@ -157,14 +157,14 @@ export class ComponentComponent {
 - **Base Href**: Always use `/` for GitHub Pages compatibility
 - **Static Build**: Only static files, no server-side components
 - **Manual Dependency Updates**: Never use automated dependency updates - verify compatibility manually
-- **No CI/CD**: Use `npm run deploy` for manual deployment
+- **No CI/CD**: Use `pnpm run deploy` for manual deployment
 
 ### Git Workflow
 
 - **Main Branch**: All development happens on main, direct deployment from main
 - **Commit Messages**: Use conventional commits (feat, fix, refactor, docs, etc.)
 - **Pre-commit Hooks**: Husky enforces formatting and linting before commits
-- **Manual Deploy**: Use `npm run deploy` command for GitHub Pages deployment
+- **Manual Deploy**: Use `pnpm run deploy` command for GitHub Pages deployment
 
 ## Important Technical Notes
 
@@ -197,3 +197,101 @@ When updating dependencies, manually verify compatibility for:
 - **No SSR**: Application cannot use server-side rendering due to GitHub Pages static hosting
 - **Hash Routing**: Required for GitHub Pages, affects SEO but necessary for proper routing
 - **Manual Deployments**: No automated CI/CD - requires manual deployment process
+
+## MANDATORY DEVELOPMENT PRACTICES
+
+### SOLID Principles (Applied to Current Structure)
+
+- **Single Responsibility**: Each service, component, and model serves one clear purpose
+- **Open/Closed**: Components open for extension, closed for modification
+- **Liskov Substitution**: All implementations must be substitutable for their interfaces
+- **Interface Segregation**: Create focused, specific interfaces over large monolithic ones
+- **Dependency Inversion**: Depend on abstractions, not concrete implementations
+
+### Angular Signals Architecture (Primary State Management)
+
+- **Signal-First Approach**: Use `signal()` for all reactive state management
+- **Computed Properties**: Use `computed()` for derived state instead of manual calculations
+- **Effect Usage**: Use `effect()` for side effects and synchronization, not for state propagation
+- **Signal Composition**: Build complex state from simple signal primitives
+- **Immutable Updates**: Always use `.set()` and `.update()` methods for signal mutations
+- **Template Integration**: Leverage automatic change detection with signal-based templates
+
+#### Signal Implementation Patterns
+
+```typescript
+// Service pattern with signals
+@Injectable({ providedIn: 'root' })
+export class StateService {
+  private readonly _count = signal(0);
+  readonly count = this._count.asReadonly();
+  readonly doubleCount = computed(() => this._count() * 2);
+
+  increment() { this._count.update(c => c + 1); }
+}
+
+// Component pattern with signals
+@Component({...})
+export class MyComponent {
+  private readonly service = inject(StateService);
+  readonly displayValue = computed(() =>
+    `Count: ${this.service.count()}`
+  );
+}
+```
+
+### Domain-Driven Design Principles
+
+- **Rich Domain Models**: Create entities with behavior, not just data containers
+- **Value Objects**: Use for complex types without identity (ContactInfo, SocialLinks)
+- **Repository Pattern**: Abstract data access behind interfaces
+- **Domain Services**: Extract complex business logic that spans multiple entities
+- **Ubiquitous Language**: Maintain consistent domain terminology across all layers
+
+### Clean Architecture Fundamentals
+
+- **Dependency Rule**: Source code dependencies point inward toward business logic
+- **Framework Independence**: Core business logic independent of Angular-specific code
+- **Separation of Concerns**: Clear boundaries between presentation, business, and data layers
+- **Interface Segregation**: Small, focused contracts over large monolithic interfaces
+- **Mapper Pattern**: Transform data between layers using dedicated mapper utilities
+
+### Testing Requirements
+
+- **Business Logic Coverage**: Critical services and domain models must have comprehensive tests
+- **Signal Testing**: Test signal behavior, computed values, and effect execution
+- **Component Contracts**: Test component public API and behavior, not implementation
+- **Integration Testing**: Verify service integration and data flow between layers
+- **E2E Critical Paths**: Cover primary user journeys and cross-cutting concerns
+
+### Code Quality Standards (Non-Negotiable)
+
+- **TypeScript Strict Mode**: All code must pass strict type checking without exceptions
+- **Static Analysis**: Prettier + ESLint + Husky enforcement via pre-commit hooks
+- **No Any Types**: Explicit typing required, eliminate implicit `any` usage
+- **Readonly by Default**: Use `readonly` properties and immutable patterns
+- **Self-Documenting Code**: Clear naming conventions over extensive comments
+
+### Package Management (PNPM Only)
+
+- **PNPM Exclusive**: Use `pnpm` for all package management operations
+- **Lock File Integrity**: Always commit `pnpm-lock.yaml` changes
+- **Workspace Configuration**: Leverage PNPM workspace features when applicable
+- **Dependency Deduplication**: Benefit from PNPM's efficient dependency sharing
+- **Script Execution**: Use `pnpm run <script>` for all npm script execution
+
+### External Dependency Policy
+
+- **Justification First**: Every external library must provide explicit business value
+- **Bundle Impact Analysis**: Mandatory `pnpm run analyze` before adding dependencies
+- **Security Assessment**: Regular vulnerability scanning with `pnpm audit`
+- **Framework Alignment**: Prefer libraries that integrate well with Angular ecosystem
+- **Maintenance Burden**: Evaluate long-term support and community activity
+
+### Performance and Optimization
+
+- **Signal-Based Change Detection**: Leverage signals for granular UI updates
+- **Lazy Loading**: Implement route-based code splitting for optimal loading
+- **OnPush Strategy**: Use OnPush change detection strategy with signal-driven components
+- **Bundle Optimization**: Regular analysis with `pnpm run analyze` and tree-shaking verification
+- **Resource Management**: Proper cleanup of effects and subscriptions
