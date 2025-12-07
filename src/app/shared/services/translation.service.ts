@@ -28,22 +28,21 @@ export class TranslationService {
       'home.aboutme.title': 'Acerca de mí',
       'home.aboutme.content': `Inicié mi carrera en 2021 como desarrollador freelance, aplicando mis conocimientos en proyectos pequeños y explorando tecnologías como
                         Angular, Laravel y Node.js. Con el tiempo, fui especializándome en desarrollo full stack y la administración de infraestructuras en Docker y servidores Linux.
-                        
-                        Actualmente, formo parte de The Rocket Code como Full Stack Developer, donde me especializo en el desarrollo de aplicaciones web modernas, 
-                        integraciones de herramientas de IA (Claude AI, Gemini, LangGraph) y soluciones de e-commerce escalables. Trabajo en proyectos que requieren arquitecturas complejas con 
-                        NestJS, NextJS, React, Angular v18/v19 y especialización en Shopify para el sector asegurador y fintech.
-                        
-                        Anteriormente, trabajé en BLIFE como Backend Developer, donde desarrollé microservicios en 
-                        NestJS con NATS y GraphQL, implementé soluciones de firma digital con Flask y Python, y gestioné CI/CD con GitHub Actions y AWS.
-                        
-                        También trabajé en MIDOCONLINE, donde lideré la refactorización completa del backend, migrándolo de Laravel 8 a Laravel 11, 
-                        optimizando su arquitectura y mejorando significativamente el rendimiento.
-                        
-                        En SKYTEX MÉXICO, desarrollé soluciones empresariales como SkyFood, Skynet 2.0 y SkyInvoiceHub en
-                        Angular, y SkySecurityApp y SkyInspect en Laravel y Node.js, además de liderar la
-                        dockerización del backend y la gestión de servidores Ubuntu.
-                        
-                        Mi enfoque actual está en arquitecturas de microservicios, integración de IA y DevOps, mientras sigo perfeccionando mis habilidades en
+
+                        Actualmente en mobiik como Full Stack Developer, trabajo con microservicios en .NET y Azure, desarrollo APIs REST con Azure Functions y App Services, integro soluciones de IA, y utilizo SQL Server con Entity Framework Core.
+
+                        Anteriormente, trabajé en The Rocket Code, donde me especialicé en el desarrollo de aplicaciones web modernas, integraciones de herramientas de IA
+                        (Claude AI, Gemini, LangGraph) y soluciones de e-commerce escalables con NestJS, NextJS, React, Angular v18/v19 y Shopify para el sector asegurador y fintech.
+
+                        También trabajé en BLIFE como Backend Developer, donde desarrollé microservicios en NestJS con NATS y GraphQL, implementé soluciones de firma digital con Flask y Python,
+                        y gestioné CI/CD con GitHub Actions y AWS.
+
+                        En MIDOCONLINE, lideré la refactorización completa del backend, migrándolo de Laravel 8 a Laravel 11, optimizando su arquitectura y mejorando significativamente el rendimiento.
+
+                        En SKYTEX MÉXICO, desarrollé soluciones empresariales como SkyFood, Skynet 2.0 y SkyInvoiceHub en Angular, y SkySecurityApp y SkyInspect en Laravel y Node.js,
+                        además de liderar la dockerización del backend y la gestión de servidores Ubuntu.
+
+                        Mi enfoque actual está en arquitecturas de microservicios, integración de IA y DevOps con .NET y Azure, mientras sigo perfeccionando mis habilidades en
                         tecnologías emergentes. En mi tiempo libre, me mantengo al día con las últimas tendencias tecnológicas y disfruto de mis pasatiempos, como jugar videojuegos y salir a pasear.`,
       'home.skills.title': 'Habilidades',
       'home.studies.title': 'Estudios',
@@ -77,10 +76,16 @@ export class TranslationService {
       'profile.no_information': 'Sin Información',
 
       // Timeline - Experience
+      'timeline.mobiik.title': 'Full Stack Developer - mobiik',
+      'timeline.mobiik.description':
+        'En mobiik, participo en proyectos utilizando arquitecturas de microservicios en .NET y Azure. Desarrollo APIs REST con Azure Functions y Azure App Services, integro agentes especializados con IA, e implemento soluciones con Azure SQL Server y Entity Framework Core. Desarrollo pruebas unitarias para SQL Server y componentes .NET, y trabajo colaborativamente con Azure DevOps y metodologías ágiles.',
+      'timeline.mobiik.period': 'Septiembre 2025 - Actualidad',
+      'timeline.mobiik.company': 'Microservices & AI • .NET & Azure',
+
       'timeline.rocket.title': 'Full Stack Developer - The Rocket Code',
       'timeline.rocket.description':
         'En The Rocket Code, me especializo en el desarrollo de aplicaciones web modernas, integraciones de herramientas de IA y soluciones de e-commerce escalables. Trabajo en proyectos que requieren arquitecturas complejas y integración de múltiples servicios, implementando herramientas con Claude AI, Gemini y LangGraph, desarrollando APIs con NestJS y creando interfaces con NextJS, React y Angular v18/v19. También me especializo en desarrollo y administración de Shopify para aplicaciones del sector asegurador y fintech.',
-      'timeline.rocket.period': 'Marzo 2025 - Actualidad',
+      'timeline.rocket.period': 'Marzo 2025 - Septiembre 2025',
       'timeline.rocket.company': 'AI Software Development • Miami, USA',
 
       'timeline.blife.title': 'Backend Developer - BLIFE',
@@ -123,22 +128,21 @@ export class TranslationService {
       'home.aboutme.title': 'About me',
       'home.aboutme.content': `I started my career in 2021 as a freelance developer, applying my knowledge to small projects and exploring technologies such as
                         Angular, Laravel and Node.js. Over time, I specialized in full stack development and infrastructure administration in Docker and Linux servers.
-                        
-                        Currently, I am part of The Rocket Code as a Full Stack Developer, where I specialize in developing modern web applications, 
-                        AI tool integrations (Claude AI, Gemini, LangGraph) and scalable e-commerce solutions. I work on projects that require complex architectures with 
-                        NestJS, NextJS, React, Angular v18/v19 and specialization in Shopify for the insurance and fintech sector.
-                        
-                        Previously, I worked at BLIFE as a Backend Developer, where I developed microservices in 
-                        NestJS with NATS and GraphQL, implemented digital signature solutions with Flask and Python, and managed CI/CD with GitHub Actions and AWS.
-                        
-                        I also worked at MIDOCONLINE, where I led the complete backend refactoring, migrating it from Laravel 8 to Laravel 11, 
-                        optimizing its architecture and significantly improving performance.
-                        
-                        At SKYTEX MÉXICO, I developed business solutions such as SkyFood, Skynet 2.0 and SkyInvoiceHub in
-                        Angular, and SkySecurityApp and SkyInspect in Laravel and Node.js, in addition to leading the
-                        backend dockerization and Ubuntu server management.
-                        
-                        My current focus is on microservice architectures, AI integration and DevOps, while I continue to hone my skills in
+
+                        Currently at mobiik as Full Stack Developer, I work with microservices in .NET and Azure, develop REST APIs with Azure Functions and App Services, integrate AI solutions, and use SQL Server with Entity Framework Core.
+
+                        Previously, I worked at The Rocket Code, where I specialized in developing modern web applications, AI tool integrations
+                        (Claude AI, Gemini, LangGraph) and scalable e-commerce solutions with NestJS, NextJS, React, Angular v18/v19 and Shopify for the insurance and fintech sector.
+
+                        I also worked at BLIFE as a Backend Developer, where I developed microservices in NestJS with NATS and GraphQL, implemented digital signature solutions with Flask and Python,
+                        and managed CI/CD with GitHub Actions and AWS.
+
+                        At MIDOCONLINE, I led the complete backend refactoring, migrating it from Laravel 8 to Laravel 11, optimizing its architecture and significantly improving performance.
+
+                        At SKYTEX MÉXICO, I developed business solutions such as SkyFood, Skynet 2.0 and SkyInvoiceHub in Angular, and SkySecurityApp and SkyInspect in Laravel and Node.js,
+                        in addition to leading backend dockerization and Ubuntu server management.
+
+                        My current focus is on microservice architectures, AI integration and DevOps with .NET and Azure, while I continue to hone my skills in
                         emerging technologies. In my free time, I keep up with the latest technology trends and enjoy my hobbies, such as playing video games and going for walks.`,
       'home.skills.title': 'Skills',
       'home.studies.title': 'Studies',
@@ -171,11 +175,17 @@ export class TranslationService {
       'profile.no_information': 'No Information',
 
       // Timeline - Experience
+      'timeline.mobiik.title': 'Full Stack Developer - mobiik',
+      'timeline.mobiik.description':
+        'At mobiik, I participate in projects using microservices architectures in .NET and Azure. I develop REST APIs with Azure Functions and Azure App Services, integrate specialized AI agents, and implement solutions with Azure SQL Server and Entity Framework Core. I develop unit tests for SQL Server and .NET components, and work collaboratively with Azure DevOps and agile methodologies.',
+      'timeline.mobiik.period': 'September 2025 - Present',
+      'timeline.mobiik.company': 'Microservices & AI • .NET & Azure',
+
       'timeline.rocket.title': 'Full Stack Developer - The Rocket Code',
       'timeline.rocket.description':
-        'At The Rocket Code, I specialize in developing modern web applications, AI tool integrations and scalable e-commerce solutions. I work on projects that require complex architectures and integration of multiple services, implementing tools with Claude AI, Gemini and LangGraph, developing APIs with NestJS and creating interfaces with NextJS, React and Angular v18/v19. I also specialize in Shopify development and administration for insurance and fintech sector applications.',
-      'timeline.rocket.period': 'March 2025 - Present',
-      'timeline.rocket.company': 'AI Software Development • Miami, USA',
+        'At The Rocket Code, I specialized in developing modern web applications, AI tool integrations and scalable e-commerce solutions. I worked on projects that require complex architectures and integration of multiple services, implementing tools with Claude AI, Gemini and LangGraph, developing APIs with NestJS and creating interfaces with NextJS, React and Angular v18/v19. I also specialized in Shopify development and administration for insurance and fintech sector applications.',
+      'timeline.rocket.period': 'March 2025 - September 2025',
+      'timeline.rocket.company': 'AI Software Development • Mexico City, CDMX',
 
       'timeline.blife.title': 'Backend Developer - BLIFE',
       'timeline.blife.description':
