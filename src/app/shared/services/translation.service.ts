@@ -75,12 +75,36 @@ export class TranslationService {
       'profile.more_info': 'Más información...',
       'profile.no_information': 'Sin Información',
 
+      // Projects page
+      'nav.projects': 'Proyectos',
+      'projects.title': 'Mis Proyectos',
+      'projects.subtitle':
+        'Explora mis proyectos más destacados, desde desarrollo full stack hasta integración de inteligencia artificial',
+      'projects.featured': 'Proyectos Destacados',
+      'projects.search': 'Buscar',
+      'projects.searchPlaceholder': 'Buscar por nombre o descripción...',
+      'projects.stackCategory': 'Stack Tecnológico',
+      'projects.allCategories': 'Todas las categorías',
+      'projects.allStatuses': 'Todos los estados',
+      'projects.status.label': 'Estado',
+      'projects.status.active': 'Activo',
+      'projects.status.in-progress': 'En Progreso',
+      'projects.status.archived': 'Archivado',
+      'projects.clearFilters': 'Limpiar Filtros',
+      'projects.viewDetails': 'Ver Detalles',
+      'projects.noResults': 'No se encontraron proyectos que coincidan con tus criterios de búsqueda.',
+      'projects.objectives': 'Objetivos',
+      'projects.achievements': 'Logros',
+      'projects.techStack': 'Stack Tecnológico',
+      'projects.links': 'Enlaces',
+      'projects.comingSoon': 'Próximamente',
+
       // Timeline - Experience
       'timeline.mobiik.title': 'Full Stack Developer - mobiik',
       'timeline.mobiik.description':
-        'En mobiik, participo en proyectos utilizando arquitecturas de microservicios en .NET y Azure. Desarrollo APIs REST con Azure Functions y Azure App Services, integro agentes especializados con IA, e implemento soluciones con Azure SQL Server y Entity Framework Core. Desarrollo pruebas unitarias para SQL Server y componentes .NET, y trabajo colaborativamente con Azure DevOps y metodologías ágiles.',
+        'En mobiik, mi función principal es el desarrollo frontend con Angular, complementado con desarrollo full-stack utilizando arquitecturas de microservicios en .NET y Azure. Desarrollo APIs REST con Azure Functions y Azure App Services, integro agentes especializados con IA, e implemento soluciones con Azure SQL Server y Entity Framework Core. Desarrollo pruebas unitarias para componentes .NET y SQL Server, y trabajo colaborativamente con Azure DevOps y metodologías ágiles.',
       'timeline.mobiik.period': 'Septiembre 2025 - Actualidad',
-      'timeline.mobiik.company': 'Microservices & AI • .NET & Azure',
+      'timeline.mobiik.company': 'Angular & .NET Full-Stack • Microservices & AI',
 
       'timeline.rocket.title': 'Full Stack Developer - The Rocket Code',
       'timeline.rocket.description':
@@ -174,12 +198,36 @@ export class TranslationService {
       'profile.more_info': 'More info...',
       'profile.no_information': 'No Information',
 
+      // Projects page
+      'nav.projects': 'Projects',
+      'projects.title': 'My Projects',
+      'projects.subtitle':
+        'Explore my most outstanding projects, from full stack development to artificial intelligence integration',
+      'projects.featured': 'Featured Projects',
+      'projects.search': 'Search',
+      'projects.searchPlaceholder': 'Search by name or description...',
+      'projects.stackCategory': 'Tech Stack',
+      'projects.allCategories': 'All categories',
+      'projects.allStatuses': 'All statuses',
+      'projects.status.label': 'Status',
+      'projects.status.active': 'Active',
+      'projects.status.in-progress': 'In Progress',
+      'projects.status.archived': 'Archived',
+      'projects.clearFilters': 'Clear Filters',
+      'projects.viewDetails': 'View Details',
+      'projects.noResults': 'No projects found matching your search criteria.',
+      'projects.objectives': 'Objectives',
+      'projects.achievements': 'Achievements',
+      'projects.techStack': 'Tech Stack',
+      'projects.links': 'Links',
+      'projects.comingSoon': 'Coming Soon',
+
       // Timeline - Experience
       'timeline.mobiik.title': 'Full Stack Developer - mobiik',
       'timeline.mobiik.description':
-        'At mobiik, I participate in projects using microservices architectures in .NET and Azure. I develop REST APIs with Azure Functions and Azure App Services, integrate specialized AI agents, and implement solutions with Azure SQL Server and Entity Framework Core. I develop unit tests for SQL Server and .NET components, and work collaboratively with Azure DevOps and agile methodologies.',
+        'At mobiik, my primary role is frontend development with Angular, complemented with full-stack development using microservices architectures in .NET and Azure. I develop REST APIs with Azure Functions and Azure App Services, integrate specialized AI agents, and implement solutions with Azure SQL Server and Entity Framework Core. I develop unit tests for .NET components and SQL Server, and work collaboratively with Azure DevOps and agile methodologies.',
       'timeline.mobiik.period': 'September 2025 - Present',
-      'timeline.mobiik.company': 'Microservices & AI • .NET & Azure',
+      'timeline.mobiik.company': 'Angular & .NET Full-Stack • Microservices & AI',
 
       'timeline.rocket.title': 'Full Stack Developer - The Rocket Code',
       'timeline.rocket.description':

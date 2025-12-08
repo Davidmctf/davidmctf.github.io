@@ -15,14 +15,6 @@ export interface LanguageOption {
 export class LanguageService {
   private readonly LANGUAGE_KEY = 'portfolio-language';
 
-  private readonly _currentLanguage = signal<Language>(
-    this.getInitialLanguage(),
-  );
-
-  readonly currentLanguage = this._currentLanguage.asReadonly();
-  readonly isSpanish = computed(() => this._currentLanguage() === 'es-MX');
-  readonly isEnglish = computed(() => this._currentLanguage() === 'en');
-
   readonly availableLanguages: LanguageOption[] = [
     {
       code: 'es-MX',
@@ -37,6 +29,14 @@ export class LanguageService {
       flag: '🇺🇸',
     },
   ];
+
+  private readonly _currentLanguage = signal<Language>(
+    this.getInitialLanguage(),
+  );
+
+  readonly currentLanguage = this._currentLanguage.asReadonly();
+  readonly isSpanish = computed(() => this._currentLanguage() === 'es-MX');
+  readonly isEnglish = computed(() => this._currentLanguage() === 'en');
 
   readonly currentLanguageOption = computed(
     () =>

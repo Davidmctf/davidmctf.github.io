@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "pnpm: start",
       "type": "shell",
       "command": "pnpm",
       "args": ["start"],
@@ -22,6 +23,7 @@
       }
     },
     {
+      "label": "pnpm: test",
       "type": "shell",
       "command": "pnpm",
       "args": ["test"],
