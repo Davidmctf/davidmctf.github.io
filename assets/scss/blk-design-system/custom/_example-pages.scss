@@ -122,6 +122,57 @@
       left: -0%;
       bottom: 10%;
     }
+
+    // Company-branded squares
+    &.square-mobiik {
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+      animation: move-left-right 7s infinite;
+      height: 180px;
+      width: 180px;
+      opacity: 0.3;
+      right: 15%;
+      top: 25%;
+    }
+
+    &.square-rocket {
+      background: linear-gradient(135deg, #050e2a, #a6f674);
+      animation: move-left-right 5s infinite;
+      height: 150px;
+      width: 150px;
+      opacity: 0.25;
+      left: 20%;
+      bottom: 35%;
+    }
+
+    &.square-blife {
+      background: linear-gradient(135deg, #00cbf0, #00cbf0);
+      animation: move-left-right 8s infinite;
+      height: 120px;
+      width: 120px;
+      opacity: 0.35;
+      right: 30%;
+      bottom: 20%;
+    }
+
+    &.square-midoconline {
+      background: linear-gradient(135deg, #0d8ef2, #34e8e3);
+      animation: move-left-right 6s infinite;
+      height: 160px;
+      width: 160px;
+      opacity: 0.28;
+      left: 5%;
+      top: 50%;
+    }
+
+    &.square-skytex {
+      background: linear-gradient(135deg, #017937, #2dce89);
+      animation: move-left-right 9s infinite;
+      height: 140px;
+      width: 140px;
+      opacity: 0.32;
+      right: 8%;
+      top: 60%;
+    }
   }
 }
 
