@@ -7,13 +7,15 @@ Portfolio profesional desarrollado en Angular 20.1.6 con arquitectura moderna, p
 - **Angular 20.1.6** con Standalone Components
 - **TypeScript 5.8** con strict mode habilitado
 - **Angular Signals** para state management reactivo
-- **PNPM** como gestor de paquetes exclusivo
+- **PNPM** (recomendado) o **Bun** (alternativo) como gestor de paquetes
 - **NgBootstrap** + BLK Design System
 - **FontAwesome** icons
 - **Chart.js** para visualizaciones
 - **GitHub Pages** deployment
 
 ## Instalación y Desarrollo
+
+### Con pnpm (Recomendado)
 
 ```bash
 # Instalar pnpm globalmente (si no lo tienes)
@@ -41,6 +43,53 @@ pnpm test
 # Deploy a GitHub Pages
 pnpm run deploy
 ```
+
+### Con bun (Alternativo - más rápido)
+
+```bash
+# Instalar bun (si no lo tienes)
+curl -fsSL https://bun.sh/install | bash
+
+# Instalar dependencias
+bun install
+
+# Servidor de desarrollo
+bun start
+
+# Build de producción
+bun build
+
+# Build para GitHub Pages
+bun run bun:build:github
+
+# Tests
+bun test
+
+# Deploy a GitHub Pages
+bun run bun:deploy
+
+# Análisis de bundle
+bun run bun:analyze
+
+# Lighthouse audit
+bun run bun:lighthouse
+```
+
+### Comandos Disponibles (Ambos Package Managers)
+
+| Comando            | pnpm                    | bun                        |
+| ------------------ | ----------------------- | -------------------------- |
+| Servidor dev       | `pnpm start`            | `bun start`                |
+| Build prod         | `pnpm run build`        | `bun build`                |
+| Build GitHub Pages | `pnpm run build:github` | `bun run bun:build:github` |
+| Tests              | `pnpm test`             | `bun test`                 |
+| Format código      | `pnpm run format`       | `bunx prettier --write .`  |
+| Lint staged        | `pnpm run lint-staged`  | `bunx lint-staged`         |
+| Deploy             | `pnpm run deploy`       | `bun run bun:deploy`       |
+| Bundle analysis    | `pnpm run analyze`      | `bun run bun:analyze`      |
+| Lighthouse         | `pnpm run lighthouse`   | `bun run bun:lighthouse`   |
+
+> **Nota**: Los hooks de Husky detectan automáticamente qué package manager usas. No necesitas configuración adicional.
 
 ## Arquitectura del Proyecto
 

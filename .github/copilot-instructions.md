@@ -22,13 +22,43 @@ These files contain comprehensive instructions that help GitHub Copilot understa
 
 Save with conversacion info required with persistan contex needed in context.sqlite and use sqlite3 command in terminal allowed in backgroud for this actions:
 
-- **context file**: Route context file [path](../.claude/context.sqlite) to save and get context info required.
+- **context file**: Route context file [path](../.claude/context.sqlite)
 
-Posible path to use:
+## Package Manager Support
 
-- .claude/context.sqlite
-- .github/context.sqlite(if not exist in same route, create it here)
-- .context.sqlite
+### Supported Package Managers
+
+This repository supports both **pnpm** and **bun** as package managers:
+
+#### pnpm (Recommended)
+
+- Primary package manager
+- All standard commands work with `pnpm run <script>`
+- Husky hooks automatically detect and use pnpm
+- Use for production deployments
+
+#### bun (Alternative)
+
+- Alternative package manager for faster installations
+- Most commands work directly: `bun start`, `bun build`, `bun test`
+- Special commands use `bun:` prefix: `bun run bun:deploy`, `bun run bun:analyze`
+- Husky hooks automatically detect and use bunx for staged files
+- Compatible with existing setup - no additional configuration needed
+
+### Husky Compatibility
+
+Husky hooks (pre-commit, commit-msg, pre-push) are configured to automatically detect which package manager is available and use the appropriate executor:
+
+```bash
+# pre-commit hook automatically:
+if command -v bun &> /dev/null; then
+  bunx lint-staged    # Uses bun if available
+else
+  pnpm run lint-staged # Falls back to pnpm
+fi
+```
+
+No manual configuration needed - just use whichever package manager you prefer.
 
 # AGENT MODE DEFAULT INSTRUCTIONS
 

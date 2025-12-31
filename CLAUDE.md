@@ -6,12 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Primary Development Workflow
 
+#### With pnpm (Recommended)
+
 - **Development server**: `pnpm start` (serves on http://localhost:4200)
 - **Build for production**: `pnpm run build`
 - **Build for GitHub Pages**: `pnpm run build:github` (uses --base-href=/)
 - **Deploy to GitHub Pages**: `pnpm run deploy` (builds and deploys using angular-cli-ghpages)
 - **Tests**: `pnpm test` (Karma + Jasmine)
 - **CI Tests**: `pnpm run test:ci` (headless Chrome with coverage)
+
+#### With bun (Alternative)
+
+- **Development server**: `bun start`
+- **Build for production**: `bun build`
+- **Build for GitHub Pages**: `bun run bun:build:github`
+- **Deploy to GitHub Pages**: `bun run bun:deploy`
+- **Tests**: `bun test`
+- **CI Tests**: `bun run test:ci`
 
 ### Code Quality & Formatting
 
@@ -21,14 +32,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Analysis & Performance
 
-- **Bundle analysis**: `pnpm run analyze` (webpack-bundle-analyzer)
-- **Lighthouse audit**: `pnpm run lighthouse`
+- **Bundle analysis**: `pnpm run analyze` (webpack-bundle-analyzer) or `bun run bun:analyze`
+- **Lighthouse audit**: `pnpm run lighthouse` or `bun run bun:lighthouse`
 - **Watch builds**: `pnpm run watch` (development mode with file watching)
 
 ### Dependency Management
 
 - **Update Angular**: `pnpm run update:angular`
-- **Update dependencies**: `pnpm run update:deps`
+- **Update dependencies**: `pnpm run update:deps` or `bun run bun:update:deps`
 
 ## Architecture Overview
 
