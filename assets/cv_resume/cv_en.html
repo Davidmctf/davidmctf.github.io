@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Muñoz Cruz - Full Stack Developer</title>
+    <style>
+      /* ... (Estilos originales mantenidos intactos) ... */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        border-bottom: 3px solid #0066cc;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        color: #0066cc;
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 14px;
+        color: #666;
+        margin-top: 10px;
+      }
+
+      .contact-info a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .summary {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-left: 4px solid #0066cc;
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      section {
+        margin-bottom: 25px;
+      }
+
+      h2 {
+        color: #0066cc;
+        font-size: 18px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .job {
+        margin-bottom: 20px;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 5px;
+      }
+
+      .job-title {
+        font-weight: bold;
+        color: #222;
+        font-size: 15px;
+      }
+
+      .job-period {
+        color: #666;
+        font-size: 13px;
+        font-style: italic;
+      }
+
+      .company {
+        color: #0066cc;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .job-description {
+        margin-left: 0;
+        color: #555;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .job-description ul {
+        list-style-position: inside;
+        margin: 10px 0 10px 20px;
+      }
+
+      .job-description li {
+        margin-bottom: 5px;
+      }
+
+      .technologies {
+        margin-top: 8px;
+        padding: 8px 12px;
+        background-color: #f0f5ff;
+        border-radius: 4px;
+        font-size: 12px;
+        color: #0066cc;
+        font-weight: 500;
+      }
+
+      /* mobiik special styling */
+      .job.mobiik .company {
+        color: #7c3aed;
+        background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .job.mobiik .technologies {
+        background: linear-gradient(
+          135deg,
+          rgba(124, 58, 237, 0.1) 0%,
+          rgba(236, 72, 153, 0.1) 100%
+        );
+        border-left: 3px solid #7c3aed;
+        color: #7c3aed;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+
+      .skill-category {
+        background-color: #f9f9f9;
+        padding: 12px;
+        border-radius: 4px;
+        border-left: 3px solid #0066cc;
+      }
+
+      .skill-category h3 {
+        color: #0066cc;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      .skill-category ul {
+        list-style: none;
+        font-size: 12px;
+      }
+
+      .skill-category li {
+        color: #555;
+        padding: 3px 0;
+      }
+
+      .skill-category li:before {
+        content: "• ";
+        color: #0066cc;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      .education {
+        background-color: #f9f9f9;
+        padding: 12px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+
+      .education-degree {
+        font-weight: bold;
+        color: #222;
+        font-size: 14px;
+      }
+
+      .education-school {
+        color: #0066cc;
+        font-size: 13px;
+      }
+
+      .education-period {
+        color: #666;
+        font-size: 12px;
+        font-style: italic;
+      }
+
+      .personal-info {
+        background-color: #f9f9f9;
+        padding: 12px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+
+      .personal-info strong {
+        color: #0066cc;
+        margin-right: 5px;
+      }
+
+      .personal-info-value {
+        color: #555;
+      }
+
+      .print-only {
+        display: none;
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          margin: 0;
+          padding: 20px;
+          box-shadow: none;
+        }
+
+        .print-only {
+          display: block;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
+        }
+
+        .job-header {
+          flex-direction: column;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>David Muñoz Cruz</h1>
+        <div class="contact-info">
+          <span>Huejotzingo, Pue. 74160</span>
+          <span>|</span>
+          <a href="mailto:davidmctf@gmail.com">davidmctf@gmail.com</a>
+          <span>|</span>
+          <span>52 246 209 3346</span>
+        </div>
+      </header>
+
+      <div class="summary">
+        <strong>Qualified Full-Stack Developer</strong> with experience in
+        modern frontend and backend technologies. Specialized in microservices
+        architectures, AI tool integration, and e-commerce solutions. Strong
+        problem-solving abilities and proposal of new technologies to improve
+        development efficiency. Strong teamwork orientation complemented by
+        excellent self-management skills. Experienced in implementing AI tools,
+        process automation, and user experience optimization. Continuous
+        learning, constantly expanding knowledge through innovative projects and
+        emerging technologies.
+      </div>
+
+      <section>
+        <h2>Personal Information</h2>
+        <div class="personal-info">
+          <strong>Willing to travel/relocate:</strong>
+          <span class="personal-info-value">Depends on the opportunity</span>
+        </div>
+        <div class="personal-info">
+          <strong>Industry:</strong>
+          <span class="personal-info-value">Information Technology</span>
+        </div>
+        <div class="personal-info">
+          <strong>Total years of experience:</strong>
+          <span class="personal-info-value">4 years</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+
+        <div class="job mobiik">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Full Stack Developer</div>
+              <div class="company">mobiik</div>
+            </div>
+            <div class="job-period">September 2025 - Present</div>
+          </div>
+          <div class="job-description">
+            <strong>Location:</strong> Mexico City, CDMX
+            <ul>
+              <li>
+                Frontend development with Angular as a primary role,
+                complemented by full-stack development in .NET and Azure.
+              </li>
+              <li>
+                Development of microservices in .NET 8 with scalable
+                architectures using Azure Functions and App Services.
+              </li>
+              <li>
+                Integration of specialized AI agents into enterprise solutions.
+              </li>
+              <li>
+                Implementation with Azure SQL Server, Entity Framework Core, and
+                development of unit tests for .NET and SQL Server components.
+              </li>
+              <li>
+                Collaborative work with Azure DevOps applying agile
+                methodologies.
+              </li>
+              <li>
+                Performance optimization and scalability of Angular web
+                applications.
+              </li>
+            </ul>
+          </div>
+          <div class="technologies">
+            Angular | TypeScript | .NET 8 | C# | Azure Functions | Azure App
+            Services | SQL Server | Entity Framework Core | Azure DevOps |
+            Docker | Git | APIs REST | Copilot - Copilot Azure | Anthropic
+            Models
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Full Stack Developer</div>
+              <div class="company">The Rocket Code</div>
+            </div>
+            <div class="job-period">March 2025 - September 2025</div>
+          </div>
+          <div class="job-description">
+            <strong>Location:</strong> Mexico City, CDMX
+            <ul>
+              <li>
+                Implementation of tools using Claude AI, Gemini, and LangGraph.
+              </li>
+              <li>
+                API development with NestJS and microservices architectures.
+              </li>
+              <li>
+                Interface creation with NextJS, React, and Angular v18/v19.
+              </li>
+              <li>Specialization in Shopify development and administration.</li>
+              <li>
+                Application development for the insurance and fintech sectors.
+              </li>
+            </ul>
+          </div>
+          <div class="technologies">
+            NestJS | NextJS | React | Angular | TypeScript | LangGraph | Claude
+            AI | Gemini | PostgreSQL (pgvector) | MongoDB Atlas | Shopify |
+            Docker | AWS | Rust | Python
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Backend Developer</div>
+              <div class="company">BLIFE</div>
+            </div>
+            <div class="job-period">September 2024 - March 2025</div>
+          </div>
+          <div class="job-description">
+            <strong>Location:</strong> Puebla, Pue.
+            <ul>
+              <li>
+                Development and management of microservices in NestJS with NATS
+                and GraphQL.
+              </li>
+              <li>Development of Blife-e-Signature with Flask and Python.</li>
+              <li>
+                Implementation of CI/CD with GitHub Actions and deployment on
+                AWS.
+              </li>
+            </ul>
+          </div>
+          <div class="technologies">
+            NestJS | GraphQL | MongoDB | NATS | Angular (components) | Flask |
+            Python | AWS | Docker | GitHub Actions
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Full Stack Developer</div>
+              <div class="company">MIDOCONLINE</div>
+            </div>
+            <div class="job-period">April 2024 - September 2024</div>
+          </div>
+          <div class="job-description">
+            <strong>Location:</strong> Puebla, Pue.
+            <ul>
+              <li>
+                Led the complete backend refactoring, migrating from Laravel 8
+                to Laravel 11, optimizing its architecture and significantly
+                improving performance.
+              </li>
+            </ul>
+          </div>
+          <div class="technologies">
+            Laravel 11 | MySQL | PostgreSQL | Angular (internal ERPs) | React
+            (public interfaces) | Blade | Docker | AWS
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Full Stack Developer</div>
+              <div class="company">SKYTEX</div>
+            </div>
+            <div class="job-period">January 2022 - April 2024</div>
+          </div>
+          <div class="job-description">
+            <strong>Location:</strong> Huejotzingo, Pue.
+            <ul>
+              <li>
+                Development of internal ERP (Skynet 2.0) and billing portal
+                (SkyInvoiceHub).
+              </li>
+              <li>
+                Migration of logistics app to Kotlin with Jetpack Compose and
+                MVVM.
+              </li>
+              <li>
+                Implementation of access control with WebSockets and
+                Dockerization of apps.
+              </li>
+            </ul>
+          </div>
+          <div class="technologies">
+            Angular v15/v17 | Laravel | Node.js | Kotlin | Jetpack Compose |
+            Docker | Ubuntu | Pusher | WebSockets
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education & Training</h2>
+        <div class="education">
+          <div class="education-degree">
+            Information Technology (Bachelor's Degree)
+          </div>
+          <div class="education-school">Polytechnic University of Tlaxcala</div>
+          <div class="education-period">2018 - 2022</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>BACKEND</h3>
+            <ul>
+              <li>Node.js / NestJS</li>
+              <li>Laravel / PHP</li>
+              <li>Python / Flask</li>
+              <li>.NET / C#</li>
+              <li>Entity Framework Core</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3>FRONTEND</h3>
+            <ul>
+              <li>Angular 15-20</li>
+              <li>React / Next.js</li>
+              <li>TypeScript</li>
+              <li>HTML5 / CSS3 / SCSS</li>
+              <li>NgBootstrap</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3>DATABASES</h3>
+            <ul>
+              <li>PostgreSQL / pgvector</li>
+              <li>MySQL</li>
+              <li>SQL Server</li>
+              <li>MongoDB / Atlas</li>
+              <li>GraphQL</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3>CLOUD & DEVOPS</h3>
+            <ul>
+              <li>Azure Functions</li>
+              <li>Azure App Services</li>
+              <li>Azure SQL Server</li>
+              <li>Azure DevOps</li>
+              <li>AWS (EC2, S3, RDS)</li>
+              <li>Docker / Containers</li>
+              <li>GitHub Actions</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3>AI & TOOLS</h3>
+            <ul>
+              <li>Claude AI</li>
+              <li>Copilot / Copilot Azure</li>
+              <li>Anthropic Models</li>
+              <li>LangGraph</li>
+              <li>Gemini</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3>OTHERS</h3>
+            <ul>
+              <li>Shopify Development</li>
+              <li>Microservices Architecture</li>
+              <li>REST APIs</li>
+              <li>NATS Messaging</li>
+              <li>Kotlin / Jetpack Compose</li>
+              <li>Git / Version Control</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <div class="personal-info">
+          <strong>Spanish:</strong>
+          <span class="personal-info-value">Native</span>
+        </div>
+        <div class="personal-info">
+          <strong>English:</strong>
+          <span class="personal-info-value">Intermediate</span>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
