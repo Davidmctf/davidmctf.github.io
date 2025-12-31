@@ -1,1 +1,3 @@
+#!/bin/sh
+
 echo "✅ Local pre-push validation completed"

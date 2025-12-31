@@ -1,4 +1,11 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import type { Project } from '../../models';
 import { TechBadgeComponent } from '../tech-badge/tech-badge.component';
@@ -10,7 +17,11 @@ import { TranslationService } from '../../services/translation.service';
   template: `
     <div class="modal-overlay" (click)="onClose.emit()" *ngIf="project">
       <div class="modal-content" (click)="$event.stopPropagation()">
-        <button class="close-btn" (click)="onClose.emit()" aria-label="Close modal">
+        <button
+          class="close-btn"
+          (click)="onClose.emit()"
+          aria-label="Close modal"
+        >
           <i class="fa-solid fa-times"></i>
         </button>
 
@@ -43,7 +54,9 @@ import { TranslationService } from '../../services/translation.service';
           <div class="achievements-section">
             <h3>{{ t()('projects.achievements') }}</h3>
             <ul class="achievements-list">
-              <li *ngFor="let achievement of project.achievements">{{ achievement }}</li>
+              <li *ngFor="let achievement of project.achievements">
+                {{ achievement }}
+              </li>
             </ul>
           </div>
 
@@ -71,7 +84,9 @@ import { TranslationService } from '../../services/translation.service';
               >
                 <i [class]="'fa-solid fa-external-link-alt'"></i>
                 {{ link.label || link.type | titlecase }}
-                <span *ngIf="link.type === 'demo'" class="coming-soon">({{ t()('projects.comingSoon') }})</span>
+                <span *ngIf="link.type === 'demo'" class="coming-soon"
+                  >({{ t()('projects.comingSoon') }})</span
+                >
               </a>
             </div>
           </div>

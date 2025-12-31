@@ -61,8 +61,13 @@ import { CommonModule } from '@angular/common';
 })
 export class TechBadgeComponent {
   @Input() name: string = '';
-  @Input() category: 'frontend' | 'backend' | 'database' | 'devops' | 'ai' | 'mobile' =
-    'frontend';
+  @Input() category:
+    | 'frontend'
+    | 'backend'
+    | 'database'
+    | 'devops'
+    | 'ai'
+    | 'mobile' = 'frontend';
 
   get badgeClass(): string {
     return `badge-${this.category}`;

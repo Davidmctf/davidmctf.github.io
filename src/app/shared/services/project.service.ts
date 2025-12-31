@@ -1,11 +1,17 @@
 import { Injectable, computed, signal } from '@angular/core';
-import type { Project, ProjectFilter, StackCategory, TechStack } from '../models';
+import type {
+  Project,
+  ProjectFilter,
+  StackCategory,
+  TechStack,
+} from '../models';
 
 const PROJECTS_DATA: Project[] = [
   {
     id: 'angular-dotnet-api',
     name: 'Portfolio Backend API',
-    shortDescription: 'RESTful API en .NET 8 para gestionar información del portafolio',
+    shortDescription:
+      'RESTful API en .NET 8 para gestionar información del portafolio',
     fullDescription:
       'API backend completa desarrollada con .NET 8 y Entity Framework Core, implementando SOLID principles y Clean Architecture. Incluye autenticación JWT, validaciones robustas y documentación OpenAPI.',
     stackCategory: 'angular-dotnet',
@@ -33,7 +39,10 @@ const PROJECTS_DATA: Project[] = [
       },
     ],
     links: [
-      { type: 'github', url: 'https://github.com/davidmctf/portfolio-api-dotnet' },
+      {
+        type: 'github',
+        url: 'https://github.com/davidmctf/portfolio-api-dotnet',
+      },
       { type: 'docs', url: 'https://portfolio-api.davidmctf.dev/swagger' },
     ],
     featured: true,
@@ -109,7 +118,10 @@ const PROJECTS_DATA: Project[] = [
       },
     ],
     links: [
-      { type: 'github', url: 'https://github.com/davidmctf/nextjs-saas-dashboard' },
+      {
+        type: 'github',
+        url: 'https://github.com/davidmctf/nextjs-saas-dashboard',
+      },
       { type: 'demo', url: 'https://dashboard.davidmctf.dev' },
     ],
     featured: true,
@@ -118,7 +130,8 @@ const PROJECTS_DATA: Project[] = [
   {
     id: 'nestjs-microservices',
     name: 'NestJS Microservices Architecture',
-    shortDescription: 'Arquitectura de microservicios con NestJS, GraphQL y AWS para e-commerce',
+    shortDescription:
+      'Arquitectura de microservicios con NestJS, GraphQL y AWS para e-commerce',
     fullDescription:
       'Sistema de microservicios escalable usando NestJS, GraphQL, message queues con RabbitMQ y deployed en AWS ECS. Incluye autenticación JWT, circuit breakers y comprehensive logging.',
     stackCategory: 'nestjs-typescript',
@@ -146,7 +159,10 @@ const PROJECTS_DATA: Project[] = [
       },
     ],
     links: [
-      { type: 'github', url: 'https://github.com/davidmctf/nestjs-microservices' },
+      {
+        type: 'github',
+        url: 'https://github.com/davidmctf/nestjs-microservices',
+      },
       { type: 'docs', url: 'https://api.davidmctf.dev/graphql' },
     ],
     featured: true,
@@ -184,7 +200,10 @@ const PROJECTS_DATA: Project[] = [
       },
     ],
     links: [
-      { type: 'github', url: 'https://github.com/davidmctf/langgraph-ai-agent' },
+      {
+        type: 'github',
+        url: 'https://github.com/davidmctf/langgraph-ai-agent',
+      },
       { type: 'demo', url: 'https://ai-agent.davidmctf.dev' },
     ],
     featured: false,
@@ -226,7 +245,9 @@ export class ProjectService {
     return result;
   });
 
-  readonly featuredProjects = computed(() => this._projects().filter((p) => p.featured));
+  readonly featuredProjects = computed(() =>
+    this._projects().filter((p) => p.featured),
+  );
 
   readonly stackCategories = computed(() => [
     ...new Set(this._projects().map((p) => p.stackCategory)),

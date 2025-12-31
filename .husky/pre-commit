@@ -1,1 +1,8 @@
-pnpm run lint-staged
+#!/bin/sh
+
+# Ejecutar lint-staged con el package manager detectado
+if command -v bun &> /dev/null; then
+  bunx lint-staged
+else
+  pnpm run lint-staged
+fi

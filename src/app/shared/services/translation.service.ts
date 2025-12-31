@@ -92,7 +92,8 @@ export class TranslationService {
       'projects.status.archived': 'Archivado',
       'projects.clearFilters': 'Limpiar Filtros',
       'projects.viewDetails': 'Ver Detalles',
-      'projects.noResults': 'No se encontraron proyectos que coincidan con tus criterios de búsqueda.',
+      'projects.noResults':
+        'No se encontraron proyectos que coincidan con tus criterios de búsqueda.',
       'projects.objectives': 'Objetivos',
       'projects.achievements': 'Logros',
       'projects.techStack': 'Stack Tecnológico',
@@ -104,7 +105,8 @@ export class TranslationService {
       'timeline.mobiik.description':
         'En mobiik, mi función principal es el desarrollo frontend con Angular, complementado con desarrollo full-stack utilizando arquitecturas de microservicios en .NET y Azure. Desarrollo APIs REST con Azure Functions y Azure App Services, integro agentes especializados con IA, e implemento soluciones con Azure SQL Server y Entity Framework Core. Desarrollo pruebas unitarias para componentes .NET y SQL Server, y trabajo colaborativamente con Azure DevOps y metodologías ágiles.',
       'timeline.mobiik.period': 'Septiembre 2025 - Actualidad',
-      'timeline.mobiik.company': 'Angular & .NET Full-Stack • Microservices & AI',
+      'timeline.mobiik.company':
+        'Angular & .NET Full-Stack • Microservices & AI',
 
       'timeline.rocket.title': 'Full Stack Developer - The Rocket Code',
       'timeline.rocket.description':
@@ -227,7 +229,8 @@ export class TranslationService {
       'timeline.mobiik.description':
         'At mobiik, my primary role is frontend development with Angular, complemented with full-stack development using microservices architectures in .NET and Azure. I develop REST APIs with Azure Functions and Azure App Services, integrate specialized AI agents, and implement solutions with Azure SQL Server and Entity Framework Core. I develop unit tests for .NET components and SQL Server, and work collaboratively with Azure DevOps and agile methodologies.',
       'timeline.mobiik.period': 'September 2025 - Present',
-      'timeline.mobiik.company': 'Angular & .NET Full-Stack • Microservices & AI',
+      'timeline.mobiik.company':
+        'Angular & .NET Full-Stack • Microservices & AI',
 
       'timeline.rocket.title': 'Full Stack Developer - The Rocket Code',
       'timeline.rocket.description':

@@ -1,4 +1,11 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import type { Project } from '../../models';
 import { TechBadgeComponent } from '../tech-badge/tech-badge.component';
@@ -16,7 +23,9 @@ import { TranslationService } from '../../services/translation.service';
           [alt]="project.screenshots[0].alt"
           class="project-image"
         />
-        <div *ngIf="project.featured" class="featured-badge">{{ t()('projects.featured') }}</div>
+        <div *ngIf="project.featured" class="featured-badge">
+          {{ t()('projects.featured') }}
+        </div>
       </div>
 
       <div class="card-content">

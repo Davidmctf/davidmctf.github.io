@@ -297,5 +297,7 @@ export class MyComponent {
 - **Resource Management**: Proper cleanup of effects and subscriptions
 
 # Set and Get context instrucction important rule
-Save with conversacion info required with  persistan contex needed in context.sqlite and use sqlite3 command in terminal allowed in backgroud for this actions:
+
+Save with conversacion info required with persistan contex needed in context.sqlite and use sqlite3 command in terminal allowed in backgroud for this actions:
+
 - **context file**: Route context file [path](.claude/context.sqlite)

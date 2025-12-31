@@ -21,7 +21,21 @@
     "ci:husky-checks": "echo '🔍 Running Husky checks...' && (pnpm run husky:pre-commit || echo '⚠️  Husky pre-commit check failed but continuing...') && echo '✅ Husky checks completed'",
     "lint-staged": "lint-staged",
     "update:angular": "ng update @angular/core @angular/cli",
-    "update:deps": "pnpm update"
+    "update:deps": "pnpm update",
+    "bun:start": "bun run ng serve",
+    "bun:build": "bun run ng build",
+    "bun:build:github": "bun run ng build --base-href=/",
+    "bun:watch": "bun run ng build --watch --configuration development",
+    "bun:test": "bun run ng test",
+    "bun:deploy": "bun run build:github && bunx angular-cli-ghpages --dir=dist/portafolio/browser --no-silent",
+    "bun:analyze": "bun run ng build --configuration production --stats-json && bunx webpack-bundle-analyzer dist/portafolio/browser/stats.json",
+    "bun:lighthouse": "bun run ng build --configuration production && bunx lighthouse http://localhost:4000 --view",
+    "bun:format": "bunx prettier --write .",
+    "bun:format:check": "bunx prettier --check .",
+    "bun:test:ci": "bun run ng test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "bun:lint-staged": "bunx lint-staged",
+    "bun:update:angular": "bun run ng update @angular/core @angular/cli",
+    "bun:update:deps": "bun update"
   },
   "private": true,
   "dependencies": {

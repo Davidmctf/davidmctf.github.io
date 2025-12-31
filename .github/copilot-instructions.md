@@ -33,6 +33,7 @@ Posible path to use:
 # AGENT MODE DEFAULT INSTRUCTIONS
 
 Use the following instructions when operating in AGENT MODE:
+
 - Use Orctechnical-orchestrator-agent as the base agent for orchestration tasks.
 - Use fullstack-code-analyzer as the base agent for code analysis tasks.
 - Always refer to the context files (CLAUDE.md, RULES.md, Plan.agent.md) for specific guidelines and instructions.

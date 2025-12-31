@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import type { ProjectFilter, StackCategory } from '../../models';
@@ -11,7 +17,9 @@ import { TranslationService } from '../../services/translation.service';
   template: `
     <div class="filter-container">
       <div class="filter-group">
-        <label for="search" class="filter-label">{{ t()('projects.search') }}</label>
+        <label for="search" class="filter-label">{{
+          t()('projects.search')
+        }}</label>
         <input
           id="search"
           type="text"
@@ -23,7 +31,9 @@ import { TranslationService } from '../../services/translation.service';
       </div>
 
       <div class="filter-group">
-        <label for="category" class="filter-label">{{ t()('projects.stackCategory') }}</label>
+        <label for="category" class="filter-label">{{
+          t()('projects.stackCategory')
+        }}</label>
         <select
           id="category"
           class="filter-input"
@@ -38,7 +48,9 @@ import { TranslationService } from '../../services/translation.service';
       </div>
 
       <div class="filter-group">
-        <label for="status" class="filter-label">{{ t()('projects.status.label') }}</label>
+        <label for="status" class="filter-label">{{
+          t()('projects.status.label')
+        }}</label>
         <select
           id="status"
           class="filter-input"
@@ -47,12 +59,18 @@ import { TranslationService } from '../../services/translation.service';
         >
           <option value="">{{ t()('projects.allStatuses') }}</option>
           <option value="active">{{ t()('projects.status.active') }}</option>
-          <option value="in-progress">{{ t()('projects.status.in-progress') }}</option>
-          <option value="archived">{{ t()('projects.status.archived') }}</option>
+          <option value="in-progress">
+            {{ t()('projects.status.in-progress') }}
+          </option>
+          <option value="archived">
+            {{ t()('projects.status.archived') }}
+          </option>
         </select>
       </div>
 
-      <button class="clear-btn" (click)="onClearFilters()">{{ t()('projects.clearFilters') }}</button>
+      <button class="clear-btn" (click)="onClearFilters()">
+        {{ t()('projects.clearFilters') }}
+      </button>
     </div>
   `,
   styles: [
@@ -208,7 +226,10 @@ export class ProjectFilterComponent {
     }
 
     if (this.selectedStatus) {
-      filter.status = this.selectedStatus as 'active' | 'archived' | 'in-progress';
+      filter.status = this.selectedStatus as
+        | 'active'
+        | 'archived'
+        | 'in-progress';
     }
 
     this.filterChange.emit(filter);

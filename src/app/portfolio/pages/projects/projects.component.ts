@@ -1,4 +1,10 @@
-import { Component, ChangeDetectionStrategy, inject, signal, computed } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  inject,
+  signal,
+  computed,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectService } from '../../../shared/services/project.service';
 import { TranslationService } from '../../../shared/services/translation.service';
@@ -39,7 +45,10 @@ import type { ProjectFilter, Project } from '../../../shared/models';
           </div>
         </div>
 
-        <app-project-filter (filterChange)="onFilterChange($event)" (clearFilters)="onClearFilters()" />
+        <app-project-filter
+          (filterChange)="onFilterChange($event)"
+          (clearFilters)="onClearFilters()"
+        />
 
         <div class="projects-grid">
           <app-project-card
@@ -54,7 +63,10 @@ import type { ProjectFilter, Project } from '../../../shared/models';
           <p>{{ t()('projects.noResults') }}</p>
         </div>
 
-        <app-project-detail-modal [project]="selectedProject()" (onClose)="selectedProject.set(null)" />
+        <app-project-detail-modal
+          [project]="selectedProject()"
+          (onClose)="selectedProject.set(null)"
+        />
       </div>
     </section>
   `,

@@ -75,15 +75,15 @@
 }
 
 .mobiik-logo {
-  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
   color: white;
-  border: 2px solid #A78BFA;
+  border: 2px solid #a78bfa;
 }
 
 .dark-theme .mobiik-logo {
-  background: linear-gradient(135deg, #8B5CF6, #F472B6);
+  background: linear-gradient(135deg, #8b5cf6, #f472b6);
   color: white;
-  border: 2px solid #C4B5FD;
+  border: 2px solid #c4b5fd;
 }
 
 .logo-placeholder:hover {
