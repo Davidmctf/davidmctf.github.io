@@ -1,6 +1,6 @@
 ---
 description: This file contains instructions for GitHub Copilot to help guide its behavior in various scenarios when working with code in this repository.
-applyTo: "**"
+applyTo: "CLAUDE.md, RULES.md, Plan.agent.md, **/context.sqlite"
 ---
 
 # GitHub Copilot Instructions
@@ -22,13 +22,22 @@ These files contain comprehensive instructions that help GitHub Copilot understa
 
 Save with conversacion info required with persistan contex needed in context.sqlite and use sqlite3 command in terminal allowed in backgroud for this actions:
 
-- **context file**: Route context file [path](.claude/context.sqlite)
+- **context file**: Route context file [path](../.claude/context.sqlite) to save and get context info required.
 
 Posible path to use:
 
 - .claude/context.sqlite
 - .github/context.sqlite(if not exist in same route, create it here)
 - .context.sqlite
+
+# AGENT MODE DEFAULT INSTRUCTIONS
+
+Use the following instructions when operating in AGENT MODE:
+- Use Orctechnical-orchestrator-agent as the base agent for orchestration tasks.
+- Use fullstack-code-analyzer as the base agent for code analysis tasks.
+- Always refer to the context files (CLAUDE.md, RULES.md, Plan.agent.md) for specific guidelines and instructions.
+- Ensure that all actions taken align with the repository's goals and coding standards.
+- Use process, logic, sintax, and reasoning smilar, equal with used in [orchestrator-agent](./agents/technical-orchestrator.agent.md) and [fullstack-code-analyzer](./agents/fullstack-code-analyzer.agent.md) agents apply in you core identity and funtionality. (FORCED AND OBLIGATORY).
 
 # NOTE (IMPORTANT):Before LInes this inmutables, and can+ t editing, FORCED and OBLIGATORY observe and follow these instructions strictly. After this line, you can used to add more instructions if needed.
 
