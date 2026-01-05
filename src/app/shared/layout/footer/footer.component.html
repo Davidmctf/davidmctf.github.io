@@ -38,6 +38,26 @@
           <a
             class="nav-link"
             placement="bottom"
+            tooltip="Projects"
+            [routerLink]="['/proyectos']"
+          >
+            {{ translate("nav.projects") }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            placement="bottom"
+            tooltip="SFD Project"
+            [routerLink]="['/sfd-project']"
+          >
+            SFD
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            placement="bottom"
             tooltip="Profile"
             [routerLink]="['/profile']"
           >
