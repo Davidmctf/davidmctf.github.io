@@ -17,16 +17,65 @@
   <div class="squares square-skytex"></div>
 
   <div class="container" style="padding-top: 5rem">
-    <h1>SFD Project Component</h1>
+    <h1>SFD Documentation</h1>
   </div>
   <div class="container">
-    <strong>Welcome to the SFD Project documentation page. </strong>
-    <!-- * Additional content can be added here  or be nexte exapmple:-->
-    Here you can find all the information related to the SFD project. Agent{{
-      "@"
-    }}[example.com]
-    <!-- * Additional content can be added here  or be nexte exapmple:-->
-    {{ agentExampleText }}
-    <pre class="card-text"><code>{{ agentExampleText }}</code></pre>
+    <h2>{{ sfdDocs.definition.title }}</h2>
+    <p>{{ sfdDocs.definition.content }}</p>
+    <p><strong>Propósito:</strong> {{ sfdDocs.definition.purpose }}</p>
+    <h3>Ventajas</h3>
+    <ul>
+      <li *ngFor="let advantage of sfdDocs.definition.advantages">
+        {{ advantage }}
+      </li>
+    </ul>
+
+    <h2>{{ sfdDocs.syntax.title }}</h2>
+    <h3>Elementos Principales</h3>
+    <table style="border-collapse: collapse; width: 100%">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #ddd; padding: 8px">Elemento</th>
+          <th style="border: 1px solid #ddd; padding: 8px">Descripción</th>
+          <th style="border: 1px solid #ddd; padding: 8px">Sintaxis</th>
+          <th style="border: 1px solid #ddd; padding: 8px">Requerido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of sfdDocs.syntax.elements">
+          <td style="border: 1px solid #ddd; padding: 8px">
+            {{ element.name }}
+          </td>
+          <td style="border: 1px solid #ddd; padding: 8px">
+            {{ element.description }}
+          </td>
+          <td style="border: 1px solid #ddd; padding: 8px">
+            <code>{{ element.syntax }}</code>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 8px">
+            {{ element.required ? "Sí" : "No" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Gramática Formal</h3>
+    <pre><code>{{ sfdDocs.syntax.grammar }}</code></pre>
+
+    <h2>Ejemplos Prácticos</h2>
+    <div *ngFor="let example of sfdDocs.practicalExamples">
+      <h3>{{ example.title }}</h3>
+      <p>{{ example.description }}</p>
+      <pre><code>{{ example.code }}</code></pre>
+    </div>
+
+    <h2>{{ sfdDocs.workflow.title }}</h2>
+    <ol>
+      <li *ngFor="let step of sfdDocs.workflow.steps">{{ step }}</li>
+    </ol>
+
+    <h2>{{ sfdDocs.integration.title }}</h2>
+    <ul>
+      <li *ngFor="let aspect of sfdDocs.integration.aspects">{{ aspect }}</li>
+    </ul>
   </div>
 </section>
