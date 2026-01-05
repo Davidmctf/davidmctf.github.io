@@ -1,0 +1,53 @@
+<section class="projects-section">
+  <div class="squares square1"></div>
+  <div class="squares square2"></div>
+  <div class="squares square3"></div>
+  <div class="squares square4"></div>
+  <div class="squares square5"></div>
+  <div class="squares square6"></div>
+  <div class="squares square-mobiik"></div>
+  <div class="squares square-rocket"></div>
+  <div class="squares square-blife"></div>
+  <div class="squares square-midoconline"></div>
+  <div class="squares square-skytex"></div>
+  <div class="container">
+    <div class="section-header">
+      <h1 class="section-title">{{ t()("projects.title") }}</h1>
+      <p class="section-subtitle">{{ t()("projects.subtitle") }}</p>
+    </div>
+
+    <div class="featured-projects" *ngIf="featuredProjects().length > 0">
+      <h2 class="subsection-title">{{ t()("projects.featured") }}</h2>
+      <div class="featured-grid">
+        <app-project-card
+          *ngFor="let project of featuredProjects()"
+          [project]="project"
+          (onViewDetails)="onViewDetails($event)"
+        />
+      </div>
+    </div>
+
+    <app-project-filter
+      (filterChange)="onFilterChange($event)"
+      (clearFilters)="onClearFilters()"
+    />
+
+    <div class="projects-grid">
+      <app-project-card
+        *ngFor="let project of filteredProjects()"
+        [project]="project"
+        (onViewDetails)="onViewDetails($event)"
+      />
+    </div>
+
+    <div class="no-results" *ngIf="filteredProjects().length === 0">
+      <i class="fa-solid fa-search"></i>
+      <p>{{ t()("projects.noResults") }}</p>
+    </div>
+
+    <app-project-detail-modal
+      [project]="selectedProject()"
+      (onClose)="selectedProject.set(null)"
+    />
+  </div>
+</section>

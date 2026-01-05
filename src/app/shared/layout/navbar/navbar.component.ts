@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -6,15 +7,13 @@ import {
   Output,
   inject,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { Subject, takeUntil } from 'rxjs';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouteInfoService } from '../../services';
-import { ThemeSwitcherComponent } from '../../components/theme-switcher/theme-switcher.component';
 import { TranslationService } from '../../services/translation.service';
 // COMENTAR TEMPORALMENTE hasta implementar i18n completo:
 // import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
@@ -43,12 +42,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   readonly #routerServ = inject(RouteInfoService);
   readonly #router = inject(Router);
   readonly #translationService = inject(TranslationService);
-  // readonly #translationService = inject(TranslationService);
   public isCollapsed = true;
 
-  // get t() {
-  //   return this.#translationService.t();
-  // }
   public isHome: boolean = true;
 
   translate(key: string): string {

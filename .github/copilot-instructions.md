@@ -1,22 +1,25 @@
 ---
 description: This file contains instructions for GitHub Copilot to help guide its behavior in various scenarios when working with code in this repository.
-applyTo: "CLAUDE.md, RULES.md, Plan.agent.md, **/context.sqlite"
+applyTo: "CLAUDE.md, RULES.md, Plan.agent.md, **/context.sqlite, universal-rules.md"
 ---
 
 # GitHub Copilot Instructions
 
-These instructions are intended to guide GitHub Copilot's behavior when assisting with code in this repository. They provide context about the repository's purpose, coding standards, and specific guidelines for various scenarios.
+**⚠️ CRITICAL: Read `universal-rules.md` FIRST before any other instruction**
+
+All agents must follow the mandatory workflow and binding rules defined in [universal-rules.md](../../universal-rules.md). These rules are immutable and apply to ALL projects and agents.
+
+These instructions provide context about the repository's purpose, coding standards, and specific guidelines for various scenarios.
 
 ## Repository Context
 
-If existing AI context files specificts for CLAUDE.md, RULES.md, or Plan.agent.md are present, please refer to those files for detailed information about the repository's purpose and guidelines.
-These files contain comprehensive instructions that help GitHub Copilot understand the repository's goals, coding standards, and best practices.
+Read context files in order:
 
-**Context AI markdowns files**:
+1. `universal-rules.md` - Mandatory workflow & binding rules (ALL projects)
+2. `CLAUDE.md` - Development commands and architecture for THIS project
+3. `.claude/context.sqlite` - Current session state
 
-- CLAUDE.md
-- RULES.md
-- Plan.agent.md
+**Project-specific files** (if exist): RULES.md, Plan.agent.md
 
 # Set and Get context instrucction important rule
 
@@ -37,7 +40,7 @@ This repository supports both **pnpm** and **bun** as package managers:
 - Husky hooks automatically detect and use pnpm
 - Use for production deployments
 
-#### bun (Alternative)
+#### bun (Alternative) in this case used obligatory
 
 - Alternative package manager for faster installations
 - Most commands work directly: `bun start`, `bun build`, `bun test`
@@ -77,3 +80,97 @@ Use the following instructions when operating in AGENT MODE:
 # copilot-instructions.md
 
 You are pairing with the user to create a clear, detailed, and actionable plan for the given task and any user feedback. Your iterative <workflow> loops through gathering context and drafting the plan for review, then back to gathering more context based on user feedback.
+
+# SFD Project Instructions (PERMANENT)
+
+**CRITICAL**: The SFD (Syntax Functional Declarative) project is a fully implemented Angular module.
+
+### Project Structure
+
+- **Location**: `src/app/sfd-project/`
+- **Route**: `/sfd` in the portfolio application (accessible from navbar)
+- **Documentation Source**: `/home/dmcws/.local/state/sfd-sintaxt/`
+
+### Current Implementation Status
+
+✅ **COMPLETED** (Phase 1):
+
+- Main page component with 6 tabs (Overview, Agents, Editor, Validator, Converter, Symbols)
+- SFDService with 3 real production agents (Technical Orchestrator, Fullstack Code Analyzer, SFD Agent Architect)
+- TypeScript models (sfd.models.ts) with 400+ lines of interfaces
+- Module and route configuration
+- Navbar integration
+- Responsive SCSS styling (mobile-first)
+
+### File Structure
+
+```
+src/app/sfd-project/
+├── models/sfd.models.ts (400+ lines)
+├── services/
+│   ├── sfd.service.ts (core service)
+│   ├── sfd-converter.service.ts
+│   ├── sfd-validator.service.ts
+│   ├── sfd-content.service.ts
+│   └── index.ts
+├── pages/
+│   ├── sfd-project.component.ts
+│   ├── sfd-project.component.html
+│   ├── sfd-project.component.scss
+│   └── sfd-project.component.spec.ts
+├── sfd.module.ts
+└── sfd.routes.ts
+```
+
+### When Working on SFD
+
+1. **Save all context** to `.claude/context.sqlite` with session details
+2. **Components must be interactive and reusable** (TypeScript + SCSS only)
+3. **Services handle all logic** (parsing, validation, conversion)
+4. **No markdown documentation** - everything is code
+5. **Use real agent patterns** in definitions for consistency
+
+### Next Phases (Future Sessions)
+
+- Phase 2: Complete Editor, Validator, Converter components
+- Phase 3: Live editing and interactive features
+- Phase 4: SQLite database integration for persistence
+
+### Key Files to Remember
+
+- **Session context**: `.claude/context.sqlite`
+- **Type definitions**: `src/app/sfd-project/models/sfd.models.ts`
+- **Routes config**: `src/app/portfolio/pages/pages.routes.ts`
+- **Navbar link**: `src/app/shared/layout/navbar/navbar.component.html`
+
+### Active Session Context (Update this section before saving to DB)
+
+**Last Updated**: 2026-01-02
+**Current Phase**: Phase 1 Complete
+**Database Location**: `.claude/context.sqlite`
+
+**Completed Tasks**:
+
+- ✅ SFDService created (3 real agents fully implemented)
+- ✅ Main page component (6 interactive tabs)
+- ✅ TypeScript models (400+ lines)
+- ✅ Module and route configuration
+- ✅ Navbar integration
+- ✅ Responsive styling (mobile-first)
+
+**Files Modified** (8 files):
+
+- src/app/sfd-project/services/sfd.service.ts
+- src/app/sfd-project/pages/sfd-project.component.ts
+- src/app/sfd-project/pages/sfd-project.component.html
+- src/app/sfd-project/pages/sfd-project.component.scss
+- src/app/sfd-project/sfd.module.ts
+- src/app/sfd-project/sfd.routes.ts
+- src/app/portfolio/pages/pages.routes.ts
+- src/app/shared/layout/navbar/navbar.component.html
+
+**Pending Tasks**:
+
+- Phase 2: Complete Editor, Validator, Converter components
+- Phase 3: Live editing and interactive features
+- Phase 4: SQLite database integration for persistence

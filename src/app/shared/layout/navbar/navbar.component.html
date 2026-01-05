@@ -102,7 +102,6 @@
             </a>
           </li>
         }
-        <!-- Temporalmente deshabilitado -->
         <li class="nav-item p-0">
           <a
             class="nav-link"
@@ -116,6 +115,23 @@
                 class="layout-menuitem-icon"
               ></fa-icon>
               {{ translate("nav.projects") }}
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            placement="bottom"
+            tooltip="SFD Project"
+            [routerLink]="['/sfd-project']"
+          >
+            <p class="d-lg d-xl">
+              <fa-icon
+                [icon]="['fas', 'diagram-project']"
+                class="layout-menuitem-icon"
+              ></fa-icon>
+              SFD
             </p>
           </a>
         </li>
