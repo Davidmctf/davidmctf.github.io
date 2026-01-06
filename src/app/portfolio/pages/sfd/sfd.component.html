@@ -1,9 +1,4 @@
-<div>
-  <p></p>
-  <pre></pre>
-</div>
-
-<section class="profile-section">
+<section class="page-header header-filter" id="sfd">
   <div class="squares square1"></div>
   <div class="squares square2"></div>
   <div class="squares square3"></div>
@@ -16,97 +11,528 @@
   <div class="squares square-midoconline"></div>
   <div class="squares square-skytex"></div>
 
-  <div class="container" style="padding-top: 5rem">
-    <h1>SFD Documentation</h1>
-  </div>
-  <div class="container sfd-container">
-    <h1 class="sfd-title">{{ sfdDocs.definition.title }}</h1>
-    <div class="sfd-section">
-      <p>{{ sfdDocs.definition.content }}</p>
-      <p class="sfd-highlight">
-        <strong>Propósito:</strong> {{ sfdDocs.definition.purpose }}
-      </p>
-      <h3>Ventajas</h3>
-      <ul class="sfd-list">
-        @for (advantage of sfdDocs.definition.advantages; track $index) {
-          <li>{{ advantage }}</li>
-        }
-      </ul>
+  <div class="container">
+    <div class="content-center brand">
+      <h1 class="h1-seo font-weight-bold">SFD Documentation v3.1</h1>
+      <h4 class="font-weight-normal w-100 text-base md:text-2xl">
+        Syntax Functional Declarative - Lenguaje para agentes IA
+        multi-plataforma
+      </h4>
     </div>
-
-    <div class="sfd-section">
-      <h2>{{ sfdDocs.syntax.title }}</h2>
-      <h3>Elementos Principales</h3>
-      <table class="sfd-table" style="border-collapse: collapse; width: 100%">
-        <thead>
-          <tr>
-            <th style="border: 1px solid #ddd; padding: 8px">Elemento</th>
-            <th style="border: 1px solid #ddd; padding: 8px">Descripción</th>
-            <th style="border: 1px solid #ddd; padding: 8px">Sintaxis</th>
-            <th style="border: 1px solid #ddd; padding: 8px">Requerido</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (element of sfdDocs.syntax.elements; track $index) {
-            <tr>
-              <td style="border: 1px solid #ddd; padding: 8px">
-                {{ element.name }}
-              </td>
-              <td style="border: 1px solid #ddd; padding: 8px">
-                {{ element.description }}
-              </td>
-              <td style="border: 1px solid #ddd; padding: 8px">
-                <code>{{ element.syntax }}</code>
-              </td>
-              <td style="border: 1px solid #ddd; padding: 8px">
-                {{ element.required ? "Sí" : "No" }}
-              </td>
-            </tr>
-          }
-        </tbody>
-      </table>
-      <h3>Gramática Formal</h3>
-      <pre class="sfd-code"><code>{{ sfdDocs.syntax.grammar }}</code></pre>
-    </div>
-
-    <div class="sfd-section">
-      <h2>Ejemplos Prácticos</h2>
-      @for (example of sfdDocs.practicalExamples; track $index) {
-        <div>
-          <h3>{{ example.title }}</h3>
-          <p>{{ example.description }}</p>
-          <pre class="sfd-code"><code>{{ example.code }}</code></pre>
-        </div>
-      }
-    </div>
-  </div>
-
-  <div class="sfd-section">
-    <h2>Flujo de Trabajo</h2>
-    <ul class="sfd-list">
-      @for (step of sfdDocs.workflow.steps; track $index) {
-        <li>{{ step }}</li>
-      }
-    </ul>
-  </div>
-
-  <div class="sfd-section"></div>
-
-  <div class="sfd-section">
-    <h2>{{ sfdDocs.workflow.title }}</h2>
-    <ol class="sfd-list">
-      @for (step of sfdDocs.workflow.steps; track $index) {
-        <li>{{ step }}</li>
-      }
-    </ol>
-  </div>
-
-  <div class="sfd-section">
-    <h2>{{ sfdDocs.integration.title }}</h2>
-    <ul class="sfd-list">
-      @for (aspect of sfdDocs.integration.aspects; track $index) {
-        <li>{{ aspect }}</li>
-      }
-    </ul>
   </div>
 </section>
+
+<div class="main">
+  <!-- 1. Ejemplo Introductorio -->
+  <div class="section" id="intro-example">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <h1 class="profile-title text-center text-white">
+            {{ sfdContent.introExample.title }}
+          </h1>
+          <p class="text-center text-white mb-5">
+            {{ sfdContent.introExample.description }}
+          </p>
+
+          <h2 class="text-white mb-4">Ejemplo Práctico</h2>
+          <pre
+            class="sfd-code mac-terminal"
+          ><code>{{ sfdContent.introExample.example }}</code></pre>
+
+          <h3 class="text-white mt-5 mb-4">Beneficios Inmediatos</h3>
+          <ul class="sfd-list">
+            @for (benefit of sfdContent.introExample.benefits; track $index) {
+              <li>{{ benefit }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Introducción y Justificación -->
+  <div class="section" id="introduction">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="profile-title text-center text-white mb-5">
+            {{ sfdContent.introduction.title }}
+          </h1>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <h2 class="text-white mb-4">
+                {{ sfdContent.introduction.definition.title }}
+              </h2>
+              <p class="text-white mb-4">
+                {{ sfdContent.introduction.definition.content }}
+              </p>
+              <p class="sfd-highlight">
+                <strong>Propósito:</strong>
+                {{ sfdContent.introduction.definition.purpose }}
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <h3 class="text-white mb-4">
+                {{ sfdContent.introduction.justification.title }}
+              </h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="text-danger mb-3">❌ Problemas Actuales</h5>
+                  <ul class="text-white">
+                    @for (
+                      problem of sfdContent.introduction.justification.problems;
+                      track $index
+                    ) {
+                      <li class="mb-2">{{ problem }}</li>
+                    }
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="text-success mb-3">✅ Soluciones SFD</h5>
+                  <ul class="text-white">
+                    @for (
+                      solution of sfdContent.introduction.justification
+                        .solutions;
+                      track $index
+                    ) {
+                      <li class="mb-2">{{ solution }}</li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center mt-5">
+            <div class="col-lg-10">
+              <h3 class="text-center text-white mb-4">
+                Ventajas Clave del SFD
+              </h3>
+              <div class="row">
+                @for (
+                  advantage of sfdContent.introduction.advantages;
+                  track $index
+                ) {
+                  <div class="col-md-6 mb-3">
+                    <div class="sfd-advantage-card">
+                      <p class="text-white mb-0">{{ advantage }}</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Análisis Multi-Plataforma -->
+  <div class="section" id="analysis">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="profile-title text-center text-white mb-5">
+            {{ sfdContent.analysis.title }}
+          </h1>
+
+          <div class="sfd-analysis-summary">
+            <h2 class="text-center text-white mb-4">
+              {{ sfdContent.analysis.summary.title }}
+            </h2>
+            <div class="row justify-content-center">
+              @for (
+                finding of sfdContent.analysis.summary.keyFindings;
+                track $index
+              ) {
+                <div class="col-md-6 mb-3">
+                  <div class="sfd-finding-card">
+                    <p class="text-white mb-0">{{ finding }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+            <div class="row justify-content-center mt-4">
+              @for (
+                achievement of sfdContent.analysis.summary.achievements;
+                track $index
+              ) {
+                <div class="col-md-6 mb-3">
+                  <div class="sfd-achievement-card">
+                    <p class="text-white mb-0">{{ achievement }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <h2 class="text-center text-white mt-5 mb-4">
+            Métricas de Rendimiento
+          </h2>
+          <div class="row">
+            @for (
+              metric of sfdContent.analysis.metrics.technical;
+              track $index
+            ) {
+              <div class="col-md-6 mb-4">
+                <div class="sfd-metric-card">
+                  <h5 class="text-white mb-3">🔧 Técnicas</h5>
+                  <p class="text-white mb-0">{{ metric }}</p>
+                </div>
+              </div>
+            }
+            @for (
+              metric of sfdContent.analysis.metrics.implementation;
+              track $index
+            ) {
+              <div class="col-md-6 mb-4">
+                <div class="sfd-metric-card">
+                  <h5 class="text-white mb-3">⚙️ Implementación</h5>
+                  <p class="text-white mb-0">{{ metric }}</p>
+                </div>
+              </div>
+            }
+          </div>
+
+          <h2 class="text-center text-white mt-5 mb-4">
+            Comparativa por Plataforma
+          </h2>
+          <div class="row">
+            @for (platform of sfdContent.analysis.platforms; track $index) {
+              <div class="col-lg-6 mb-4">
+                <div class="sfd-platform-card">
+                  <h4 class="text-white mb-3">{{ platform.title }}</h4>
+                  <div class="mb-3">
+                    <strong class="text-info">Formato:</strong>
+                    <p class="text-white mb-2">{{ platform.format }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <strong class="text-info">Integración:</strong>
+                    <p class="text-white mb-2">{{ platform.integration }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <strong class="text-info">Herramientas:</strong>
+                    <p class="text-white mb-2">{{ platform.tools }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <strong class="text-info">Arquitectura:</strong>
+                    <p class="text-white mb-2">{{ platform.architecture }}</p>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="text-center">
+                        <div
+                          class="sfd-metric-badge"
+                          [ngStyle]="{
+                            'background-color': platform.color,
+                          }"
+                        >
+                          <small class="text-white">Token Reduction</small>
+                          <div class="text-white font-weight-bold">
+                            {{ platform.tokenReduction }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="text-center">
+                        <div
+                          class="sfd-metric-badge"
+                          [ngStyle]="{
+                            'background-color': platform.color,
+                            opacity: 0.8,
+                          }"
+                        >
+                          <small class="text-white">Context Continuity</small>
+                          <div class="text-white font-weight-bold">
+                            {{ platform.contextContinuity }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Diccionario SFD -->
+  <div class="section" id="dictionary">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="profile-title text-center text-white mb-5">
+            {{ sfdContent.dictionary.title }}
+          </h1>
+
+          <div class="row">
+            @for (element of sfdContent.dictionary.elements; track $index) {
+              <div class="col-lg-6 mb-4">
+                <div class="sfd-element-card">
+                  <h4 class="text-white mb-3">{{ element.name }}</h4>
+                  <p class="text-muted mb-2">{{ element.category }}</p>
+                  <p class="text-white mb-3">{{ element.description }}</p>
+                  <div class="sfd-code-small mac-terminal mb-3">
+                    <code>{{ element.syntax }}</code>
+                  </div>
+                  <p class="text-info mb-2">
+                    <strong>Requerido:</strong>
+                    {{ element.required ? "Sí" : "No" }}
+                  </p>
+                  @if (element.example) {
+                    <details class="mb-3" open>
+                      <summary class="text-white cursor-pointer">
+                        Ver implementación completa
+                      </summary>
+                      <pre
+                        class="sfd-code-small mac-terminal mt-2"
+                      ><code>{{ element.example }}</code></pre>
+                    </details>
+                  }
+                  @if (element.symbols) {
+                    <div class="mt-3">
+                      <strong class="text-white">Símbolos:</strong>
+                      <div class="d-flex flex-wrap gap-1 mt-2">
+                        @for (symbol of element.symbols; track $index) {
+                          <span class="badge badge-secondary">{{
+                            symbol
+                          }}</span>
+                        }
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+
+          <h2 class="text-center text-white mt-5 mb-4">
+            Símbolos y Operadores
+          </h2>
+          <div class="row">
+            @for (symbol of sfdContent.dictionary.symbols; track $index) {
+              <div class="col-md-6 mb-3">
+                <div class="sfd-symbol-card">
+                  <h5 class="text-white mb-2">{{ symbol.symbol }}</h5>
+                  <p class="text-white small mb-1">{{ symbol.meaning }}</p>
+                  <p class="text-muted small">{{ symbol.usage }}</p>
+                </div>
+              </div>
+            }
+          </div>
+
+          <h2 class="text-center text-white mt-5 mb-4">Patrones de Diseño</h2>
+          <div class="row">
+            @for (pattern of sfdContent.dictionary.patterns; track $index) {
+              <div class="col-lg-4 mb-4">
+                <div class="sfd-pattern-card">
+                  <h4 class="text-white mb-3">{{ pattern.name }}</h4>
+                  <p class="text-white mb-3">{{ pattern.description }}</p>
+                  <details>
+                    <summary class="text-white cursor-pointer">
+                      Ver ejemplo
+                    </summary>
+                    <pre
+                      class="sfd-code-small mac-terminal mt-2"
+                    ><code>{{ pattern.example }}</code></pre>
+                  </details>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Documentación Técnica -->
+  <div class="section" id="technical-docs">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="profile-title text-center text-white mb-5">
+            {{ sfdContent.technicalDocs.title }}
+          </h1>
+
+          <div class="sfd-spec-card mb-5">
+            <h2 class="text-white mb-4">
+              {{ sfdContent.technicalDocs.specification.title }}
+            </h2>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="sfd-spec-item">
+                  <h5 class="text-white">Versión</h5>
+                  <p class="text-info">
+                    {{ sfdContent.technicalDocs.specification.version }}
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="sfd-spec-item">
+                  <h5 class="text-white">Lanzamiento</h5>
+                  <p class="text-info">
+                    {{ sfdContent.technicalDocs.specification.releaseDate }}
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="sfd-spec-item">
+                  <h5 class="text-white">Compatibilidad</h5>
+                  <div class="d-flex flex-wrap gap-1">
+                    @for (
+                      platform of sfdContent.technicalDocs.specification
+                        .compatibility;
+                      track $index
+                    ) {
+                      <span
+                        class="badge"
+                        [ngStyle]="{
+                          'background-color': getCompatibilityColor(platform),
+                          color: 'white',
+                        }"
+                        >{{ platform }}</span
+                      >
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h4 class="text-white mt-4 mb-3">Características Principales</h4>
+            <div class="row">
+              @for (
+                feature of sfdContent.technicalDocs.specification.features;
+                track $index
+              ) {
+                <div class="col-md-6 mb-2">
+                  <div class="d-flex align-items-center">
+                    <span class="text-success mr-2">✓</span>
+                    <span class="text-white">{{ feature }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <h2 class="text-center text-white mb-4">Arquitectura del Sistema</h2>
+          <div class="row">
+            @for (
+              component of sfdContent.technicalDocs.architecture.components;
+              track $index
+            ) {
+              <div class="col-lg-6 mb-4">
+                <div class="sfd-arch-card">
+                  <h4 class="text-white mb-3">{{ component.name }}</h4>
+                  <p class="text-white mb-3">{{ component.description }}</p>
+                  <div class="mb-3">
+                    <strong class="text-white">Tecnologías:</strong>
+                    <div class="d-flex flex-wrap gap-1 mt-2">
+                      @for (tech of component.technologies; track $index) {
+                        <span class="badge badge-secondary">{{ tech }}</span>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+
+          <div class="sfd-flow-card mb-5">
+            <h3 class="text-white mb-4">Flujo de Datos</h3>
+            <div class="row justify-content-center">
+              @for (
+                step of sfdContent.technicalDocs.architecture.dataFlow;
+                track $index
+              ) {
+                <div class="col-md-4 mb-3">
+                  <div class="sfd-flow-step">
+                    <div class="step-number">{{ $index + 1 }}</div>
+                    <p class="text-white mb-0">{{ step }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Ejemplos de Agentes -->
+  <div class="section" id="agents-examples">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="profile-title text-center text-white mb-5">
+            {{ sfdContent.agents.title }}
+          </h1>
+
+          <div class="row">
+            <div class="col-lg-12 mb-5">
+              <div class="sfd-agent-card">
+                <h3 class="text-white mb-4">
+                  {{ sfdContent.agents.fullstackAnalyzer.title }}
+                </h3>
+                <p class="text-white mb-4">
+                  {{ sfdContent.agents.fullstackAnalyzer.description }}
+                </p>
+                <details class="mb-3">
+                  <summary class="text-white cursor-pointer">
+                    Ver implementación completa
+                  </summary>
+                  <pre
+                    class="sfd-code mac-terminal mt-3"
+                  ><code>{{ sfdContent.agents.fullstackAnalyzer.content }}</code></pre>
+                </details>
+              </div>
+            </div>
+
+            <div class="col-lg-12 mb-5">
+              <div class="sfd-agent-card">
+                <h3 class="text-white mb-4">
+                  {{ sfdContent.agents.technicalOrchestrator.title }}
+                </h3>
+                <p class="text-white mb-4">
+                  {{ sfdContent.agents.technicalOrchestrator.description }}
+                </p>
+                <details class="mb-3" open>
+                  <summary class="text-white cursor-pointer">
+                    Ver implementación completa
+                  </summary>
+                  <pre
+                    class="sfd-code mac-terminal mt-3"
+                  ><code>{{ sfdContent.agents.technicalOrchestrator.content }}</code></pre>
+                </details>
+              </div>
+            </div>
+
+            <div class="col-lg-12 mb-5">
+              <div class="sfd-agent-card">
+                <h3 class="text-white mb-4">
+                  {{ sfdContent.agents.sfdAgentArchitect.title }}
+                </h3>
+                <p class="text-white mb-4">
+                  {{ sfdContent.agents.sfdAgentArchitect.description }}
+                </p>
+                <details class="mb-3">
+                  <summary class="text-white cursor-pointer">
+                    Ver implementación completa
+                  </summary>
+                  <pre
+                    class="sfd-code mac-terminal mt-3"
+                  ><code>{{ sfdContent.agents.sfdAgentArchitect.content }}</code></pre>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

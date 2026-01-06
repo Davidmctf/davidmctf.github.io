@@ -3,13 +3,53 @@ description: This file contains instructions for GitHub Copilot to help guide it
 applyTo: "CLAUDE.md, RULES.md, Plan.agent.md, **/context.sqlite, universal-rules.md"
 ---
 
+# UNIVERSAL AGENT RULES (IMMUTABLE)
+
+## EXECUTION WORKFLOW (MANDATORY)
+
+```
+Step1: read_file(CLAUDE.md) + query_db(context.sqlite)
+Step2: parse_request(what, where, scope)
+Step3: validate(project_patterns, existing_code)
+Step4: plan(multi_step_if_needed)
+Step5: execute_with(batch_tools_when_possible)
+Step6: update_db(session_context, session_notes)
+Step7: verify(file_read, db_check, output_validation)
+```
+
+## BINDING RULES
+
+**R1_ReadFirst**: load(CLAUDE.md) before any_operation()
+**R2_DatabaseState**: query(.claude/context.sqlite) → restore_session()
+**R3_BatchOps**: multi_replace_string_in_file() for multiple_edits
+**R4_ReadBeforeEdit**: read_file(target) → verify_state() → execute_edit()
+**R5_NoTempMarkdown**: zero_markdown except(universal-rules.md, user_explicit_request)
+**R6_CodeStandards**: follow(CLAUDE.md rules, existing_patterns)
+**R7_DbFirst**: session_state from context.sqlite not conversation
+**R8_Separation**: universal(copilot-instructions.md:1-72) != project_specific(after_NOTE)
+
+## DATABASE SCHEMA
+
+```sql
+CREATE TABLE session_context (id INTEGER PRIMARY KEY, date TEXT NOT NULL, summary TEXT NOT NULL, tasks_completed TEXT, files_modified TEXT, pending_tasks TEXT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE session_notes (id INTEGER PRIMARY KEY, timestamp TEXT, note TEXT);
+```
+
+## TASK PROTOCOL
+
+1. load(universal-rules.md) 2. read(CLAUDE.md) 3. query(context.sqlite) 4. parse(user_request) 5. validate(against rules) 6. batch_execute(changes) 7. update_db()
+
+## PRECEDENCE
+
+1. universal-rules.md 2. CLAUDE.md 3. copilot-instructions.md 4. context.sqlite 5. user_request
+
+**FORCED AND OBLIGATORY - NO EXCEPTIONS**
+
 # GitHub Copilot Instructions
 
 **⚠️ CRITICAL: Read `universal-rules.md` FIRST before any other instruction**
 
-All agents must follow the mandatory workflow and binding rules defined in [universal-rules.md](../../universal-rules.md). These rules are immutable and apply to ALL projects and agents.
-
-These instructions provide context about the repository's purpose, coding standards, and specific guidelines for various scenarios.
+All agents must follow the mandatory workflow and binding rules defined in [universal-rules.md](../../universal-rules.md).
 
 ## Repository Context
 
@@ -19,158 +59,159 @@ Read context files in order:
 2. `CLAUDE.md` - Development commands and architecture for THIS project
 3. `.claude/context.sqlite` - Current session state
 
-**Project-specific files** (if exist): RULES.md, Plan.agent.md
+## Development Commands
 
-# Set and Get context instrucction important rule
+### With pnpm (Recommended)
 
-Save with conversacion info required with persistan contex needed in context.sqlite and use sqlite3 command in terminal allowed in backgroud for this actions:
+- **Development server**: `pnpm start` (http://localhost:4200)
+- **Build for production**: `pnpm run build`
+- **Build for GitHub Pages**: `pnpm run build:github`
+- **Deploy to GitHub Pages**: `pnpm run deploy`
+- **Tests**: `pnpm test` (Karma + Jasmine)
+- **CI Tests**: `pnpm run test:ci`
 
-- **context file**: Route context file [path](../.claude/context.sqlite)
+### With bun (Alternative)
 
-## Package Manager Support
+- **Development server**: `bun start`
+- **Build for production**: `bun build`
+- **Tests**: `bun test`
 
-### Supported Package Managers
+### Code Quality
 
-This repository supports both **pnpm** and **bun** as package managers:
+- **Format code**: `pnpm run format` (Prettier)
+- **Lint staged files**: `pnpm run lint-staged` (pre-commit)
 
-#### pnpm (Recommended)
+## Architecture Overview
 
-- Primary package manager
-- All standard commands work with `pnpm run <script>`
-- Husky hooks automatically detect and use pnpm
-- Use for production deployments
+### Technology Stack
 
-#### bun (Alternative) in this case used obligatory
+- **Angular 20.1.6** with standalone components
+- **TypeScript 5.8** with strict mode enabled
+- **SCSS** with BLK Design System
 
-- Alternative package manager for faster installations
-- Most commands work directly: `bun start`, `bun build`, `bun test`
-- Special commands use `bun:` prefix: `bun run bun:deploy`, `bun run bun:analyze`
-- Husky hooks automatically detect and use bunx for staged files
-- Compatible with existing setup - no additional configuration needed
+### Application Type
 
-### Husky Compatibility
+- **Client-Side Rendering (CSR)** for GitHub Pages
+- **Standalone components** throughout
+- **Angular Signals** for reactive state
 
-Husky hooks (pre-commit, commit-msg, pre-push) are configured to automatically detect which package manager is available and use the appropriate executor:
+### Key Patterns
 
-```bash
-# pre-commit hook automatically:
-if command -v bun &> /dev/null; then
-  bunx lint-staged    # Uses bun if available
-else
-  pnpm run lint-staged # Falls back to pnpm
-fi
+#### Signal-Based Translation System
+
+```typescript
+@Injectable({ providedIn: "root" })
+export class TranslationService {
+  readonly t = computed(() => (key: string) => this.translate(key));
+}
 ```
 
-No manual configuration needed - just use whichever package manager you prefer.
+#### Component Architecture
 
-# AGENT MODE DEFAULT INSTRUCTIONS
+```typescript
+@Component({
+  selector: "app-component",
+  imports: [CommonModule],
+  templateUrl: "./component.component.html",
+  styleUrl: "./component.component.scss",
+})
+export class ComponentComponent {
+  private readonly service = inject(SomeService);
+  readonly someSignal = signal(initialValue);
+}
+```
 
-Use the following instructions when operating in AGENT MODE:
+## Project Structure
 
-- Use Orctechnical-orchestrator-agent as the base agent for orchestration tasks.
-- Use fullstack-code-analyzer as the base agent for code analysis tasks.
-- Always refer to the context files (CLAUDE.md, RULES.md, Plan.agent.md) for specific guidelines and instructions.
-- Ensure that all actions taken align with the repository's goals and coding standards.
-- Use process, logic, sintax, and reasoning smilar, equal with used in [orchestrator-agent](./agents/technical-orchestrator.agent.md) and [fullstack-code-analyzer](./agents/fullstack-code-analyzer.agent.md) agents apply in you core identity and funtionality. (FORCED AND OBLIGATORY).
+```
+src/app/
+├── portfolio/               # Main portfolio module
+├── shared/                 # Shared components and services
+│   ├── components/         # Reusable components
+│   ├── layout/            # Layout components
+│   ├── services/          # Core services
+│   └── models/            # TypeScript interfaces
+└── assets/                # Static assets
+```
 
-# NOTE (IMPORTANT):Before LInes this inmutables, and can+ t editing, FORCED and OBLIGATORY observe and follow these instructions strictly. After this line, you can used to add more instructions if needed.
+## Development Rules & Conventions
 
----
+### Code Style
 
-# copilot-instructions.md
+- **Standalone Components**: All new components must be standalone
+- **inject() Pattern**: Use `inject()` instead of constructor injection
+- **Signal-based Architecture**: Prefer Angular Signals
+- **TypeScript Strict Mode**: Enabled - all code must pass checking
+- **No Comments Policy**: Self-documenting code
 
-You are pairing with the user to create a clear, detailed, and actionable plan for the given task and any user feedback. Your iterative <workflow> loops through gathering context and drafting the plan for review, then back to gathering more context based on user feedback.
+### Translation System Rules
 
-# SFD Project Instructions (PERMANENT)
+- **Namespace Pattern**: `'section.component.key'`
+- **Fallback Strategy**: Spanish default, English secondary
+- **Computed Translations**: `t = computed(() => (key: string) => this.translate(key))`
+
+### Build & Deploy Rules
+
+- **GitHub Pages Only**: Designed for GitHub Pages deployment
+- **Base Href**: Always use `/`
+- **Manual Deploy**: Use `pnpm run deploy`
+
+## Important Technical Notes
+
+### Bundle Configuration
+
+- **Size Limits**: Initial 2MB warning, 5MB error
+- **CommonJS Allowed**: `chart.js` and `nouislider`
+
+### Environment Configuration
+
+- **Development**: Source maps enabled
+- **Production**: Full optimization
+
+## SFD Project Context
 
 **CRITICAL**: The SFD (Syntax Functional Declarative) project is a fully implemented Angular module.
 
-### Project Structure
-
 - **Location**: `src/app/sfd-project/`
-- **Route**: `/sfd` in the portfolio application (accessible from navbar)
-- **Documentation Source**: `/home/dmcws/.local/state/sfd-sintaxt/`
+- **Route**: `/sfd` in portfolio application
+- **Status**: Phase 1 Complete (6 tabs, 3 agents, responsive styling)
 
-### Current Implementation Status
+#### When Working on SFD
 
-✅ **COMPLETED** (Phase 1):
-
-- Main page component with 6 tabs (Overview, Agents, Editor, Validator, Converter, Symbols)
-- SFDService with 3 real production agents (Technical Orchestrator, Fullstack Code Analyzer, SFD Agent Architect)
-- TypeScript models (sfd.models.ts) with 400+ lines of interfaces
-- Module and route configuration
-- Navbar integration
-- Responsive SCSS styling (mobile-first)
-
-### File Structure
-
-```
-src/app/sfd-project/
-├── models/sfd.models.ts (400+ lines)
-├── services/
-│   ├── sfd.service.ts (core service)
-│   ├── sfd-converter.service.ts
-│   ├── sfd-validator.service.ts
-│   ├── sfd-content.service.ts
-│   └── index.ts
-├── pages/
-│   ├── sfd-project.component.ts
-│   ├── sfd-project.component.html
-│   ├── sfd-project.component.scss
-│   └── sfd-project.component.spec.ts
-├── sfd.module.ts
-└── sfd.routes.ts
-```
-
-### When Working on SFD
-
-1. **Save all context** to `.claude/context.sqlite` with session details
-2. **Components must be interactive and reusable** (TypeScript + SCSS only)
+1. **Save all context** to `.claude/context.sqlite`
+2. **Components must be interactive** (TypeScript + SCSS only)
 3. **Services handle all logic** (parsing, validation, conversion)
 4. **No markdown documentation** - everything is code
-5. **Use real agent patterns** in definitions for consistency
 
-### Next Phases (Future Sessions)
-
-- Phase 2: Complete Editor, Validator, Converter components
-- Phase 3: Live editing and interactive features
-- Phase 4: SQLite database integration for persistence
-
-### Key Files to Remember
+#### Key Files to Remember
 
 - **Session context**: `.claude/context.sqlite`
-- **Type definitions**: `src/app/sfd-project/models/sfd.models.ts`
-- **Routes config**: `src/app/portfolio/pages/pages.routes.ts`
-- **Navbar link**: `src/app/shared/layout/navbar/navbar.component.html`
+- **SFD Component**: `src/app/portfolio/pages/sfd/sfd.component.ts:1`
+- **Routes config**: `src/app/portfolio/pages/pages.routes.ts:1`
 
-### Active Session Context (Update this section before saving to DB)
+## Package Manager Support
 
-**Last Updated**: 2026-01-02
-**Current Phase**: Phase 1 Complete
-**Database Location**: `.claude/context.sqlite`
+### pnpm (Recommended)
 
-**Completed Tasks**:
+- Primary package manager: `pnpm run <script>`
+- Husky detects and uses pnpm automatically
 
-- ✅ SFDService created (3 real agents fully implemented)
-- ✅ Main page component (6 interactive tabs)
-- ✅ TypeScript models (400+ lines)
-- ✅ Module and route configuration
-- ✅ Navbar integration
-- ✅ Responsive styling (mobile-first)
+### bun (Alternative)
 
-**Files Modified** (8 files):
+- Alternative package manager: `bun start`, `bun build`, `bun test`
+- Commands use `bun:` prefix for special operations
 
-- src/app/sfd-project/services/sfd.service.ts
-- src/app/sfd-project/pages/sfd-project.component.ts
-- src/app/sfd-project/pages/sfd-project.component.html
-- src/app/sfd-project/pages/sfd-project.component.scss
-- src/app/sfd-project/sfd.module.ts
-- src/app/sfd-project/sfd.routes.ts
-- src/app/portfolio/pages/pages.routes.ts
-- src/app/shared/layout/navbar/navbar.component.html
+## Agent Mode Instructions
 
-**Pending Tasks**:
+Use the following instructions when operating in AGENT MODE:
 
-- Phase 2: Complete Editor, Validator, Converter components
-- Phase 3: Live editing and interactive features
-- Phase 4: SQLite database integration for persistence
+- Use technical-orchestrator-agent for orchestration tasks
+- Use fullstack-code-analyzer for code analysis tasks
+- Always refer to CLAUDE.md for specific guidelines
+
+# Set and Get context instruction important rule
+
+Save with conversation info required with persistent context needed in context.sqlite and use sqlite3 command in terminal allowed in background for this actions:
+
+- **context file**: Route context file [path](.claude/context.sqlite)</content>
+  <parameter name="filePath">.github/copilot-instructions.md

@@ -1,156 +1,514 @@
-/* Estilos mejorados para componente SFD - Fullstack Code Analyzer */
-/* Siguiendo paleta BLK Design System: tonos oscuros, acentos azules y verdes */
+/* Estilos para página SFD - Diseño limpio como el home */
+/* Paleta BLK Design System: tonos oscuros, acentos azules y verdes */
 
-.sfd-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.page-header.header-filter#sfd {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid #0f3460;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
 }
 
-.sfd-title {
+.page-header.header-filter#sfd .h1-seo {
   color: #00d4ff;
-  border-bottom: 3px solid #00d4ff;
-  padding-bottom: 15px;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.sfd-section {
-  margin-bottom: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 212, 255, 0.2);
+.page-header.header-filter#sfd .font-weight-normal {
+  color: #ffffff;
+  opacity: 0.9;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.sfd-section h2 {
-  color: #e94560;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  border-left: 4px solid #e94560;
-  padding-left: 15px;
-}
-
-.sfd-code {
-  background: #0f1419;
-  color: #00ff88;
-  padding: 20px;
-  border-radius: 8px;
-  font-family: "Fira Code", "Courier New", monospace;
-  overflow-x: auto;
-  margin: 15px 0;
-  border: 2px solid #00d4ff;
-  box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.1);
+/* Secciones principales */
+.main .section {
+  padding: 80px 0;
   position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 12px;
-    height: 12px;
-    background: #ff5f57;
-    border-radius: 50%;
-    box-shadow:
-      20px 0 0 #ffbd2e,
-      40px 0 0 #28ca42;
-  }
-
-  pre {
-    margin: 0;
-    padding-top: 10px;
-  }
+  background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
 }
 
-.sfd-list {
-  padding-left: 25px;
-  list-style: none;
-
-  li {
-    margin-bottom: 12px;
-    color: #c7ecee;
-    position: relative;
-
-    &::before {
-      content: "▹";
-      color: #00d4ff;
-      font-weight: bold;
-      position: absolute;
-      left: -25px;
-    }
-  }
+.main .section:nth-child(even) {
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
 }
 
+/* Títulos de sección */
+.profile-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #00d4ff;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+/* Código */
+.sfd-code {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00d4ff;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: "Fira Code", "Monaco", "Consolas", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+}
+
+/* Mac Terminal Style for Intro Example */
+.mac-terminal {
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid #333;
+  border-radius: 10px 10px 0 0;
+  padding: 40px 20px 20px 20px;
+  font-family: "Fira Code", "Monaco", "Consolas", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(34, 42, 66, 0);
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 7 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 7 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 7 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 7 Pro";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-regular: normal 400 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-light: normal 300 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-thin: normal 100 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 7 Brands";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 7 Sharp Duotone";
+  --fa-font-sharp-duotone-regular: normal 400 1em/1
+    "Font Awesome 7 Sharp Duotone";
+  --fa-font-sharp-duotone-light: normal 300 1em/1 "Font Awesome 7 Sharp Duotone";
+  --fa-font-sharp-duotone-thin: normal 100 1em/1 "Font Awesome 7 Sharp Duotone";
+  --fa-font-slab-regular: normal 400 1em/1 "Font Awesome 7 Slab";
+  --fa-font-slab-press-regular: normal 400 1em/1 "Font Awesome 7 Slab Press";
+  --fa-font-whiteboard-semibold: normal 600 1em/1 "Font Awesome 7 Whiteboard";
+  --fa-font-thumbprint-light: normal 300 1em/1 "Font Awesome 7 Thumbprint";
+  --fa-font-notdog-solid: normal 900 1em/1 "Font Awesome 7 Notdog";
+  --fa-font-notdog-duo-solid: normal 900 1em/1 "Font Awesome 7 Notdog Duo";
+  --fa-font-etch-solid: normal 900 1em/1 "Font Awesome 7 Etch";
+  --fa-font-jelly-regular: normal 400 1em/1 "Font Awesome 7 Jelly";
+  --fa-font-jelly-fill-regular: normal 400 1em/1 "Font Awesome 7 Jelly Fill";
+  --fa-font-jelly-duo-regular: normal 400 1em/1 "Font Awesome 7 Jelly Duo";
+  --fa-font-chisel-regular: normal 400 1em/1 "Font Awesome 7 Chisel";
+  --fa-font-utility-semibold: normal 600 1em/1 "Font Awesome 7 Utility";
+  --fa-font-utility-duo-semibold: normal 600 1em/1 "Font Awesome 7 Utility Duo";
+  --fa-font-utility-fill-semibold: normal 600 1em/1
+    "Font Awesome 7 Utility Fill";
+  --theme-bg-primary: #ffffff;
+  --theme-bg-secondary: #f6f9fc;
+  --theme-bg-dark: #212529;
+  --theme-text-primary: #32325d;
+  --theme-text-secondary: #525f7f;
+  --theme-text-muted: #6c757d;
+  --theme-text-inverse: #ffffff;
+  --theme-border: #e9ecef;
+  --theme-shadow: rgba(0, 0, 0, 0.15);
+  --theme-card-bg: #ffffff;
+  --theme-navbar-bg: transparent;
+  --theme-navbar-text: #ffffff;
+  --theme-primary: #5e72e4;
+  --theme-success: #2dce89;
+  --theme-danger: #f5365c;
+  --theme-warning: #ffd600;
+  --theme-info: #11cdef;
+  --indigo: #5603ad;
+  --purple: #8965e0;
+  --pink: #f3a4b5;
+  --red: #f5365c;
+  --orange: #fb6340;
+  --yellow: #ffd600;
+  --gray: #6c757d;
+  --gray-dark: #32325d;
+  --lighter: #e9ecef;
+  --primary: #e14eca;
+  --secondary: #f4f5f7;
+  --success: #00f2c3;
+  --info: #1d8cf8;
+  --warning: #f88267;
+  --danger: #fd5d93;
+  --light: #adb5bd;
+  --dark: #212529;
+  --blue: #5e72e4;
+  --cyan: #2bffc6;
+  --teal: #11cdef;
+  --green: #2dce89;
+  --default: #344675;
+  --white: #ffffff;
+  --neutral: #ffffff;
+  --darker: black;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-family-monospace:
+    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.mac-terminal::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow:
+    20px 0 0 #ffbd2e,
+    40px 0 0 #28ca42;
+}
+
+.mac-terminal {
+  padding-top: 45px !important;
+}
+
+.sfd-code-small {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  font-family: "Fira Code", "Monaco", "Consolas", monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  overflow-x: auto;
+  color: #ffffff;
+}
+
+/* Cards informativos */
+.sfd-finding-card,
+.sfd-achievement-card,
+.sfd-advantage-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.sfd-finding-card:hover,
+.sfd-achievement-card:hover,
+.sfd-advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+  border-color: #00d4ff;
+}
+
+.sfd-finding-card::before {
+  content: "🔍";
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.sfd-achievement-card::before {
+  content: "🏆";
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.sfd-advantage-card::before {
+  content: "✨";
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+/* Elementos SFD */
+.sfd-element-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  padding: 25px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.sfd-element-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+}
+
+/* Símbolos */
+.sfd-symbol-card {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.sfd-symbol-card:hover {
+  background: rgba(0, 212, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.sfd-symbol-card h5 {
+  font-family: "Fira Code", monospace;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Patrones */
+.sfd-pattern-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  padding: 25px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.sfd-pattern-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+}
+
+/* Arquitectura */
+.sfd-arch-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  padding: 25px;
+  height: 100%;
+}
+
+.sfd-arch-card .badge {
+  margin: 2px;
+}
+
+/* Flujo de datos */
+.sfd-flow-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.sfd-flow-step {
+  background: rgba(0, 212, 255, 0.1);
+  border: 2px solid rgba(0, 212, 255, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.sfd-flow-step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00d4ff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sfd-flow-step .step-number {
+  background: #00d4ff;
+  color: #16213e;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0 auto 10px auto;
+}
+
+/* Especificaciones */
+.sfd-spec-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.sfd-spec-item {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.sfd-spec-item h5 {
+  color: #00d4ff;
+  margin-bottom: 0.5rem;
+}
+
+/* Agentes */
+.sfd-agent-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 15px;
+  padding: 30px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.sfd-agent-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+  border-color: #00d4ff;
+}
+
+/* Análisis */
+.sfd-analysis-summary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.sfd-platform-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 15px;
+  padding: 25px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.sfd-platform-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+}
+
+.sfd-metric-badge {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.sfd-metric-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  padding: 25px;
+  height: 100%;
+}
+
+/* Tabla responsive */
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-dark th {
+  background-color: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.table-dark td {
+  border-color: rgba(0, 212, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Destacados */
 .sfd-highlight {
   background: linear-gradient(
-    90deg,
-    rgba(233, 69, 96, 0.1) 0%,
-    rgba(0, 212, 255, 0.1) 100%
+    135deg,
+    rgba(0, 212, 255, 0.2),
+    rgba(0, 255, 136, 0.2)
   );
-  padding: 15px;
-  border-left: 5px solid #e94560;
-  margin: 15px 0;
-  border-radius: 5px;
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
   color: #ffffff;
+  font-weight: 500;
+  text-align: center;
 }
 
-.sfd-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  overflow: hidden;
+/* Lista */
+.sfd-list {
+  padding-left: 20px;
+}
 
-  th,
-  td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-  }
+.sfd-list li {
+  color: #ffffff;
+  margin-bottom: 10px;
+  position: relative;
+}
 
-  th {
-    background: rgba(0, 212, 255, 0.1);
-    color: #00d4ff;
-    font-weight: bold;
-  }
+.sfd-list li::marker {
+  color: #00d4ff;
+}
 
-  tr:hover {
-    background: rgba(255, 255, 255, 0.05);
-  }
+/* Cursor pointer */
+.cursor-pointer {
+  cursor: pointer;
+  color: #00d4ff;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.cursor-pointer:hover {
+  color: #00ff88;
+  text-decoration: underline;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .sfd-container {
-    padding: 20px;
-    margin: 10px;
-  }
-
-  .sfd-title {
+  .profile-title {
     font-size: 2rem;
   }
 
-  .sfd-section {
-    padding: 15px;
+  .page-header.header-filter#sfd .h1-seo {
+    font-size: 2.5rem;
   }
 
-  .sfd-code {
-    font-size: 14px;
-    padding: 15px;
+  .sfd-flow-step:not(:last-child)::after {
+    display: none;
   }
 
-  .sfd-table th,
-  .sfd-table td {
-    padding: 8px 10px;
+  .sfd-flow-step {
+    margin-bottom: 15px;
   }
 }

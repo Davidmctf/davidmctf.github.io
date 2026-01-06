@@ -116,15 +116,27 @@ src/app/
 │   │   ├── footer/        # Page footer
 │   │   └── layout/        # Main layout wrapper
 │   ├── services/          # Core application services
-│   │   ├── translation.service.ts  # Signal-based translations
-│   │   ├── language.service.ts     # Language state management
-│   │   ├── theme.service.ts        # Theme switching
-│   │   ├── utilities.service.ts    # Utility functions
-│   │   └── validate.service.ts     # Form validation
+│   │   ├── translation.service.ts:1  # Signal-based translations
+│   │   ├── language.service.ts:1     # Language state management
+│   │   ├── utilities.service.ts:1    # Utility functions
+│   │   ├── validate.service.ts:1     # Form validation
+│   │   └── user.service.ts:1         # User data management
 │   ├── models/            # TypeScript interfaces
 │   └── pipes/             # Custom Angular pipes
+├── portfolio/pages/sfd/   # SFD component implementation
+│   ├── sfd.component.ts:1           # Main SFD component
+│   └── index.ts:1                   # SFD exports
 └── assets/                # Static assets, SCSS, images
 ```
+
+### Key Project Files
+
+- **Main App Component**: `src/app/app.component.ts:1`
+- **App Routing**: `src/app/app.routes.ts:1`
+- **Global Styles**: `src/styles.scss:1`
+- **Environment Config**: `src/environments/environment.ts:1`
+- **Translation Service**: `src/app/shared/services/translation.service.ts:1`
+- **SFD Component**: `src/app/portfolio/pages/sfd/sfd.component.ts:1`
 
 ## Development Rules & Conventions
 
@@ -192,6 +204,7 @@ export class ComponentComponent {
 - **Development**: Source maps enabled, no optimization
 - **Production**: Full optimization, no source maps, extract licenses enabled
 - **Localization**: Configured for es-MX locale with @angular/localize support
+- **Environment files**: `src/environments/environment.ts:1`, `src/environments/environment.prod.ts:1`
 
 ### Dependencies to Verify Before Updates
 
@@ -202,6 +215,13 @@ When updating dependencies, manually verify compatibility for:
 - **FontAwesome Angular**: Check Angular version compatibility
 - **NgBootstrap**: Verify Angular version support
 - **Chart.js**: Stable version, avoid beta releases
+
+### Configuration Files
+
+- **TypeScript**: `tsconfig.json:1`, `tsconfig.app.json:1`
+- **Angular**: `angular.json:1`
+- **Package**: `package.json:1`
+- **Husky**: `.husky/pre-commit:1`, `.husky/commit-msg:1`
 
 ### Known Limitations
 
