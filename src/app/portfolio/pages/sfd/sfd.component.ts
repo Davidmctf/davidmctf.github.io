@@ -70,7 +70,7 @@ documentation,0,none,compliance`,
         title: '¿Qué es el SFD?',
         content: `El Syntax Functional Declarative (SFD) es un lenguaje de configuración markdown optimizado para el consumo de LLMs, específicamente diseñado para agentes Claude Code, comandos, skills y hooks. Es un estándar que combina la legibilidad del markdown con la eficiencia de token de formatos optimizados para IA.
 
-**Evolución del Sistema**: SFD v3.1 surge de la evolución del sistema CopilotConfigurationSystem v2.1.0, que inicialmente se enfocaba en optimizar GitHub Copilot con templates reutilizables. La transición a SFD representó un cambio paradigmático: de un sistema específico para Copilot a un lenguaje universal para agentes.`,
+**Evolución del Sistema**: La historia de SFD comenzó con adaptaciones específicas para cada plataforma (p. ej., Copilot y Claude) para validar la portabilidad y el rendimiento de la sintaxis declarativa. Hoy, esas adaptaciones se entienden como etapas de transición hacia una estandarización más amplia. Aunque cada modelo puede requerir variaciones de sintaxis para optimizar APIs y runtimes, el núcleo SFD sigue siendo un contrato de alto nivel: definir agentes, sus roles, sus flujos y su estado de manera portable. En lugar de depender de una única configuración de plataforma, el desarrollo futuro apunta a una capa de abstracción más universal (LangGraph, MCP, etc.) que permita desplegar la misma definición SFD en diferentes entornos con transformaciones mínimas.`,
         purpose:
           'Crear agentes, comandos, skills y workflows que sean eficientes en tokens, legibles para humanos, y optimizados para integración universal con cualquier entorno de desarrollo.',
       },
