@@ -65,9 +65,12 @@
               <h2 class="text-white mb-4">
                 {{ sfdContent.introduction.definition.title }}
               </h2>
-              <p class="text-white mb-4">
-                {{ sfdContent.introduction.definition.content }}
-              </p>
+              @for (
+                para of sfdContent.introduction.definition.content;
+                track $index
+              ) {
+                <p class="text-white mb-4" [innerHTML]="para"></p>
+              }
               <p class="sfd-highlight">
                 <strong>Propósito:</strong>
                 {{ sfdContent.introduction.definition.purpose }}
@@ -458,6 +461,195 @@
                 </div>
               }
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Universal Agent Rules -->
+  <div class="section" id="universal-agent-rules">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="profile-title text-center text-white mb-5">
+            Universal Agent Rules
+          </h1>
+          <p class="text-center text-white mb-4">
+            Las reglas universales definen el marco operativo obligatorio para
+            todos los agentes en el sistema SFD, asegurando consistencia,
+            trazabilidad y eficiencia en interacciones multi-plataforma.
+          </p>
+
+          <!-- Sección 1: EXECUTION WORKFLOW -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">1. Execution Workflow (Mandatory)</h3>
+            <p class="text-white mb-3">
+              Este flujo de ejecución establece los pasos obligatorios que todo
+              agente debe seguir al procesar una solicitud. Incluye la carga de
+              contextos, validación, planificación, ejecución paralela,
+              actualización de base de datos y verificación final.
+            </p>
+            <p class="text-white mb-3">
+              <strong>Justificación:</strong> Garantiza que todas las
+              operaciones sean rastreables y consistentes, reduciendo errores
+              humanos y mejorando la calidad de las respuestas. La
+              obligatoriedad asegura que ningún agente omita pasos críticos como
+              la verificación de integridad.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalExecutionWorkflow"
+            ></pre>
+          </div>
+
+          <!-- Sección 2: BINDING RULES -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">2. Binding Rules</h3>
+            <p class="text-white mb-3">
+              Reglas que vinculan las acciones de los agentes a estándares
+              fijos, como leer CLAUDE.md antes de operar, mantener el estado en
+              SQLite y usar operaciones batch para ediciones múltiples.
+            </p>
+            <p class="text-white mb-3">
+              <strong>Justificación:</strong> Estas reglas previenen
+              inconsistencias entre agentes y plataformas. Por ejemplo, R7
+              (DbFirst) asegura que el contexto de conversación nunca sobrepase
+              el estado persistente, manteniendo la integridad del sistema.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalBindingRules"
+            ></pre>
+          </div>
+
+          <!-- Sección 3: DATABASE SCHEMA -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">3. Database Schema</h3>
+            <p class="text-white mb-3">
+              Esquema de base de datos SQLite con tablas para contexto de
+              sesiones y notas, optimizado para trazabilidad y persistencia de
+              agentes.
+            </p>
+            <p class="text-white mb-3">
+              <strong>Justificación:</strong> Proporciona una estructura
+              estandarizada para almacenar y recuperar información entre
+              sesiones, facilitando la auditoría y la recuperación de estados.
+              La inclusión de timestamps y claves primarias asegura integridad
+              de datos.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalDatabaseSchema"
+            ></pre>
+          </div>
+
+          <!-- Sección 4: INSTRUCTION FILE STRUCTURE -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">4. Instruction File Structure</h3>
+            <p class="text-white mb-3">
+              Define la estructura de archivos de instrucciones como
+              copilot-instructions.md, separando reglas universales (líneas
+              1-72) de configuraciones específicas de proyecto.
+            </p>
+            <p class="text-white mb-3">
+              <strong>Justificación:</strong> Mantiene la claridad y evita
+              conflictos entre reglas globales y locales. El marcador 'NOTE
+              (IMPORTANT)' indica el límite, permitiendo evolución independiente
+              de cada sección.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalInstructionStructure"
+            ></pre>
+          </div>
+
+          <!-- Sección 5: TASK PROTOCOL -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">5. Task Protocol</h3>
+            <p class="text-white mb-3">
+              Protocolo de 7 pasos para ejecutar tareas: cargar reglas
+              universales, leer CLAUDE.md, consultar SQLite, parsear solicitud,
+              validar, ejecutar en batch y actualizar base de datos.
+            </p>
+            <p class="text-white mb-3">
+              <strong>Justificación:</strong> Estandariza el ciclo de vida de
+              cada tarea, asegurando que todas las decisiones se basen en datos
+              actualizados y se registren para auditoría. Esto mejora la
+              predictibilidad y reduce riesgos de operaciones incompletas.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalTaskProtocol"
+            ></pre>
+          </div>
+
+          <!-- Sección 6: PRECEDENCE -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">6. Precedence</h3>
+            <p class="text-white mb-3">
+              Jerarquía de fuentes: universal-rules.md tiene prioridad máxima,
+              seguido de CLAUDE.md, copilot-instructions.md, context.sqlite y
+              finalmente la solicitud del usuario.
+            </p>
+            <p class="text-white mb-3">
+              <strong>Justificación:</strong> Establece una cadena de autoridad
+              clara para resolver conflictos. Las reglas universales son
+              inmutables para garantizar consistencia global, mientras que
+              fuentes locales permiten adaptaciones específicas.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalPrecedence"
+            ></pre>
+          </div>
+
+          <!-- Sección 7: FORCED AND OBLIGATORY -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">7. Forced and Obligatory</h3>
+            <p class="text-white mb-3">
+              Todas las reglas anteriores son obligatorias sin excepciones,
+              asegurando cumplimiento estricto en todos los contextos.
+            </p>
+            <p class="text-white mb-3">
+              <strong>Justificación:</strong> La obligatoriedad previene
+              desviaciones que podrían comprometer la integridad del sistema
+              SFD. Cualquier excepción requiere aprobación explícita y
+              documentación detallada.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalForced"
+            ></pre>
+          </div>
+
+          <!-- Markdown completo -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">Reglas Universales Completas</h3>
+            <p class="text-white mb-3">
+              A continuación se muestra el contenido completo del archivo
+              universal-agent-rules.md.
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="universalRulesFull"
+            ></pre>
+          </div>
+
+          <!-- Botones de descarga y copia -->
+          <div class="col-12 text-center mt-4">
+            <button
+              class="btn btn-outline-light mr-2"
+              (click)="downloadUniversalRules()"
+            >
+              Descargar Universal Agent Rules (md)
+            </button>
+            <button
+              class="btn btn-outline-light"
+              (click)="copyUniversalRules()"
+            >
+              Copiar al Portapapeles
+            </button>
           </div>
         </div>
       </div>

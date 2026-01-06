@@ -68,9 +68,12 @@ documentation,0,none,compliance`,
       title: 'Introducción y Justificación del SFD',
       definition: {
         title: '¿Qué es el SFD?',
-        content: `El Syntax Functional Declarative (SFD) es un lenguaje de configuración markdown optimizado para el consumo de LLMs, específicamente diseñado para agentes Claude Code, comandos, skills y hooks. Es un estándar que combina la legibilidad del markdown con la eficiencia de token de formatos optimizados para IA.
-
-**Evolución del Sistema**: La historia de SFD comenzó con adaptaciones específicas para cada plataforma (p. ej., Copilot y Claude) para validar la portabilidad y el rendimiento de la sintaxis declarativa. Hoy, esas adaptaciones se entienden como etapas de transición hacia una estandarización más amplia. Aunque cada modelo puede requerir variaciones de sintaxis para optimizar APIs y runtimes, el núcleo SFD sigue siendo un contrato de alto nivel: definir agentes, sus roles, sus flujos y su estado de manera portable. En lugar de depender de una única configuración de plataforma, el desarrollo futuro apunta a una capa de abstracción más universal (LangGraph, MCP, etc.) que permita desplegar la misma definición SFD en diferentes entornos con transformaciones mínimas.`,
+        content: [
+          'El Syntax Functional Declarative (SFD) es un lenguaje de configuración markdown optimizado para el consumo de LLMs, específicamente diseñado para agentes Claude Code, comandos, skills y hooks. Es un estándar que combina la legibilidad del markdown con la eficiencia de token de formatos optimizados para IA.',
+          '<b>Evolución del Sistema</b>: La historia de SFD comenzó con adaptaciones específicas para cada plataforma (p. ej., Copilot y Claude) para validar la portabilidad y el rendimiento de la sintaxis declarativa.',
+          'Hoy, esas adaptaciones se entienden como etapas de transición hacia una estandarización más amplia. Aunque cada modelo puede requerir variaciones de sintaxis para optimizar APIs y runtimes, el núcleo SFD sigue siendo un contrato de alto nivel: definir agentes, sus roles, sus flujos y su estado de manera portable.',
+          'En lugar de depender de una única configuración de plataforma, el desarrollo futuro apunta a una capa de abstracción más universal (LangGraph, MCP, etc.) que permita desplegar la misma definición SFD en diferentes entornos con transformaciones mínimas.',
+        ],
         purpose:
           'Crear agentes, comandos, skills y workflows que sean eficientes en tokens, legibles para humanos, y optimizados para integración universal con cualquier entorno de desarrollo.',
       },
@@ -659,4 +662,96 @@ Testing,"Design agents with testable, isolated task units"`,
       },
     },
   };
+
+  universalExecutionWorkflow = `EXECUTION WORKFLOW (MANDATORY)
+Step1: read_file(CLAUDE.md) + query_db(context.sqlite)
+Step2: parse_request(what, where, scope)
+Step3: validate(project_patterns, existing_code)
+Step4: plan(multi_step_if_needed)
+Step5: execute_with(batch_tools_when_possible)
+Step6: update_db(session_context, session_notes)
+Step7: verify(file_read, db_check, output_validation)`;
+
+  universalBindingRules = `R1_ReadFirst: load(CLAUDE.md) before any_operation()
+R2_DatabaseState: query(.claude/context.sqlite) -> restore_session()
+R3_BatchOps: multi_replace_string_in_file() for multiple_edits
+R4_ReadBeforeEdit: read_file(target) -> verify_state() -> execute_edit()
+R5_NoTempMarkdown: zero_markdown except(universal-rules.md, user_explicit_request)
+R6_CodeStandards: follow(CLAUDE.md rules, existing_patterns)
+R7_DbFirst: session_state from context.sqlite not conversation
+R8_Separation: universal(copilot-instructions.md:1-72) != project_specific(after_NOTE)`;
+
+  universalDatabaseSchema = `DATABASE SCHEMA
+\`\`\`sql
+CREATE TABLE session_context (
+  id INTEGER PRIMARY KEY,
+  date TEXT NOT NULL,
+  summary TEXT NOT NULL,
+  tasks_completed TEXT,
+  files_modified TEXT,
+  pending_tasks TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE session_notes (
+  id INTEGER PRIMARY KEY,
+  timestamp TEXT,
+  note TEXT
+);
+\`\`\` `;
+
+  universalInstructionStructure = `INSTRUCTION FILE STRUCTURE
+copilot-instructions.md:
+
+- Lines 1-72: Universal (immutable)
+- Line 73: NOTE (IMPORTANT)... marker
+- After 73: Project-specific (goes to DB not markdown)`;
+
+  universalTaskProtocol = `TASK PROTOCOL
+1. load(universal-rules.md)
+2. read(CLAUDE.md)
+3. query(context.sqlite)
+4. parse(user_request)
+5. validate(against rules)
+6. batch_execute(changes)
+7. update_db()`;
+
+  universalPrecedence = `PRECEDENCE
+1. universal-rules.md (this file)
+2. CLAUDE.md (project rules)
+3. copilot-instructions.md (config)
+4. context.sqlite (session state)
+5. user_request (explicit only)
+
+FORCED AND OBLIGATORY - NO EXCEPTIONS`;
+
+  universalForced = `FORCED AND OBLIGATORY - NO EXCEPTIONS`;
+
+  get universalRulesFull(): string {
+    return (
+      this.universalExecutionWorkflow +
+      '\n\n' +
+      this.universalBindingRules +
+      '\n\n' +
+      this.universalDatabaseSchema +
+      '\n\n' +
+      this.universalInstructionStructure +
+      '\n\n' +
+      this.universalTaskProtocol +
+      '\n\n' +
+      this.universalPrecedence +
+      '\n\n' +
+      this.universalForced
+    );
+  }
+
+  downloadUniversalRules(): void {
+    window.open('/assets/universal-agent-rules.md', '_blank');
+  }
+
+  copyUniversalRules(): void {
+    navigator.clipboard.writeText(this.universalRulesFull).then(() => {
+      alert('Reglas Universales copiadas al portapapeles');
+    });
+  }
 }
