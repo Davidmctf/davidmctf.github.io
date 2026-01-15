@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-sfd',
@@ -8,6 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './sfd.component.scss',
 })
 export class SfdComponent {
+  readonly #translationService = inject(TranslationService);
+
+  get t() {
+    return this.#translationService.t;
+  }
+
   getCompatibilityColor(platform: string): string {
     const colors: { [key: string]: string } = {
       'Claude Code': '#CC785C', // Claude terracotta orange
@@ -21,9 +28,6 @@ export class SfdComponent {
 
   readonly sfdContent = {
     introExample: {
-      title: 'Ejemplo Introductorio del SFD',
-      description:
-        'Un ejemplo práctico de cómo el SFD transforma el desarrollo con agentes',
       example: `# @Agent{id:"code-reviewer",model:sonnet,color:green}
 
 You are an expert code reviewer...
@@ -57,167 +61,47 @@ code_quality,3,medium,maintainability
 security,1,high,production_risk
 performance,2,low,optimization
 documentation,0,none,compliance`,
-      benefits: [
-        'Análisis paralelo: Las 3 tareas se ejecutan simultáneamente',
-        'Dependencias claras: Report solo se genera después de completar todas las tareas',
-        'Contexto persistente: Resultados se guardan en SQLite automáticamente',
-        'Eficiencia de tokens: 40% menos costo que prompts tradicionales',
-      ],
     },
     introduction: {
       title: 'Introducción y Justificación del SFD',
       definition: {
-        title: '¿Qué es el SFD?',
-        content: [
-          'El Syntax Functional Declarative (SFD) es un lenguaje de configuración markdown optimizado para el consumo de LLMs, específicamente diseñado para agentes Claude Code, comandos, skills y hooks. Es un estándar que combina la legibilidad del markdown con la eficiencia de token de formatos optimizados para IA.',
-          '<b>Evolución del Sistema</b>: La historia de SFD comenzó con adaptaciones específicas para cada plataforma (p. ej., Copilot y Claude) para validar la portabilidad y el rendimiento de la sintaxis declarativa.',
-          'Hoy, esas adaptaciones se entienden como etapas de transición hacia una estandarización más amplia. Aunque cada modelo puede requerir variaciones de sintaxis para optimizar APIs y runtimes, el núcleo SFD sigue siendo un contrato de alto nivel: definir agentes, sus roles, sus flujos y su estado de manera portable.',
-          'En lugar de depender de una única configuración de plataforma, el desarrollo futuro apunta a una capa de abstracción más universal (LangGraph, MCP, etc.) que permita desplegar la misma definición SFD en diferentes entornos con transformaciones mínimas.',
-        ],
         purpose:
           'Crear agentes, comandos, skills y workflows que sean eficientes en tokens, legibles para humanos, y optimizados para integración universal con cualquier entorno de desarrollo.',
       },
-      justification: {
-        title: '¿Por qué el SFD es necesario?',
-        problems: [
-          'Formatos tradicionales (JSON/XML) consumen demasiados tokens',
-          'Prompts manuales pierden contexto entre sesiones',
-          'Dificultad para coordinar múltiples agentes',
-          'Falta de estandarización en workflows de IA',
-          'Equipos mixtos no pueden trabajar eficientemente juntos',
-        ],
-        solutions: [
-          'Sintaxis declarativa reduce tokens en 35-45%',
-          'Persistencia SQLite mantiene contexto perfecto',
-          'Coordinación automática de agentes multi-paralelo',
-          'Estándar universal para todos los entornos de desarrollo',
-          'Equipos mixtos trabajan en perfecta sincronía',
-        ],
-      },
-      advantages: [
-        'Reducción de 35% en costos de tokens vs formatos tradicionales',
-        '96% de precisión en parsing por LLMs',
-        'Sintaxis clara y legible para humanos',
-        'Integración nativa con Claude Code, Copilot, Cursor, VS Code',
-        'Soporte completo para workflows complejos con dependencias y paralelismo',
-        'Framework agnóstico pero optimizado para entornos mixtos',
-        'Ejecución automática de comandos (bash, python, sqlite3) desde agentes',
-        'Persistencia de contexto en SQLite para continuidad entre sesiones',
-        'Capacidad multi-agente para equipos con diferentes niveles de acceso',
-      ],
+      justification: {},
     },
     analysis: {
       title: 'Análisis Multi-Plataforma SFD',
       summary: {
         title: 'Resumen Ejecutivo',
-        keyFindings: [
-          '**40% reducción promedio de tokens** en todas las plataformas',
-          '**96% continuidad de contexto** mantenida entre sesiones',
-          '**Ecosistema multi-agente** implementado exitosamente',
-          '**Portabilidad de sintaxis SFD** validada en diferentes arquitecturas',
-        ],
-        achievements: [
-          'Agentes GitHub Copilot personalizados con formato .agent.md',
-          'Integración de sub-agentes Claude Code con herramientas MCP',
-          'Modos agente basados en reglas Cursor',
-          'Optimizaciones CLI terminal para Copilot y Claude Code',
-          'Sistema de persistencia de contexto SQLite',
-          'Optimización de referencias específicas de archivos (`file_path:line_number`)',
-        ],
       },
-      platforms: [
+      platformsData: [
         {
-          title: 'GitHub Copilot Agents',
-          format: 'Archivo .agent.md con frontmatter YAML',
-          integration: 'Ecosistema de extensión VS Code',
-          tools: 'APIs nativas VS Code, integración GitHub, comandos terminal',
-          architecture: 'Orquestación de workflows basada en agentes',
           tokenReduction: '35-40%',
           contextContinuity: '95%',
           color: '#8250DF',
         },
+        { tokenReduction: '42%', contextContinuity: '98%', color: '#CC785C' },
+        { tokenReduction: '38%', contextContinuity: '96%', color: '#00A8FF' },
+        { tokenReduction: '45%', contextContinuity: '97%', color: '#2dce89' },
         {
-          title: 'Claude Code Agents',
-          format: 'Sub-agentes con invocación automática',
-          integration: 'Agentes definidos por usuario con prompts del sistema',
-          tools:
-            'Protocolo Model Context Protocol para descubrimiento de herramientas',
-          architecture: 'Enfoque first-command-line',
-          tokenReduction: '42%',
-          contextContinuity: '98%',
-          color: '#CC785C',
-        },
-        {
-          title: 'Cursor Agent Modes',
-          format: 'Personalidades AI especializadas',
-          integration: 'Patrones de comportamiento personalizables',
-          tools: 'Integración de múltiples proveedores AI',
-          architecture: 'Personalización profunda VS Code',
-          tokenReduction: '38%',
-          contextContinuity: '96%',
-          color: '#00A8FF',
-        },
-        {
-          title: 'Workflows Basados en Terminal',
-          format: 'Interfaz directa de terminal GitHub Copilot',
-          integration: 'Sesiones interactivas de terminal Claude Code',
-          tools: 'Ejecución asíncrona de tareas',
-          architecture: 'Preservación del estado de sesión',
-          tokenReduction: '45%',
-          contextContinuity: '97%',
-          color: '#2dce89',
-        },
-        {
-          title: 'OpenCode Platform',
-          format: 'Integración nativa con herramientas CLI y Desktop',
-          integration: 'SDK completo para desarrollo con IA',
-          tools: 'Terminal commands, desktop app, IDE extensions',
-          architecture: 'Arquitectura modular con agentes especializados',
           tokenReduction: '40-50%',
           contextContinuity: '99%',
           color: '#656363',
         },
       ],
-      metrics: {
-        title: 'Métricas de Rendimiento',
-        technical: [
-          'Eficiencia de tokens: Reducción de costos API vs ingeniería de prompts tradicional',
-          'Continuidad de contexto: Persistencia del estado de sesión entre interacciones',
-          'Tiempo de respuesta: Análisis de latencia para diferentes tipos de operaciones',
-          'Uso de memoria/CPU: Patrones de consumo de recursos',
-        ],
-        implementation: [
-          'Compatibilidad multi-plataforma: Portabilidad de agentes entre plataformas',
-          'Tiempo de desarrollo: Horas requeridas para creación y adaptación de agentes',
-          'Sobrecarga de mantenimiento: Actualizaciones continuas y compatibilidad de versiones',
-          'Recuperación de errores: Tasas de éxito en manejo automático de fallos',
-        ],
-        quality: [
-          'Validación de sintaxis: Precisión de adaptaciones específicas de plataforma',
-          'Preservación de contexto: Integridad de datos entre sesiones',
-          'Aceptación del usuario: Satisfacción y adopción de desarrolladores',
-          'Capacidad de depuración: Visibilidad en toma de decisiones de agentes',
-        ],
-      },
+      metrics: {},
     },
     dictionary: {
       title: 'Diccionario SFD',
       elements: [
         {
-          name: '@Agent',
-          category: 'Declaración Principal',
-          description:
-            'Anotación de agente con configuración completa incluyendo ID único, modelo, color y metadatos',
           syntax: '@Agent{id:"agent-id",model:sonnet,color:blue}',
           required: true,
           example: '@Agent{id:"code-analyzer",model:sonnet,color:purple}',
           symbols: ['@', 'id:', 'model:', 'color:'],
         },
         {
-          name: 'Task@',
-          category: 'Definición de Tareas',
-          description:
-            'Definición de tarea con dependencias, estado y configuración completa',
           syntax: 'Task@id[Label] → [next] **action**: ACTION_NAME',
           required: false,
           example:
@@ -225,19 +109,12 @@ documentation,0,none,compliance`,
           symbols: ['Task@', '→', '**action**:', '[', ']'],
         },
         {
-          name: 'Step@',
-          category: 'Secuencias Lineales',
-          description: 'Paso numerado en secuencias lineales con checkpoints',
           syntax: 'Step@N[Label] → Step@M **checkpoint**: ✓',
           required: false,
           example: 'Step@1[Initialize] → Step@2 **checkpoint**: ✓',
           symbols: ['Step@', '→', '**checkpoint**:', '✓'],
         },
         {
-          name: 'TOON Tables',
-          category: 'Datos Estructurados',
-          description:
-            'Tablas optimizadas para datos uniformes con sintaxis compacta',
           syntax: '## Table[N]{col1,col2}: val1,val2',
           required: false,
           example:
@@ -246,91 +123,25 @@ documentation,0,none,compliance`,
         },
       ],
       symbols: [
-        {
-          symbol: '@Agent{}',
-          meaning: 'Declaración de agente con metadatos',
-          usage: 'Siempre al inicio',
-        },
-        {
-          symbol: 'Task@id[Label]',
-          meaning: 'Tarea con ID y etiqueta humana',
-          usage: 'Workflows complejos',
-        },
-        {
-          symbol: 'Step@N[Label]',
-          meaning: 'Paso numerado en secuencia',
-          usage: 'Procesos lineales',
-        },
-        {
-          symbol: '→',
-          meaning: 'Transición o flujo hacia siguiente',
-          usage: 'Conectar elementos',
-        },
-        {
-          symbol: '⚡',
-          meaning: 'Ejecución paralela',
-          usage: 'Tareas concurrentes',
-        },
-        {
-          symbol: '?',
-          meaning: 'Decisión condicional',
-          usage: 'Lógica de bifurcación',
-        },
-        { symbol: '↻', meaning: 'Bucle o repetición', usage: 'Iteraciones' },
-        {
-          symbol: '⸙',
-          meaning: 'Ejecución asíncrona',
-          usage: 'Procesos en background',
-        },
-        {
-          symbol: '💾',
-          meaning: 'Persistencia a base de datos',
-          usage: 'Guardar contexto',
-        },
-        {
-          symbol: '**prop**: value',
-          meaning: 'Propiedad con valor',
-          usage: 'Configuración',
-        },
-        {
-          symbol: '[array]',
-          meaning: 'Lista de valores',
-          usage: 'Múltiples elementos',
-        },
-        {
-          symbol: '{object}',
-          meaning: 'Objeto estructurado',
-          usage: 'Datos complejos',
-        },
-        {
-          symbol: '## Table[N]{cols}:',
-          meaning: 'Tabla TOON con N filas',
-          usage: 'Datos tabulares',
-        },
-        {
-          symbol: 'file_path:line_number',
-          meaning: 'Referencia específica de archivo',
-          usage: 'Navegación precisa',
-        },
+        '@Agent{}',
+        'Task@id[Label]',
+        'Step@N[Label]',
+        '→',
+        '⚡',
+        '?',
+        '↻',
+        '⸙',
+        '💾',
+        '**prop**: value',
+        '[array]',
+        '{object}',
+        '## Table[N]{cols}:',
+        'file_path:line_number',
       ],
-      patterns: [
-        {
-          name: 'Coordinador',
-          description:
-            'Patrón para agentes que coordinan múltiples sub-agentes',
-          example: `@Agent{id:"coordinator",model:sonnet,color:green}\n### Task@delegate[Delegate Tasks] → Task@aggregate\n**action**: COORDINATE\n**parallel_with**: [analyze, security]`,
-        },
-        {
-          name: 'Pipeline',
-          description: 'Patrón secuencial para procesamiento de datos',
-          example: `@Agent{id:"pipeline",model:haiku,color:blue}\n### Step@1[Extract] → Step@2\n### Step@2[Transform] → Step@3\n### Step@3[Load] → END`,
-        },
-        {
-          name: 'Especialista',
-          description:
-            'Patrón para agentes especializados en dominio específico',
-          example: `@Agent{id:"security-auditor",model:sonnet,color:red}\n### Task@scan[Security Scan] → Task@report\n**action**: AUDIT_SECURITY\n**focus**: [injection, auth, crypto]`,
-        },
+      patternsExample: [
+        `@Agent{id:"coordinator",model:sonnet,color:green}\n### Task@delegate[Delegate Tasks] → Task@aggregate\n**action**: COORDINATE\n**parallel_with**: [analyze, security]`,
+        `@Agent{id:"pipeline",model:haiku,color:blue}\n### Step@1[Extract] → Step@2\n### Step@2[Transform] → Step@3\n### Step@3[Load] → END`,
+        `@Agent{id:"security-auditor",model:sonnet,color:red}\n### Task@scan[Security Scan] → Task@report\n**action**: AUDIT_SECURITY\n**focus**: [injection, auth, crypto]`,
       ],
     },
     technicalDocs: {
@@ -722,8 +533,7 @@ copilot-instructions.md:
 3. copilot-instructions.md (config)
 4. context.sqlite (session state)
 5. user_request (explicit only)
-
-FORCED AND OBLIGATORY - NO EXCEPTIONS`;
+`;
 
   universalForced = `FORCED AND OBLIGATORY - NO EXCEPTIONS`;
 
