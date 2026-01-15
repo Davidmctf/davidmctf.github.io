@@ -380,28 +380,13 @@
             {{ t()("sfd.dictionary.patterns.title") }}
           </h2>
           <div class="row">
-            @for (
-              patternsExample of sfdContent.dictionary.patternsExample;
-              track $index
-            ) {
-              <div class="col-lg-4 mb-4">
-                <div class="sfd-pattern-card">
-                  <h4 class="text-white mb-3">
-                    {{ t()("sfd.dictionary.patterns." + $index + ".name") }}
-                  </h4>
-                  <p class="text-white mb-3">
-                    {{
-                      t()("sfd.dictionary.patterns." + $index + ".description")
-                    }}
-                  </p>
-                  <details>
-                    <summary class="text-white cursor-pointer">
-                      {{ t()("sfd.dictionary.patterns.viewExample") }}
-                    </summary>
-                    <pre
-                      class="sfd-code-small mac-terminal mt-2"
-                    ><code>{{ patternsExample }}</code></pre>
-                  </details>
+            @for (item of [0, 1, 2, 3, 4, 5, 6, 7]; track item) {
+              <div class="col-md-6 mb-2">
+                <div class="d-flex align-items-center">
+                  <span class="text-success mr-2">✓</span>
+                  <span class="text-white">{{
+                    t()("sfd.technicalDocs.specification.features." + item)
+                  }}</span>
                 </div>
               </div>
             }
@@ -427,23 +412,33 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="sfd-spec-item">
-                  <h5 class="text-white">Versión</h5>
+                  <h5 class="text-white">
+                    {{ t()("sfd.technicalDocs.specification.label.version") }}
+                  </h5>
                   <p class="text-info">
-                    {{ sfdContent.technicalDocs.specification.version }}
+                    {{ t()("sfd.technicalDocs.specification.version") }}
                   </p>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="sfd-spec-item">
-                  <h5 class="text-white">Lanzamiento</h5>
+                  <h5 class="text-white">
+                    {{
+                      t()("sfd.technicalDocs.specification.label.releaseDate")
+                    }}
+                  </h5>
                   <p class="text-info">
-                    {{ sfdContent.technicalDocs.specification.releaseDate }}
+                    {{ t()("sfd.technicalDocs.specification.releaseDate") }}
                   </p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="sfd-spec-item">
-                  <h5 class="text-white">Compatibilidad</h5>
+                  <h5 class="text-white">
+                    {{
+                      t()("sfd.technicalDocs.specification.label.compatibility")
+                    }}
+                  </h5>
                   <div class="d-flex flex-wrap gap-1">
                     @for (
                       platform of sfdContent.technicalDocs.specification
@@ -464,23 +459,26 @@
               </div>
             </div>
 
-            <h4 class="text-white mt-4 mb-3">Características Principales</h4>
+            <h4 class="text-white mt-4 mb-3">
+              {{ t()("sfd.technicalDocs.specification.label.features") }}
+            </h4>
             <div class="row">
-              @for (
-                feature of sfdContent.technicalDocs.specification.features;
-                track $index
-              ) {
+              @for (item of [0, 1, 2, 3, 4, 5, 6, 7]; track item) {
                 <div class="col-md-6 mb-2">
                   <div class="d-flex align-items-center">
                     <span class="text-success mr-2">✓</span>
-                    <span class="text-white">{{ feature }}</span>
+                    <span class="text-white">{{
+                      t()("sfd.technicalDocs.specification.features." + item)
+                    }}</span>
                   </div>
                 </div>
               }
             </div>
           </div>
 
-          <h2 class="text-center text-white mb-4">System Architecture</h2>
+          <h2 class="text-center text-white mb-4">
+            {{ t()("sfd.technicalDocs.architecture.title") }}
+          </h2>
           <div class="row">
             @for (
               component of sfdContent.technicalDocs.architecture.components;
@@ -488,7 +486,15 @@
             ) {
               <div class="col-lg-6 mb-4">
                 <div class="sfd-arch-card">
-                  <h4 class="text-white mb-3">{{ component.name }}</h4>
+                  <h4 class="text-white mb-3">
+                    {{
+                      t()(
+                        "sfd.technicalDocs.architecture.components." +
+                          $index +
+                          ".name"
+                      )
+                    }}
+                  </h4>
                   <p class="text-white mb-3">
                     {{
                       t()(
@@ -499,7 +505,9 @@
                     }}
                   </p>
                   <div class="mb-3">
-                    <strong class="text-white">Tecnologías:</strong>
+                    <strong class="text-white">{{
+                      t()("sfd.technicalDocs.architecture.label.technologies")
+                    }}</strong>
                     <div class="d-flex flex-wrap gap-1 mt-2">
                       @for (tech of component.technologies; track $index) {
                         <span class="badge badge-secondary">{{ tech }}</span>
@@ -512,18 +520,17 @@
           </div>
 
           <div class="sfd-flow-card mb-5">
-            <h3 class="text-white mb-4">Data Flow</h3>
+            <h3 class="text-white mb-4">
+              {{ t()("sfd.technicalDocs.architecture.label.dataFlow") }}
+            </h3>
             <div class="row justify-content-center">
-              @for (
-                step of sfdContent.technicalDocs.architecture.dataFlow;
-                track $index
-              ) {
+              @for (item of [0, 1, 2, 3, 4, 5]; track item) {
                 <div class="col-md-4 mb-3">
                   <div class="sfd-flow-step">
-                    <div class="step-number">{{ $index + 1 }}</div>
+                    <div class="step-number">{{ item + 1 }}</div>
                     <p class="text-white mb-0">
                       {{
-                        t()("sfd.technicalDocs.architecture.dataFlow." + $index)
+                        t()("sfd.technicalDocs.architecture.dataFlow." + item)
                       }}
                     </p>
                   </div>

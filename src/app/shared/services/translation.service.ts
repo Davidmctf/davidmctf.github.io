@@ -327,6 +327,50 @@ export class TranslationService {
         'Capa de abstracción para SQLite con esquema optimizado',
       'sfd.technicalDocs.architecture.components.3.description':
         'Motor seguro para ejecución de comandos del sistema',
+      'sfd.technicalDocs.architecture.dataFlow.0': '1. Analizar SFD → AST',
+      'sfd.technicalDocs.architecture.dataFlow.1':
+        '2. Validar sintaxis → Reporte de errores',
+      'sfd.technicalDocs.architecture.dataFlow.2':
+        '3. Construir grafo de dependencias → Plan de ejecución',
+      'sfd.technicalDocs.architecture.dataFlow.3':
+        '4. Ejecutar en paralelo → Agregación de resultados',
+      'sfd.technicalDocs.architecture.dataFlow.4':
+        '5. Persistir contexto → Base de datos SQLite',
+      'sfd.technicalDocs.architecture.dataFlow.5':
+        '6. Generar respuesta → Formato legible para humanos',
+      'sfd.technicalDocs.specification.label.version': 'Versión',
+      'sfd.technicalDocs.specification.label.releaseDate': 'Lanzamiento',
+      'sfd.technicalDocs.specification.label.compatibility': 'Compatibilidad',
+      'sfd.technicalDocs.specification.label.features':
+        'Características Principales',
+      'sfd.technicalDocs.specification.version': '3.1',
+      'sfd.technicalDocs.specification.releaseDate': 'Enero 2026',
+      'sfd.technicalDocs.specification.features.0':
+        'Sintaxis declarativa markdown',
+      'sfd.technicalDocs.specification.features.1':
+        'Coordinación multi-agente automática',
+      'sfd.technicalDocs.specification.features.2':
+        'Persistencia SQLite nativa',
+      'sfd.technicalDocs.specification.features.3':
+        'Ejecución de comandos bash/python/sqlite3',
+      'sfd.technicalDocs.specification.features.4':
+        'Optimización de tokens del 35-45%',
+      'sfd.technicalDocs.specification.features.5':
+        'Continuidad de contexto del 95-98%',
+      'sfd.technicalDocs.specification.features.6':
+        'Soporte para equipos mixtos',
+      'sfd.technicalDocs.specification.features.7':
+        'Validación de sintaxis automática',
+      'sfd.technicalDocs.architecture.title': 'Arquitectura del Sistema',
+      'sfd.technicalDocs.architecture.label.technologies': 'Tecnologías:',
+      'sfd.technicalDocs.architecture.label.dataFlow': 'Data Flow',
+      'sfd.technicalDocs.architecture.components.0.name': 'Parser SFD',
+      'sfd.technicalDocs.architecture.components.1.name':
+        'Coordinador de Agentes',
+      'sfd.technicalDocs.architecture.components.2.name':
+        'Motor de Persistencia',
+      'sfd.technicalDocs.architecture.components.3.name':
+        'Ejecutor de Comandos',
       'sfd.technicalDocs.api.endpoints.0.description':
         'Convierte texto SFD a estructura abstracta',
       'sfd.technicalDocs.api.endpoints.1.description':
@@ -724,6 +768,42 @@ export class TranslationService {
         'Abstraction layer for SQLite with optimized schema',
       'sfd.technicalDocs.architecture.components.3.description':
         'Secure engine for executing system commands',
+      'sfd.technicalDocs.specification.label.version': 'Version',
+      'sfd.technicalDocs.specification.label.releaseDate': 'Release',
+      'sfd.technicalDocs.specification.label.compatibility': 'Compatibility',
+      'sfd.technicalDocs.specification.label.features': 'Key Features',
+      'sfd.technicalDocs.specification.version': '3.1',
+      'sfd.technicalDocs.specification.releaseDate': 'January 2026',
+      'sfd.technicalDocs.specification.features.0':
+        'Declarative markdown syntax',
+      'sfd.technicalDocs.specification.features.1':
+        'Automatic multi-agent coordination',
+      'sfd.technicalDocs.specification.features.2': 'Native SQLite persistence',
+      'sfd.technicalDocs.specification.features.3':
+        'Bash/python/sqlite3 command execution',
+      'sfd.technicalDocs.specification.features.4': '35-45% token optimization',
+      'sfd.technicalDocs.specification.features.5': '95-98% context continuity',
+      'sfd.technicalDocs.specification.features.6': 'Mixed team support',
+      'sfd.technicalDocs.specification.features.7':
+        'Automatic syntax validation',
+      'sfd.technicalDocs.architecture.title': 'System Architecture',
+      'sfd.technicalDocs.architecture.label.technologies': 'Technologies:',
+      'sfd.technicalDocs.architecture.label.dataFlow': 'Data Flow',
+      'sfd.technicalDocs.architecture.components.0.name': 'SFD Parser',
+      'sfd.technicalDocs.architecture.components.1.name': 'Agent Coordinator',
+      'sfd.technicalDocs.architecture.components.2.name': 'Persistence Engine',
+      'sfd.technicalDocs.architecture.components.3.name': 'Command Executor',
+      'sfd.technicalDocs.architecture.dataFlow.0': '1. Parse SFD → AST',
+      'sfd.technicalDocs.architecture.dataFlow.1':
+        '2. Validate syntax → Error reporting',
+      'sfd.technicalDocs.architecture.dataFlow.2':
+        '3. Build dependency graph → Execution plan',
+      'sfd.technicalDocs.architecture.dataFlow.3':
+        '4. Execute in parallel → Results aggregation',
+      'sfd.technicalDocs.architecture.dataFlow.4':
+        '5. Persist context → SQLite database',
+      'sfd.technicalDocs.architecture.dataFlow.5':
+        '6. Generate response → Human-readable format',
       'sfd.technicalDocs.api.endpoints.0.description':
         'Converts SFD text to abstract structure',
       'sfd.technicalDocs.api.endpoints.1.description':

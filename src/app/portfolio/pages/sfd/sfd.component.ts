@@ -145,11 +145,7 @@ documentation,0,none,compliance`,
       ],
     },
     technicalDocs: {
-      title: 'Documentación Técnica SFD',
       specification: {
-        title: 'Especificación Técnica v3.1',
-        version: '3.1',
-        releaseDate: 'Enero 2026',
         compatibility: [
           'Claude Code',
           'GitHub Copilot',
@@ -157,29 +153,13 @@ documentation,0,none,compliance`,
           'Terminal CLI',
           'OpenCode',
         ],
-        features: [
-          'Sintaxis declarativa markdown',
-          'Coordinación multi-agente automática',
-          'Persistencia SQLite nativa',
-          'Ejecución de comandos bash/python/sqlite3',
-          'Optimización de tokens del 35-45%',
-          'Continuidad de contexto del 95-98%',
-          'Soporte para equipos mixtos',
-          'Validación de sintaxis automática',
-        ],
       },
       architecture: {
-        title: 'Arquitectura del Sistema',
         components: [
           {
-            name: 'Parser SFD',
-            description:
-              'Analizador sintáctico que convierte SFD a estructuras ejecutables',
             technologies: ['Regex', 'AST', 'Validation Engine'],
           },
           {
-            name: 'Coordinador de Agentes',
-            description: 'Sistema que maneja dependencias y ejecución paralela',
             technologies: [
               'State Machine',
               'Dependency Graph',
@@ -187,28 +167,15 @@ documentation,0,none,compliance`,
             ],
           },
           {
-            name: 'Motor de Persistencia',
-            description:
-              'Capa de abstracción para SQLite con esquema optimizado',
             technologies: ['SQLite3', 'ORM', 'Migration System'],
           },
           {
-            name: 'Ejecutor de Comandos',
-            description: 'Motor seguro para ejecución de comandos del sistema',
             technologies: [
               'Process Management',
               'Security Sandbox',
               'Output Parsing',
             ],
           },
-        ],
-        dataFlow: [
-          '1. Parse SFD → AST',
-          '2. Validate syntax → Error reporting',
-          '3. Build dependency graph → Execution plan',
-          '4. Execute in parallel → Results aggregation',
-          '5. Persist context → SQLite database',
-          '6. Generate response → Human-readable format',
         ],
       },
       api: {
