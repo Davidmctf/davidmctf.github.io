@@ -88,7 +88,9 @@
               </h3>
               <div class="row">
                 <div class="col-md-6">
-                  <h5 class="text-danger mb-3">❌ Current Problems</h5>
+                  <h5 class="text-danger mb-3">
+                    {{ t()("sfd.analysis.intro.problems.label") }}
+                  </h5>
                   <ul class="text-white">
                     @for (item of [0, 1, 2, 3, 4]; track item) {
                       <li class="mb-2">
@@ -100,7 +102,9 @@
                   </ul>
                 </div>
                 <div class="col-md-6">
-                  <h5 class="text-success mb-3">✅ SFD Solutions</h5>
+                  <h5 class="text-success mb-3">
+                    {{ t()("sfd.analysis.intro.solutions.label") }}
+                  </h5>
                   <ul class="text-white">
                     @for (item of [0, 1, 2, 3, 4]; track item) {
                       <li class="mb-2">
@@ -119,7 +123,9 @@
 
           <div class="row justify-content-center mt-5">
             <div class="col-lg-10">
-              <h3 class="text-center text-white mb-4">Key Advantages of SFD</h3>
+              <h3 class="text-center text-white mb-4">
+                {{ t()("sfd.analysis.intro.advantages.label") }}
+              </h3>
               <div class="row">
                 @for (item of [0, 1, 2, 3, 4, 5, 6, 7, 8]; track item) {
                   <div class="col-md-6 mb-3">
@@ -182,7 +188,9 @@
             @for (item of [0, 1, 2, 3]; track item) {
               <div class="col-md-6 mb-4">
                 <div class="sfd-metric-card">
-                  <h5 class="text-white mb-3">🔧 Technical</h5>
+                  <h5 class="text-white mb-3">
+                    {{ t()("sfd.analysis.technical.label") }}
+                  </h5>
                   <p class="text-white mb-0">
                     {{ t()("sfd.analysis.metrics.technical." + item) }}
                   </p>
@@ -192,7 +200,9 @@
             @for (item of [0, 1, 2, 3]; track item) {
               <div class="col-md-6 mb-4">
                 <div class="sfd-metric-card">
-                  <h5 class="text-white mb-3">⚙️ Implementation</h5>
+                  <h5 class="text-white mb-3">
+                    {{ t()("sfd.analysis.implementation.label") }}
+                  </h5>
                   <p class="text-white mb-0">
                     {{ t()("sfd.analysis.metrics.implementation." + item) }}
                   </p>
@@ -692,7 +702,240 @@
     </div>
   </div>
 
-  <!-- 6. Ejemplos de Agentes -->
+  <!-- 7. Configuración de Agentes -->
+  <div class="section" id="agent-config">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="profile-title text-center text-white mb-5">
+            {{ t()("sfd.config.title") }}
+          </h1>
+          <p class="text-center text-white mb-4">
+            {{ t()("sfd.config.intro") }}
+          </p>
+
+          <!-- 7.1 Arquitectura de Directorios -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">
+              {{ t()("sfd.config.architecture.title") }}
+            </h3>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.architecture.desc") }}
+            </p>
+            <pre
+              class="sfd-code-small mac-terminal"
+              [textContent]="directoryStructure"
+            ></pre>
+            <div class="mt-3">
+              <button
+                class="btn btn-outline-light btn-sm"
+                (click)="
+                  downloadFile('directory-structure.txt', directoryStructure)
+                "
+              >
+                {{ t()("sfd.config.download") }}
+              </button>
+              <button
+                class="btn btn-outline-light btn-sm ml-2"
+                (click)="copyToClipboard(directoryStructure)"
+              >
+                {{ t()("sfd.config.copy") }}
+              </button>
+            </div>
+          </div>
+
+          <!-- 7.2 universal-rules.md -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">
+              {{ t()("sfd.config.universal.title") }}
+            </h3>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.universal.desc") }}
+            </p>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.universal.just") }}
+            </p>
+            <details class="mb-3" open>
+              <summary class="text-white cursor-pointer">
+                {{ t()("sfd.config.viewCode") }}
+              </summary>
+              <pre
+                class="sfd-code mac-terminal mt-2"
+                [textContent]="universalRulesContent"
+              ></pre>
+            </details>
+            <div>
+              <button
+                class="btn btn-outline-light btn-sm"
+                (click)="
+                  downloadFile('universal-rules.md', universalRulesContent)
+                "
+              >
+                {{ t()("sfd.config.download") }}
+              </button>
+              <button
+                class="btn btn-outline-light btn-sm ml-2"
+                (click)="copyToClipboard(universalRulesContent)"
+              >
+                {{ t()("sfd.config.copy") }}
+              </button>
+            </div>
+          </div>
+
+          <!-- 7.3 AGENTS.md (plantilla) -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">
+              {{ t()("sfd.config.agents.title") }}
+            </h3>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.agents.desc") }}
+            </p>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.agents.just") }}
+            </p>
+            <details class="mb-3" open>
+              <summary class="text-white cursor-pointer">
+                {{ t()("sfd.config.viewCode") }}
+              </summary>
+              <pre
+                class="sfd-code mac-terminal mt-2"
+                [textContent]="agentsTemplateContent"
+              ></pre>
+            </details>
+            <div>
+              <button
+                class="btn btn-outline-light btn-sm"
+                (click)="downloadFile('AGENTS.md', agentsTemplateContent)"
+              >
+                {{ t()("sfd.config.download") }}
+              </button>
+              <button
+                class="btn btn-outline-light btn-sm ml-2"
+                (click)="copyToClipboard(agentsTemplateContent)"
+              >
+                {{ t()("sfd.config.copy") }}
+              </button>
+            </div>
+          </div>
+
+          <!-- 7.4 Ejemplo de Agente (.vscode/agents/fullstack-code-analyzer.md) -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">
+              {{ t()("sfd.config.agentExample.title") }}
+            </h3>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.agentExample.desc") }}
+            </p>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.agentExample.just") }}
+            </p>
+            <details class="mb-3">
+              <summary class="text-white cursor-pointer">
+                {{ t()("sfd.config.viewCode") }}
+              </summary>
+              <pre
+                class="sfd-code mac-terminal mt-2"
+                [textContent]="agentExampleContent"
+              ></pre>
+            </details>
+            <div>
+              <button
+                class="btn btn-outline-light btn-sm"
+                (click)="
+                  downloadFile(
+                    'fullstack-code-analyzer.md',
+                    agentExampleContent
+                  )
+                "
+              >
+                {{ t()("sfd.config.download") }}
+              </button>
+              <button
+                class="btn btn-outline-light btn-sm ml-2"
+                (click)="copyToClipboard(agentExampleContent)"
+              >
+                {{ t()("sfd.config.copy") }}
+              </button>
+            </div>
+          </div>
+
+          <!-- 7.5 SQLite Schema -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">
+              {{ t()("sfd.config.sqlite.title") }}
+            </h3>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.sqlite.desc") }}
+            </p>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.sqlite.just") }}
+            </p>
+            <details class="mb-3" open>
+              <summary class="text-white cursor-pointer">
+                {{ t()("sfd.config.viewCode") }}
+              </summary>
+              <pre
+                class="sfd-code mac-terminal mt-2"
+                [textContent]="sqliteSchemaContent"
+              ></pre>
+            </details>
+            <div>
+              <button
+                class="btn btn-outline-light btn-sm"
+                (click)="downloadFile('schema.sql', sqliteSchemaContent)"
+              >
+                {{ t()("sfd.config.download") }}
+              </button>
+              <button
+                class="btn btn-outline-light btn-sm ml-2"
+                (click)="copyToClipboard(sqliteSchemaContent)"
+              >
+                {{ t()("sfd.config.copy") }}
+              </button>
+            </div>
+          </div>
+
+          <!-- 7.6 Ajustes por Proyecto -->
+          <div class="col-12 mb-4">
+            <h3 class="text-white mb-3">
+              {{ t()("sfd.config.adjust.title") }}
+            </h3>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.adjust.desc") }}
+            </p>
+            <p class="text-white mb-3">
+              {{ t()("sfd.config.adjust.just") }}
+            </p>
+            <details class="mb-3">
+              <summary class="text-white cursor-pointer">
+                {{ t()("sfd.config.viewCode") }}
+              </summary>
+              <pre
+                class="sfd-code mac-terminal mt-2"
+                [textContent]="adjustmentExample"
+              ></pre>
+            </details>
+            <div>
+              <button
+                class="btn btn-outline-light btn-sm"
+                (click)="downloadFile('adjustments.md', adjustmentExample)"
+              >
+                {{ t()("sfd.config.download") }}
+              </button>
+              <button
+                class="btn btn-outline-light btn-sm ml-2"
+                (click)="copyToClipboard(adjustmentExample)"
+              >
+                {{ t()("sfd.config.copy") }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Ejemplos de Agentes -->
   <div class="section" id="agents-examples">
     <div class="container">
       <div class="row justify-content-center">
@@ -712,7 +955,7 @@
                 </p>
                 <details class="mb-3">
                   <summary class="text-white cursor-pointer">
-                    Ver implementación completa
+                    {{ t()("sfd.agents.viewImplementation") }}
                   </summary>
                   <pre
                     class="sfd-code mac-terminal mt-3"
@@ -731,7 +974,7 @@
                 </p>
                 <details class="mb-3" open>
                   <summary class="text-white cursor-pointer">
-                    Ver implementación completa
+                    {{ t()("sfd.agents.viewImplementation") }}
                   </summary>
                   <pre
                     class="sfd-code mac-terminal mt-3"
@@ -750,7 +993,7 @@
                 </p>
                 <details class="mb-3">
                   <summary class="text-white cursor-pointer">
-                    Ver implementación completa
+                    {{ t()("sfd.agents.viewImplementation") }}
                   </summary>
                   <pre
                     class="sfd-code mac-terminal mt-3"

@@ -1,0 +1,17 @@
+<div class="image-modal-overlay" (click)="close()">
+  <div class="image-modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="close()" aria-label="Cerrar imagen">
+      ×
+    </button>
+    <img
+      [src]="imageSrc"
+      [alt]="imageAlt"
+      [style.transform]="'scale(' + zoomLevel + ')'"
+      class="modal-image"
+    />
+    <div class="zoom-controls">
+      <button (click)="zoomIn()" class="zoom-btn">+</button>
+      <button (click)="zoomOut()" class="zoom-btn">-</button>
+    </div>
+  </div>
+</div>

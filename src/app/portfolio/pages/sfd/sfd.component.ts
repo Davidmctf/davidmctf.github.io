@@ -531,4 +531,286 @@ copilot-instructions.md:
       alert('Reglas Universales copiadas al portapapeles');
     });
   }
+
+  directoryStructure = `📦<path/to/project>
+ ┣ 📂.vscode
+ ┃ ┣ 📂agents
+ ┃ ┃ ┣ 📜fullstack-code-analyzer.md
+ ┃ ┃ ┣ 📜sfd-agent-architect.md
+ ┃ ┃ ┗ 📜technical-orchestrator.md
+ ┃ ┣ 📜context.sqlite
+ ┃ ┣ 📜sanitize_context.py
+ ┃ ┣ 📜settings.local.json
+ ┃ ┗ 📜setup_agentconf.py
+ ┣ ... more files with project code ...
+ ┣ 📜AGENTS.md
+ ┣ 📜README.md
+ ┗ 📜universal-rules.md`;
+
+  universalRulesContent = `# UNIVERSAL AGENT RULES (IMMUTABLE)
+
+## EXECUTION WORKFLOW (MANDATORY)
+
+\`\`\`
+Step1: read_file(AGENTS.md) + query_db(context.sqlite)
+Step2: parse_request(what, where, scope)
+Step3: validate(project_patterns, existing_code)
+Step4: plan(multi_step_if_needed)
+Step5: execute_with(batch_tools_when_possible)
+Step6: update_db(session_context, session_notes)
+Step7: verify(file_read, db_check, output_validation)
+\`\`\`
+
+## BINDING RULES
+
+**R1_ReadFirst**: load(AGENTS.md) before any_operation()
+**R2_DatabaseState**: query(.vscode/context.sqlite) → restore_session()
+**R3_BatchOps**: multi_replace_string_in_file() for multiple_edits
+**R4_ReadBeforeEdit**: read_file(target) → verify_state() → execute_edit()
+**R5_NoTempMarkdown**: zero_markdown except(universal-rules.md, user_explicit_request)
+**R6_CodeStandards**: follow(AGENTS.md rules, existing_patterns)
+**R7_DbFirst**: session_state from context.sqlite not conversation
+**R8_Separation**: universal(universal-rules.md) != project_specific(AGENTS.md after NOTE)
+
+## DATABASE SCHEMA
+
+\`\`\`sql
+CREATE TABLE session_context (
+  id INTEGER PRIMARY KEY,
+  date TEXT NOT NULL,
+  summary TEXT NOT NULL,
+  tasks_completed TEXT,
+  files_modified TEXT,
+  pending_tasks TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE session_notes (
+  id INTEGER PRIMARY KEY,
+  timestamp TEXT,
+  note TEXT
+);
+\`\`\`
+
+## INSTRUCTION FILE STRUCTURE
+
+AGENTS.md:
+
+- Lines 1-[spacing required]: Universal (immutable)
+- Line [after spacing required]: \`# NOTE (IMPORTANT)...\` marker
+- [after spacing required]: Project-specific 'goes to DB not markdown'
+
+## TASK PROTOCOL
+
+1. load(universal-rules.md)
+2. read(AGENTS.md)
+3. query(context.sqlite)
+4. parse(user_request)
+5. validate(against rules)
+6. batch_execute(changes)
+7. update_db()
+
+## PRECEDENCE
+
+1. universal-rules.md (this file)
+2. AGENTS.md (project rules)
+3. AGENTS.md (config)
+4. context.sqlite (session state)
+5. user_request (explicit only)
+
+**FORCED AND OBLIGATORY - NO EXCEPTIONS**`;
+
+  agentsTemplateContent = `# AGENTS.md
+
+This file contains guidelines for agentic coding agents working in this repository. It standardizes build, lint, test workflows, and code‑quality expectations for <"YOUR TECH STACK HERE"> projects in this repo. (BACK-END ONLY FOR NOW), HEXAGONAL ARCHITECTURE
+
+# [after spacing required] //note: USE THIS SPACE WITH PROJECT SPECIFIC INSTRUCTIONS, THIS MARKER IS IMPORTANT FOR THE AGENT TO KNOW WHERE THE UNIVERSAL RULES END AND THE PROJECT SPECIFIC INSTRUCTIONS BEGIN, DO NOT DELETE THIS MARKER, AND COMPLETE THE INSTRUCTIONS AFTER THIS MARKER AFTER WITH THE Load project configuration and detect technology stack where is necesary
+
+## Referenced files
+
+- **AGENTS.md**: [path](./AGENTS.md) ( this file )
+- **universal-rules.md**: [path](./universal-rules.md) ( universal rules for all projects )
+- **.vscode**: [path](./.vscode/) ( vscode settings and agents )
+- **.vscode/agents/**: [path](./.vscode/agents/) ( agents configurations )
+- **context.sqlite**: [path](.vscode/context.sqlite) ( context storage file )
+
+## Agent Mode Instructions
+
+Use the following instructions when operating in AGENT MODE:
+
+- Use technical-orchestrator-agent for orchestration tasks
+- Use fullstack-code-analyzer for code analysis tasks
+- Always refer to AGENTS.md for specific guidelines
+
+# Set and Get context instruction important rule
+
+Save with conversation info required with persistent context needed in context.sqlite and use sqlite3 command in terminal allowed in background for this actions:
+
+- **context file**: Route context file [path](.vscode/context.sqlite)
+- **set context**: Save context info in context.sqlite with table session_context and session_notes
+- **get context**: Read context info from context.sqlite with table session_context and session_notes
+
+# NOTE (IMPORTANT): The content after this marker is project-specific and should be stored in the database, not in markdown format.`;
+
+  agentExampleContent = `# @Agent{id:"fullstack-code-analyzer",model:sonnet,color:purple}
+
+You are Fullstack Code Analyzer, an elite technical specialist in code quality assessment...
+
+## Core Identity & Expertise
+
+**name[string]**: Fullstack Code Analyzer
+**role[string]**: Code quality assessment, complexity analysis, and security vulnerability detection specialist
+
+## Workflow@Analysis (REQUIRED)
+
+### Step@1[load_contexts] Load Contexts → detect_stack
+**desc**: Load both project and session contexts
+**progress**: 10%
+**action**: LOAD_CONTEXTS
+
+### Step@2[detect_stack] Detect Technology Stack → parse_files
+**desc**: Identify technology stack from core context
+**progress**: 20%
+**action**: DETECT_STACK
+
+### Step@3[parse_files] Parse Target Files → [complexity|smells|security]
+**desc**: Parse target files into Abstract Syntax Trees
+**progress**: 30%
+**action**: PARSE_AST
+**checkpoint**: true
+
+### Step@4[complexity] Calculate Complexity Metrics → performance
+**desc**: Calculate cyclomatic and cognitive complexity
+**progress**: 40%
+**action**: CALCULATE_COMPLEXITY
+**checkpoint**: true
+
+### Step@5[smells] Detect Code Smells → performance
+**desc**: Identify anti-patterns and code smells
+**progress**: 50%
+**action**: DETECT_SMELLS
+**checkpoint**: true
+
+### Step@6[security] Scan Security Vulnerabilities → performance
+**desc**: Perform basic security vulnerability scanning
+**progress**: 60%
+**action**: SCAN_SECURITY
+**checkpoint**: true
+
+### Step@7[performance] Analyze Performance → recommendations
+**desc**: Detect performance anti-patterns
+**progress**: 70%
+**action**: ANALYZE_PERFORMANCE
+
+### Step@8[recommendations] Generate Recommendations → structure_response
+**desc**: Create actionable recommendations from findings
+**progress**: 85%
+**action**: GENERATE_RECOMMENDATIONS
+
+### Step@9[structure_response] Structure AgentResponse → persist
+**desc**: Format findings into AgentResponse JSON
+**progress**: 95%
+**action**: STRUCTURE_RESPONSE
+
+### Step@10[persist] Persist Results to SQLite → END
+**desc**: Save all metrics and findings to database
+**progress**: 100%
+**action**: PERSIST_RESULTS
+
+## Analysis Methodologies
+
+### Complexity Metrics
+**ComplexityThresholds[3]{metric,good,acceptable,moderate,high}**:
+Cyclomatic (McCabe),≤10,≤15,≤20,>20
+Cognitive (SonarQube),≤15,≤25,>25,>25
+Nesting Depth,≤4,≤6,>6,>6`;
+
+  sqliteSchemaContent = `-- Crear base de datos SQLite para contexto de agentes
+-- Ejecutar: sqlite3 .vscode/context.sqlite < schema.sql
+
+CREATE TABLE IF NOT EXISTS session_context (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  date TEXT NOT NULL,
+  summary TEXT NOT NULL,
+  tasks_completed TEXT,
+  files_modified TEXT,
+  pending_tasks TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS session_notes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  timestamp TEXT,
+  note TEXT
+);
+
+-- Index para búsquedas eficientes
+CREATE INDEX IF NOT EXISTS idx_session_context_date 
+  ON session_context(created_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_session_notes_timestamp 
+  ON session_notes(timestamp DESC);`;
+
+  adjustmentExample = `# Configuración mínima requerida en AGENTS.md por proyecto
+
+## ⚡ Solo 2 ajustes necesarios:
+
+### 1. Stack Tecnológico (Línea 3)
+\`<"YOUR TECH STACK HERE">\` → "Laravel" o "Angular/TypeScript" o "React" o "Python/FastAPI"
+
+**Ejemplo Laravel:**
+This file contains guidelines for agentic coding agents working in this repository. It standardizes build, lint, test workflows, and code‑quality expectations for Laravel projects in this repo. (BACK-END ONLY FOR NOW), HEXAGONAL ARCHITECTURE
+
+**Ejemplo Angular:**
+This file contains guidelines for agentic coding agents working in this repository. It standardizes build, lint, test workflows, and code‑quality expectations for Angular/TypeScript projects in this repo.
+
+### 2. Paths del Proyecto (Referenced files)
+
+Actualiza las referencias según tu estructura:
+
+# Laravel (PHP):
+- **Main App**: \`app/Http/Controllers/UserController.php:1\`
+- **Routing**: \`routes/api.php:1\`
+- **Models**: \`app/Models/User.php:1\`
+
+# Angular (TypeScript):
+- **Main App**: \`src/app/app.component.ts:1\`
+- **Routing**: \`src/app/app.routes.ts:1\`
+- **Services**: \`src/app/services/\`
+
+# React (JavaScript):
+- **Main App**: \`src/App.tsx:1\`
+- **Routing**: \`src/router/index.tsx:1\`
+- **Components**: \`src/components/\`
+
+# Python:
+- **Classes**: \`FooBarService\`
+- **Files**: \`foo_bar_service.py\`
+
+## 🤖 El agente detecta automáticamente:
+
+✅ Comandos build/lint/test (leyendo package.json o composer.json)
+✅ Estilos de código específicos del stack
+✅ Convenciones de nombres del lenguaje
+✅ Arquitectura del proyecto
+
+## ✅ ¡Eso es todo!
+
+El agente lee el stack de la primera línea de AGENTS.md y ajusta toda la configuración automáticamente.`;
+
+  downloadFile(filename: string, content: string): void {
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  copyToClipboard(text: string): void {
+    navigator.clipboard.writeText(text).then(() => {
+      alert(this.#translationService.t()('sfd.config.copied'));
+    });
+  }
 }

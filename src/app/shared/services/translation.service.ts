@@ -477,6 +477,98 @@ export class TranslationService {
       'sfd.analysis.platforms.label.integration': 'Integración:',
       'sfd.analysis.platforms.label.tools': 'Herramientas:',
       'sfd.analysis.platforms.label.architecture': 'Arquitectura:',
+      'sfd.config.title': 'Configuración de Agentes',
+      'sfd.config.intro':
+        'Archivos de configuración genéricos para cualquier proyecto que utiliza el sistema SFD. Copie estos archivos al raíz de su proyecto y ajuste según su stack tecnológico.',
+      'sfd.config.architecture.title': 'Estructura de Directorios',
+      'sfd.config.architecture.desc':
+        'Arquitectura de archivos y carpetas necesaria para la configuración de agentes SFD en cualquier proyecto.',
+      'sfd.config.universal.title': '1. Archivo: universal-rules.md',
+      'sfd.config.universal.desc':
+        'Archivo inmutable con reglas universales para TODOS los proyectos. No requiere modificaciones.',
+      'sfd.config.universal.just':
+        'Justificación: Define el workflow obligatorio, reglas de binding, esquema de base de datos y protocolo de tareas que todos los agentes deben seguir.',
+      'sfd.config.agents.title': '2. Archivo: AGENTS.md (Plantilla)',
+      'sfd.config.agents.desc':
+        'Plantilla base para configuración específica de cada proyecto. Requiere ajustes según stack tecnológico.',
+      'sfd.config.agents.just':
+        'Justificación: Define comandos build/lint/test, estilos de código, convenciones de nombres y paths específicos del proyecto.',
+      'sfd.config.agentExample.title':
+        '3. Ejemplo: .vscode/agents/fullstack-code-analyzer.md',
+      'sfd.config.agentExample.desc':
+        'Archivo de definición de agente especializado en análisis de código. Ejemplo reutilizable.',
+      'sfd.config.agentExample.just':
+        'Justificación: Cada agente define su workflow, métricas y pasos de ejecución. Son completamente reutilizables entre proyectos.',
+      'sfd.config.sqlite.title': '4. Base de Datos: SQLite Schema',
+      'sfd.config.sqlite.desc':
+        'Esquema de base de datos para persistencia de contexto. Crear archivo .vscode/context.sqlite.',
+      'sfd.config.sqlite.just':
+        'Justificación: SQLite proporciona persistencia de sesiones, notas y contexto de trabajo para continuidad entre interacciones.',
+      'sfd.config.adjust.title': '5. Configuración Mínima Requerida',
+      'sfd.config.adjust.desc':
+        'Solo 2 ajustes necesarios: Stack tecnológico al inicio y paths del proyecto. El agente detecta automáticamente el resto.',
+      'sfd.config.adjust.just':
+        'Justificación: El agente lee el stack de la primera línea de AGENTS.md y ajusta comandos, estilos y convenciones automáticamente. La configuración se reduce a stack + paths.',
+      'sfd.config.viewCode': 'Ver código completo',
+      'sfd.config.download': 'Descargar archivo',
+      'sfd.config.copy': 'Copiar al portapapeles',
+      'sfd.config.copied': 'Contenido copiado al portapapeles',
+      'sfd.analysis.intro.title': 'Introducción y Justificación del SFD',
+      'sfd.analysis.intro.definition.title': '¿Qué es el SFD?',
+      'sfd.analysis.intro.definition.content.0':
+        'El Syntax Functional Declarative (SFD) es un lenguaje de configuración markdown optimizado para el consumo de LLMs, específicamente diseñado para agentes Claude Code, comandos, skills y hooks. Es un estándar que combina la legibilidad del markdown con la eficiencia de token de formatos optimizados para IA.',
+      'sfd.analysis.intro.definition.content.1':
+        '<b>Evolución del Sistema</b>: La historia de SFD comenzó con adaptaciones específicas para cada plataforma (p. ej., Copilot y Claude) para validar la portabilidad y el rendimiento de la sintaxis declarativa.',
+      'sfd.analysis.intro.definition.content.2':
+        'Hoy, esas adaptaciones se entienden como etapas de transición hacia una estandarización más amplia. Aunque cada modelo puede requerir variaciones de sintaxis para optimizar APIs y runtimes, el núcleo SFD sigue siendo un contrato de alto nivel: definir agentes, sus roles, sus flujos y su estado de manera portable.',
+      'sfd.analysis.intro.definition.content.3':
+        'En lugar de depender de una única configuración de plataforma, el desarrollo futuro apunta a una capa de abstracción más universal (LangGraph, MCP, etc.) que permita desplegar la misma definición SFD en diferentes entornos con transformaciones mínimas.',
+      'sfd.analysis.intro.definition.purpose':
+        'Crear agentes, comandos, skills y workflows que sean eficientes en tokens, legibles para humanos, y optimizados para integración universal con cualquier entorno de desarrollo.',
+      'sfd.analysis.intro.justification.title': '¿Por qué el SFD es necesario?',
+      'sfd.analysis.intro.justification.problems.0':
+        'Formatos tradicionales (JSON/XML) consumen demasiados tokens',
+      'sfd.analysis.intro.justification.problems.1':
+        'Prompts manuales pierden contexto entre sesiones',
+      'sfd.analysis.intro.justification.problems.2':
+        'Dificultad para coordinar múltiples agentes',
+      'sfd.analysis.intro.justification.problems.3':
+        'Falta de estandarización en workflows de IA',
+      'sfd.analysis.intro.justification.problems.4':
+        'Equipos mixtos no pueden trabajar eficientemente juntos',
+      'sfd.analysis.intro.justification.solutions.0':
+        'Sintaxis declarativa reduce tokens en 35-45%',
+      'sfd.analysis.intro.justification.solutions.1':
+        'Persistencia SQLite mantiene contexto perfecto',
+      'sfd.analysis.intro.justification.solutions.2':
+        'Coordinación automática de agentes multi-paralelo',
+      'sfd.analysis.intro.justification.solutions.3':
+        'Estándar universal para todos los entornos de desarrollo',
+      'sfd.analysis.intro.justification.solutions.4':
+        'Equipos mixtos trabajan en perfecta sincronía',
+      'sfd.analysis.intro.advantages.0':
+        'Reducción de 35% en costos de tokens vs formatos tradicionales',
+      'sfd.analysis.intro.advantages.1': '96% de precisión en parsing por LLMs',
+      'sfd.analysis.intro.advantages.2':
+        'Sintaxis clara y legible para humanos',
+      'sfd.analysis.intro.advantages.3':
+        'Integración nativa con Claude Code, Copilot, Cursor, VS Code',
+      'sfd.analysis.intro.advantages.4':
+        'Soporte completo para workflows complejos con dependencias y paralelismo',
+      'sfd.analysis.intro.advantages.5':
+        'Framework agnóstico pero optimizado para entornos mixtos',
+      'sfd.analysis.intro.advantages.6':
+        'Ejecución automática de comandos (bash, python, sqlite3) desde agentes',
+      'sfd.analysis.intro.advantages.7':
+        'Persistencia de contexto en SQLite para continuidad entre sesiones',
+      'sfd.analysis.intro.advantages.8':
+        'Capacidad multi-agente para equipos con diferentes niveles de acceso',
+      'sfd.analysis.intro.problems.label': '❌ Problemas Actuales',
+      'sfd.analysis.intro.solutions.label': '✅ Soluciones SFD',
+      'sfd.analysis.intro.advantages.label': 'Ventajas Clave de SFD',
+      'sfd.analysis.technical.label': '🔧 Técnico',
+      'sfd.analysis.implementation.label': '⚙️ Implementación',
+      'sfd.agents.viewImplementation': 'Ver implementación completa',
     },
     en: {
       // Navigation
@@ -928,6 +1020,97 @@ export class TranslationService {
         'Below is the complete content of the universal-agent-rules.md file.',
       'sfd.download': 'Download Universal Agent Rules (md)',
       'sfd.copy': 'Copy to Clipboard',
+      'sfd.config.title': 'Agent Configuration',
+      'sfd.config.intro':
+        'Generic configuration files for any project using SFD system. Copy these files to your project root and adjust according to your tech stack.',
+      'sfd.config.architecture.title': 'Directory Structure',
+      'sfd.config.architecture.desc':
+        'File and folder architecture necessary for SFD agent configuration in any project.',
+      'sfd.config.universal.title': '1. File: universal-rules.md',
+      'sfd.config.universal.desc':
+        'Immutable file with universal rules for ALL projects. No modifications required.',
+      'sfd.config.universal.just':
+        'Justification: Defines mandatory workflow, binding rules, database schema and task protocol that all agents must follow.',
+      'sfd.config.agents.title': '2. File: AGENTS.md (Template)',
+      'sfd.config.agents.desc':
+        'Base template for project-specific configuration. Requires adjustments according to tech stack.',
+      'sfd.config.agents.just':
+        'Justification: Defines build/lint/test commands, code styles, naming conventions and project-specific paths.',
+      'sfd.config.agentExample.title':
+        '3. Example: .vscode/agents/fullstack-code-analyzer.md',
+      'sfd.config.agentExample.desc':
+        'Code analysis specialized agent definition file. Reusable example.',
+      'sfd.config.agentExample.just':
+        'Justification: Each agent defines its workflow, metrics and execution steps. Fully reusable between projects.',
+      'sfd.config.sqlite.title': '4. Database: SQLite Schema',
+      'sfd.config.sqlite.desc':
+        'Database schema for context persistence. Create file .vscode/context.sqlite.',
+      'sfd.config.sqlite.just':
+        'Justification: SQLite provides session persistence, notes and work context for continuity between interactions.',
+      'sfd.config.adjust.title': '5. Minimum Configuration Required',
+      'sfd.config.adjust.desc':
+        'Only 2 adjustments needed: Tech stack at the beginning and project paths. The agent detects everything else automatically.',
+      'sfd.config.adjust.just':
+        'Justification: The agent reads stack from the first line of AGENTS.md and adjusts commands, styles and conventions automatically. Configuration reduces to stack + paths.',
+      'sfd.config.viewCode': 'View full code',
+      'sfd.config.download': 'Download file',
+      'sfd.config.copy': 'Copy to clipboard',
+      'sfd.config.copied': 'Content copied to clipboard',
+      'sfd.analysis.intro.title': 'Introduction and Justification of SFD',
+      'sfd.analysis.intro.definition.title': 'What is SFD?',
+      'sfd.analysis.intro.definition.content.0':
+        'The Syntax Functional Declarative (SFD) is a markdown configuration language optimized for LLM consumption, specifically designed for Claude Code agents, commands, skills, and hooks. It is a standard that combines markdown readability with token efficiency of AI-optimized formats.',
+      'sfd.analysis.intro.definition.content.1':
+        '<b>System Evolution</b>: The history of SFD began with specific adaptations for each platform (e.g., Copilot and Claude) to validate portability and syntax performance.',
+      'sfd.analysis.intro.definition.content.2':
+        'Today, these adaptations are understood as transition stages towards broader standardization. Although each model may require syntax variations to optimize APIs and runtimes, SFD core remains a high-level contract: defining agents, their roles, flows, and state in a portable manner.',
+      'sfd.analysis.intro.definition.content.3':
+        'Instead of depending on a single platform configuration, future development points to a more universal abstraction layer (LangGraph, MCP, etc.) that allows deploying the same SFD definition in different environments with minimal transformations.',
+      'sfd.analysis.intro.definition.purpose':
+        'Create agents, commands, skills and workflows that are efficient in tokens, readable by humans, and optimized for universal integration with any development environment.',
+      'sfd.analysis.intro.justification.title': 'Why is SFD necessary?',
+      'sfd.analysis.intro.justification.problems.0':
+        'Traditional formats (JSON/XML) consume too many tokens',
+      'sfd.analysis.intro.justification.problems.1':
+        'Manual prompts lose context between sessions',
+      'sfd.analysis.intro.justification.problems.2':
+        'Difficulty coordinating multiple agents',
+      'sfd.analysis.intro.justification.problems.3':
+        'Lack of standardization in AI workflows',
+      'sfd.analysis.intro.justification.problems.4':
+        'Mixed teams cannot work efficiently together',
+      'sfd.analysis.intro.justification.solutions.0':
+        'Declarative syntax reduces tokens by 35-45%',
+      'sfd.analysis.intro.justification.solutions.1':
+        'SQLite persistence maintains perfect context',
+      'sfd.analysis.intro.justification.solutions.2':
+        'Automatic multi-parallel agent coordination',
+      'sfd.analysis.intro.justification.solutions.3':
+        'Universal standard for all development environments',
+      'sfd.analysis.intro.justification.solutions.4':
+        'Mixed teams work in perfect synchronization',
+      'sfd.analysis.intro.advantages.0':
+        '35% reduction in token costs vs traditional formats',
+      'sfd.analysis.intro.advantages.1': '96% parsing accuracy by LLMs',
+      'sfd.analysis.intro.advantages.2': 'Clear and human-readable syntax',
+      'sfd.analysis.intro.advantages.3':
+        'Native integration with Claude Code, Copilot, Cursor, VS Code',
+      'sfd.analysis.intro.advantages.4':
+        'Full support for complex workflows with dependencies and parallelism',
+      'sfd.analysis.intro.advantages.5':
+        'Framework agnostic but optimized for mixed environments',
+      'sfd.analysis.intro.advantages.6':
+        'Automatic execution of commands (bash, python, sqlite3) from agents',
+      'sfd.analysis.intro.advantages.7':
+        'SQLite context persistence for session continuity',
+      'sfd.analysis.intro.advantages.8':
+        'Multi-agent capacity for teams with different access levels',
+      'sfd.analysis.intro.problems.label': '❌ Current Problems',
+      'sfd.analysis.intro.solutions.label': '✅ SFD Solutions',
+      'sfd.analysis.intro.advantages.label': 'Key Advantages of SFD',
+      'sfd.analysis.technical.label': '🔧 Technical',
+      'sfd.analysis.implementation.label': '⚙️ Implementation',
+      'sfd.agents.viewImplementation': 'View full implementation',
     },
   };
 
